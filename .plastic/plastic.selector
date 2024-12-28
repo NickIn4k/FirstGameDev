@@ -1,0 +1,4 @@
+repository "FirstGameDev/FirstGameDev@7972418745003@cloud"
+  path "/"
+    br "/main"
+    co "/main"
