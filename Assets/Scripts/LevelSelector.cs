@@ -24,7 +24,7 @@ public class LevelSelector : MonoBehaviour
     private void OnMouseDown()
     {
         Debug.Log($"Hai cliccato su: {gameObject.name}. Caricamento scena numero: {SceneIndex}");
-        //SceneManager.LoadScene(SceneIndex);
+        SceneManager.LoadScene(SceneIndex);
     }
 
     private void OnMouseEnter()

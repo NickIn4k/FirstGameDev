@@ -806,7 +806,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07c684a80af9c4544aa602d15cb38417, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SceneIndex: 4
+  SceneIndex: 5
   canvas: {fileID: 54734073}
   hoverText: {fileID: 1649713568}
   message: 'Level 3: [LEVEL NAME]'
@@ -1320,7 +1320,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07c684a80af9c4544aa602d15cb38417, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SceneIndex: 3
+  SceneIndex: 4
   canvas: {fileID: 54734073}
   hoverText: {fileID: 1649713568}
   message: 'Level 2: [LEVEL NAME]'
