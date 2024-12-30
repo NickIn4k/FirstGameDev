@@ -15,10 +15,7 @@ public class MoveToNextLevel : MonoBehaviour
         if (other.CompareTag("Player")) //Controlla se è il player a toccare il trigger
         {
             if(SceneManager.GetActiveScene().buildIndex == 5)   //Se completo l'ultimo livello (5 è l'int del livello 3)
-            {
                 Debug.Log("HAI VINTO!!");
-                SceneManager.LoadScene(1);  //Quando completi il gioco PER ORA carica la selezione dei livelli
-            }
             else    //Se ci sono ancora livelli da sbloccare
             {
                 SceneManager.LoadScene(nextSceneLoad);  //Carico il livello successivo
@@ -28,6 +25,8 @@ public class MoveToNextLevel : MonoBehaviour
                     PlayerPrefs.SetInt("levelAt", nextSceneLoad);
                 }
             }
+            
+            SceneManager.LoadScene(1);
         }
     }
 }

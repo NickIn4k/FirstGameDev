@@ -19,4 +19,14 @@ public class MainMenuButtons : MonoBehaviour
     {
         SceneManager.LoadScene(sceneIndex);
     }
+
+    public void DeleteGame()
+    {
+        PlayerPrefs.SetInt("levelAt", 3);
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
 }
