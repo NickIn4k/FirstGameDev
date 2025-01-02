@@ -26,7 +26,7 @@ public class Movement : MonoBehaviour
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
 
-        Vector3 move = new Vector3(vertical, 0f, horizontal);
+        Vector3 move = new Vector3(vertical, 0f, -horizontal);
         move *= Time.deltaTime * 10;
 
         if (move != Vector3.zero)
