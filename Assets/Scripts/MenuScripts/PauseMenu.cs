@@ -7,6 +7,7 @@ public class PauseMenu : MonoBehaviour
     public static bool InventoryOn;
     public GameObject PauseMenuUI;
     public GameObject InventoryUI;
+    public GameObject QuestUI;
     public GameObject Rotator;
 
 
@@ -50,6 +51,7 @@ public class PauseMenu : MonoBehaviour
             InventoryOn = false;
         }
 
+        QuestUI.SetActive(true);
         Rotator.SetActive(true);
         Time.timeScale = 1f;
         
@@ -67,6 +69,8 @@ public class PauseMenu : MonoBehaviour
             InventoryUI.SetActive(true);
             InventoryOn = true;
         }
+
+        QuestUI.SetActive(false);
         Rotator.SetActive(false);
         Time.timeScale = 0f;
     }
