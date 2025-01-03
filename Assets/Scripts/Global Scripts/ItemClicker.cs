@@ -9,7 +9,7 @@ public class ItemClicker : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if(Item.Id == 0)
+        if(Item.Id == 0 && InventoryManager.Manager.Inventory.Count > 0)
         {
             QuestUI.SetActive(false);
             Rotator.SetActive(false);
