@@ -1,5 +1,6 @@
 using Unity.VisualScripting;
 using UnityEngine;
+using static UnityEditor.Progress;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -9,7 +10,6 @@ public class PauseMenu : MonoBehaviour
     public GameObject InventoryUI;
     public GameObject QuestUI;
     public GameObject Rotator;
-
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -35,17 +35,16 @@ public class PauseMenu : MonoBehaviour
             else
                 Pause(2);
         }
-
     }
     
     void Resume(int index)
     {
-        if(index == 1)
+        if (index == 1 && !InventoryOn)
         {
             PauseMenuUI.SetActive(false);
             GamePaused = false;
-        }   
-        else
+        }
+        else if (index == 2 && !GamePaused) 
         {
             InventoryUI.SetActive(false);
             InventoryOn = false;
@@ -59,13 +58,14 @@ public class PauseMenu : MonoBehaviour
 
     void Pause(int index)
     {
-        if (index == 1)
+        if (index == 1 && !InventoryOn) 
         {
             PauseMenuUI.SetActive(true);
             GamePaused = true;
         }
-        else
+        else if(index == 2 && !GamePaused)
         {
+            InventoryManager.Manager.ListItems();
             InventoryUI.SetActive(true);
             InventoryOn = true;
         }

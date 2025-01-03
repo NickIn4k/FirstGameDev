@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3a2c5c11e293dfb4fadcad656382e9b6, type: 3}
-  m_Name: ElectronicKey
+  m_Name: HackingDev
   m_EditorClassIdentifier: 
-  Id: 0
-  ItemName: Electronic Key
+  Id: 1
+  ItemName: Hacking Device
   Value: 10
   Icon: {fileID: 21300000, guid: 1a0e7109d7f57ef4abb7a8cc92ba9c29, type: 3}
