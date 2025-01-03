@@ -6423,6 +6423,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   InputField: {fileID: 1051935590}
   OutputText: {fileID: 245640466}
+  Door: {fileID: 1710071650}
+  OpenMaterial: {fileID: 2100000, guid: d50fd1331d4ce634f9f64c9405499505, type: 2}
 --- !u!114 &1595438714
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7325,7 +7327,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -7354,7 +7356,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: e03535e9598fc8740b5d29d01dd79551, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

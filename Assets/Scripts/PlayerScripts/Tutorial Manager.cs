@@ -20,7 +20,7 @@ public class TutorialQuestManager : MonoBehaviour
             questStep++;
             ShowQuestMessage();
         }
-        else if (questStep == 1 && (Input.GetAxis("Mouse X") != 0 || Input.GetAxis("Mouse Y") != 0))  //Il mouse è stato mosso
+        else if (questStep == 1 && (Input.GetAxis("Mouse X") != 0 || Input.GetAxis("Mouse Y") != 0))  //Il mouse e' stato mosso
         {
             questStep++;
             ShowQuestMessage();
@@ -35,12 +35,12 @@ public class TutorialQuestManager : MonoBehaviour
             questStep++;
             ShowQuestMessage();
         }
-        else if (questStep == 4)   //Leggere Lo schermo con l'oggetto
+        else if (questStep == 4)   //Leggere lo schermo con l'oggetto
         {
             questStep++;
             ShowQuestMessage();
         }
-        else if (questStep == 5 && !CodeChecker.isOpen)   //Inserire il codice
+        else if (questStep == 5 && CodeChecker.isOpen)   //Inserire il codice
         {
             questStep++;
             ShowQuestMessage();

@@ -6,6 +6,8 @@ public class CodeChecker : MonoBehaviour
 {
     [SerializeField] TMP_InputField InputField;
     [SerializeField] TMP_Text OutputText;
+    [SerializeField] GameObject Door;
+    [SerializeField] Material OpenMaterial;
 
     private string code;
     public static bool isOpen = false;
@@ -14,6 +16,7 @@ public class CodeChecker : MonoBehaviour
     void Start()
     {
         code = "143652";
+        isOpen = false;
     }
     
     public void ValidateInput()
@@ -28,7 +31,8 @@ public class CodeChecker : MonoBehaviour
                 OutputText.text = "     >: Valid input..\n          Now opening the door..";
                 OutputText.color = Color.green;
                 isOpen = true;
-                //codice per cambiare le impostazioni della porta
+                
+                OpenTheDoor(Door, OpenMaterial);
             }
             else
             {
@@ -42,5 +46,24 @@ public class CodeChecker : MonoBehaviour
             OutputText.color = Color.green;
         }
         
+    }
+
+    private void OpenTheDoor(GameObject Door, Material OpenMaterial)
+    {
+        //Cambia il materiale del rettangolo
+        Renderer renderer = Door.GetComponent<Renderer>();
+        if (renderer != null)
+        {
+            renderer.material = OpenMaterial;
+        }
+
+        // Attiva il trigger del collider
+        Collider collider = Door.GetComponent<Collider>();
+        if (collider != null)
+        {
+            collider.isTrigger = true;
+        }
+
+        Debug.Log("The door has been opened!");
     }
 }
