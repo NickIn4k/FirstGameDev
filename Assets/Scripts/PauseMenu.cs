@@ -4,7 +4,9 @@ using UnityEngine;
 public class PauseMenu : MonoBehaviour
 {
     public static bool GamePaused;
+    public static bool InventoryOn;
     public GameObject PauseMenuUI;
+    public GameObject InventoryUI;
     public GameObject Rotator;
 
 
@@ -12,6 +14,7 @@ public class PauseMenu : MonoBehaviour
     void Start()
     {
         GamePaused = false;
+        InventoryOn = false;
     }
 
     // Update is called once per frame
@@ -20,25 +23,51 @@ public class PauseMenu : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (GamePaused)
-                Resume();
+                Resume(1);
             else
-                Pause();
+                Pause(1);
         }
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            if (InventoryOn)
+                Resume(2);
+            else
+                Pause(2);
+        }
+
     }
     
-    void Resume()
+    void Resume(int index)
     {
+        if(index == 1)
+        {
+            PauseMenuUI.SetActive(false);
+            GamePaused = false;
+        }   
+        else
+        {
+            InventoryUI.SetActive(false);
+            InventoryOn = false;
+        }
+
         Rotator.SetActive(true);
-        PauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
-        GamePaused = false;
+        
     }
 
-    void Pause()
+    void Pause(int index)
     {
+        if (index == 1)
+        {
+            PauseMenuUI.SetActive(true);
+            GamePaused = true;
+        }
+        else
+        {
+            InventoryUI.SetActive(true);
+            InventoryOn = true;
+        }
         Rotator.SetActive(false);
-        PauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
-        GamePaused = true;
     }
 }

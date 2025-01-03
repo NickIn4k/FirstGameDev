@@ -15,12 +15,12 @@ public class TutorialQuestManager : MonoBehaviour
     void Update()
     {
         //Logica per cambiare i messaggi del tutorial
-        if (questStep == 0 && Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.D))
+        if (questStep == 0 && (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.D)))
         {
             questStep = 1;
             ShowQuestMessage();
         }
-        else if (questStep == 1 && Input.GetKeyDown(KeyCode.Mouse0))    //MODIFICARE
+        else if (questStep == 1 && (Input.GetAxis("Mouse X") != 0 || Input.GetAxis("Mouse Y") != 0))  //Il mouse è stato mosso
         {
             questStep = 2;
             ShowQuestMessage();
@@ -34,7 +34,7 @@ public class TutorialQuestManager : MonoBehaviour
 
     void ShowQuestMessage()
     {
-        // Cambia il testo in base al passo del tutorial
+        //Cambia il testo del tutorial
         if (questStep == 0)
             textQuest.text = "Use WASD to move.";
         else if (questStep == 1)
@@ -42,6 +42,6 @@ public class TutorialQuestManager : MonoBehaviour
         else if (questStep == 2)
             textQuest.text = "Press Tab to open the inventory.";
         else
-            textQuest.text = "Tutorial Completed!";  // Messaggio finale
+            textQuest.text = "Tutorial Completed! \nGo to the tower!"; //Messaggio finale
     }
 }
