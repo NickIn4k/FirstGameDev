@@ -11,14 +11,12 @@ public class SkipVideo : MonoBehaviour
     public int SceneIndex;
 
     private float holdDuration = 0f; //Contatore per il tempo tenuto premuto
-    private bool isHolding = false;
 
     void Update()
     {
         //Controlla se il tasto Enter è premuto
         if (Input.GetKey(KeyCode.Return))
         {
-            isHolding = true;
             holdDuration += Time.deltaTime;
 
             //Aggiorna il cerchio di progresso
@@ -32,7 +30,6 @@ public class SkipVideo : MonoBehaviour
         else if (Input.GetKeyUp(KeyCode.Return))
         {
             //Resetta quando il tasto è rilasciato
-            isHolding = false;
             holdDuration = 0f;
 
             if (progressCircle != null)
