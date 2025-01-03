@@ -635,7 +635,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 417.5267, y: 130.844}
+  m_SizeDelta: {x: 493.0349, y: 130.844}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &104572233
 MonoBehaviour:
@@ -3148,7 +3148,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -11.522057, y: 12.802185, z: -122.627045, w: -66.828674}
+  m_margin: {x: -11.522057, y: 12.802185, z: -262.71152, w: -66.828674}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
