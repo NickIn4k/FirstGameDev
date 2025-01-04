@@ -22,9 +22,9 @@ public class RotateOnCommand : MonoBehaviour
             return;
         }      
         if (Input.GetKeyDown(KeyCode.RightArrow))
-            Ruota(90); 
+            Ruota(45); 
         else if (Input.GetKeyDown(KeyCode.LeftArrow))
-            Ruota(-90);
+            Ruota(-45);
     }
     private void Ruota(int angolo)
     {
