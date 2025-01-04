@@ -39,7 +39,9 @@ public class Movement : MonoBehaviour
             transform.Translate(move, Space.Self);
         }
 
-
+         if(transform.position.y<0){
+            this.transform.position = new Vector3(0,0,0);
+        }
 
 
         // jumping
