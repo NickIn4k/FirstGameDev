@@ -9,12 +9,6 @@ public class CameraRotation : MonoBehaviour
     public float pLerp = .1f; // Speed of easing
     public float rLerp = .5f; // Speed of easing
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
     void Update()
     {
