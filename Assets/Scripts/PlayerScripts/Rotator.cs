@@ -6,7 +6,7 @@ public class Rotator : MonoBehaviour
     public Transform plr;
 
     // Change the angle restrictions
-    public int maxAngleY = 70; // Suggested less than 90
+    public int maxAngleY = 60; // Suggested less than 90
     public int minAngleY = -40; // Suggested more than -90
     public float Sensitivity = .5f; // Sensitivity
 

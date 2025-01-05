@@ -10,7 +10,10 @@ public class Movement : MonoBehaviour
     Rigidbody rb;
     public Transform cam;
 
+    public float rLerp = .075f; // Speed of easing
+
     public LayerMask ground;
+    Vector3 move;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -26,23 +29,17 @@ public class Movement : MonoBehaviour
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
 
-        Vector3 move = new Vector3(vertical, 0f, -horizontal);
-        move *= Time.deltaTime * 10;
+        move = new Vector3(vertical, 0f, -horizontal);
 
-        if (move != Vector3.zero)
+        if (move != Vector3.zero) 
         {
-            // if moving rotate player to camera forward
+            // if moving lerp player rotation to camera forward
             Vector3 eulerRotation = new Vector3(transform.eulerAngles.x, cam.eulerAngles.y, transform.eulerAngles.z);
-            transform.rotation = Quaternion.Euler(eulerRotation);
-
-            // movement
-            transform.Translate(move, Space.Self);
+            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(eulerRotation), rLerp);
         }
 
-         if(transform.position.y<0){
+        if (transform.position.y < 0)
             this.transform.position = new Vector3(0,0,0);
-        }
-
 
         // jumping
         if (Input.GetKey(KeyCode.Space) && isGrounded && !debounce)
@@ -52,6 +49,13 @@ public class Movement : MonoBehaviour
             //debounceTimer.Start();
         }
 
+    }
+
+    private void FixedUpdate()
+    {
+        // movement
+        move = rb.rotation * move;
+        rb.AddForce(move * Time.deltaTime * 100, ForceMode.Force);
     }
 
     void jump()
