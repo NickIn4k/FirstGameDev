@@ -61,7 +61,7 @@ public class TutorialQuestManager : MonoBehaviour
         else if (questStep == 4)
             textQuest.text = "Use your Hacking Device to see what's written inside";
         else if (questStep == 5)
-            textQuest.text = "Insert the code in the keypad and open the tower's door";
+            textQuest.text = "Find the secret code and insert it in the keypad in front of the door";
         else
             textQuest.text = "Tutorial Completed! \nEnter the tower!"; //Messaggio finale
     }

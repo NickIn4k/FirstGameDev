@@ -1,7 +1,4 @@
 using UnityEngine;
-using System.Timers;
-using Unity.VisualScripting;
-using static UnityEditor.Searcher.SearcherWindow.Alignment;
 
 public class Movement : MonoBehaviour
 {

@@ -3,18 +3,24 @@ using UnityEngine;
 public class PauseMenu : MonoBehaviour
 {
     public static bool GamePaused;  
-    public static bool InventoryOn; 
+    public static bool InventoryOn;
+    private bool OnScreen;
+    private bool OnCode;
 
     // Pannelli della UI
     public GameObject PauseMenuUI;  // Pausa
     public GameObject InventoryUI;  // Inventario
     public GameObject QuestUI;      // Missioni (quests)
+    public GameObject ScreenUI;     // Schermo esterno
+    public GameObject CodeUI;       // Schermo di codice
     public GameObject Rotator;      // Rotator della Main Camera
 
     void Start()
     {
         GamePaused = false;
         InventoryOn = false;
+        OnScreen = false;
+        OnCode = false;
     }
 
     void Update()
@@ -49,6 +55,18 @@ public class PauseMenu : MonoBehaviour
             InventoryOn = false;
         }
 
+        if(OnScreen)
+        {
+            ScreenUI.SetActive(true);
+            OnScreen = false;
+        }
+
+        if (OnCode)
+        {
+            CodeUI.SetActive(true);
+            OnCode = false;
+        } 
+
         //Reset della grafica UI e del tempo del gioco
         QuestUI.SetActive(true);    
         Rotator.SetActive(true);    
@@ -72,6 +90,18 @@ public class PauseMenu : MonoBehaviour
         //Disattiva oggetti e blocca il tempo di gioco
         QuestUI.SetActive(false);   
         Rotator.SetActive(false);   
+        
+        if(ScreenUI.activeSelf)
+        {
+            ScreenUI.SetActive(false);
+            OnScreen = true;
+        }
+        if (CodeUI.activeSelf)
+        {
+            CodeUI.SetActive(false);
+            OnCode = true;
+        }
+            
         Time.timeScale = 0f;        // Ferma il tempo di gioco
     }
 }
