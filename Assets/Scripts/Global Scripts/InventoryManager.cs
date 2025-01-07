@@ -4,43 +4,45 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
+// Gestore dell'inventario, responsabile di aggiungere, rimuovere e visualizzare gli oggetti
 public class InventoryManager : MonoBehaviour
 {
-    public static InventoryManager Manager;
-    public List<Items> Inventory;
+    public static InventoryManager Manager;     // Singleton (richiama sè stesso)
+    public List<Items> Inventory;               // Items: classe esterna creata su un altro foglio di lavoro 
 
-    public Transform ItemContent;   //Dove vengono inseriri gli items
-    public GameObject InventoryItem;    //Riferito all'oggetto UI della lista
+    public Transform ItemContent;               // Contenitore UI per gli oggetti
+    public GameObject InventoryItem;            // Prefab che rappresenta un elemento
 
     private void Awake()
     {
-        Manager = this;
-        Inventory = new List<Items>();
+        Manager = this;                    
+        Inventory = new List<Items>();     
     }
 
     public void Add(Items item)
     {
-        Inventory.Add(item);
+        Inventory.Add(item); 
     }
 
     public void Remove(Items item)
     {
-        Inventory.Remove(item);
+        Inventory.Remove(item); 
     }
 
-    public void ListItems()
+    public void ListItems()    // Elenca tutti gli oggetti nell'inventario e aggiorna la UI
     {
-        //Pulisci
-        foreach(Transform item in ItemContent) 
+        // Pulisce il contenitore degli oggetti nella UI
+        foreach (Transform item in ItemContent)
             Destroy(item.gameObject);
 
-        //Carica
+        // Per ogni oggetto nell'inventario, crea un'istanza nella UI
         foreach (Items item in Inventory)
         {
-            GameObject obj = Instantiate(InventoryItem, ItemContent); //Funzione simile a quella del costruttore del GameObject
-            var ItemName = obj.transform.Find("ItemName")?.GetComponent<TMP_Text>();   //Trova l'oggetto ItemName (dalla parte UI)
-            var ItemIcon = obj.transform.Find("ItemIcon")?.GetComponent<Image>();
-            
+            GameObject obj = Instantiate(InventoryItem, ItemContent); // Nuova istanza del prefab nell'UI
+            var ItemName = obj.transform.Find("ItemName")?.GetComponent<TMP_Text>(); // Trova il componente di testo per il nome
+            var ItemIcon = obj.transform.Find("ItemIcon")?.GetComponent<Image>();    // Trova il componente immagine per l'icona
+
+            // Imposta il testo e l'icona del nuovo oggetto UI in base ai dati dell'oggetto
             ItemName.text = item.ItemName;
             ItemIcon.sprite = item.Icon;
         }

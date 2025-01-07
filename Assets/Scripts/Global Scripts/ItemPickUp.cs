@@ -1,17 +1,13 @@
 using UnityEngine;
 
+//Gestione di item raccoglibili tramite click del mouse
 public class ItemPickUp : MonoBehaviour
 {
     public Items Item;
 
-    void PickUp()
+    private void OnMouseDown()
     {
         InventoryManager.Manager.Add(Item);
         Destroy(gameObject);    //Per eliminare l'item aggiunto
-    }
-
-    private void OnMouseDown()
-    {
-        PickUp();
     }
 }

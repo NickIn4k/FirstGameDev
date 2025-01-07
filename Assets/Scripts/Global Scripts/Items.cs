@@ -1,6 +1,8 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Item", menuName = "Item/Create New Item")]    //Per creare la parte GUI della folder
+// Creare una voce personalizzata nel menu di creazione di Unity
+// Consente di creare nuove istanze di `Items` direttamente dall'editor Unity
+[CreateAssetMenu(fileName = "New Item", menuName = "Item/Create New Item")]
 
 public class Items : ScriptableObject
 {

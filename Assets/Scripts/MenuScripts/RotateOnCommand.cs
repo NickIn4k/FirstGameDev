@@ -2,43 +2,47 @@ using UnityEngine;
 
 public class RotateOnCommand : MonoBehaviour
 {
-    public float Speed;
-    private Quaternion Rotazione; //Quaternion => oggetto per le rotazioni di qualsiasi tipo
-    private bool InRotazione;
+    public float Speed; 
+    private Quaternion Rotazione; // Rotazione target (usando Quaternion per supportare tutte le rotazioni)
+    private bool InRotazione; 
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        InRotazione = false;
-        Rotazione = transform.rotation;
+        InRotazione = false; 
+        Rotazione = transform.rotation; // Imposta l'orientamento iniziale come target iniziale
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (InRotazione)
         {
-            AspettaRotazione();
+            AspettaRotazione(); // Aggiorna la rotazione
             return;
-        }      
+        }
+
+
         if (Input.GetKeyDown(KeyCode.RightArrow))
-            Ruota(45); 
+            Ruota(45); //a destra
         else if (Input.GetKeyDown(KeyCode.LeftArrow))
-            Ruota(-45);
+            Ruota(-45); //a sinistra
     }
+
     private void Ruota(int angolo)
     {
+        // Nuova rotazione target aggiungendo l'angolo specificato all'attuale orientamento Y
         Rotazione = Quaternion.Euler(0, transform.eulerAngles.y + angolo, 0);
         InRotazione = true;
     }
 
     private void AspettaRotazione()
-    {        
-        transform.rotation = Quaternion.Slerp(transform.rotation, Rotazione, Time.deltaTime * Speed);   // Interpola verso la rotazione target
+    {
+        // Interpola gradualmente dalla rotazione corrente a quella target
+        transform.rotation = Quaternion.Slerp(transform.rotation, Rotazione, Time.deltaTime * Speed);
 
+        // Controlla se la rotazione corrente è abbastanza vicina alla rotazione target
         if (Quaternion.Angle(transform.rotation, Rotazione) < 0.5f)
         {
-            transform.rotation = Rotazione; // Imposta esattamente la rotazione target
+            transform.rotation = Rotazione; // Imposta il nuovo orientamento
             InRotazione = false;
         }
     }

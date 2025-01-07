@@ -1,39 +1,33 @@
-using TMPro;
-using UnityEngine;
-using UnityEngine.SceneManagement;
+using TMPro; // namespace per gestire TextMeshPro
+using UnityEngine; 
+using UnityEngine.SceneManagement; 
 
 public class LevelSelector : MonoBehaviour
 {
-    public int SceneIndex;
+    public int SceneIndex; //da caricare
     public Canvas canvas;
-    public TextMeshProUGUI hoverText; 
+    public TextMeshProUGUI hoverText;       // Testo da far apparire durante l'hover
     public string message;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         hoverText.gameObject.SetActive(false);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
-    private void OnMouseDown()
+    private void OnMouseDown()  //onclick
     {
         Debug.Log($"Hai cliccato su: {gameObject.name}. Caricamento scena numero: {SceneIndex}");
+
         SceneManager.LoadScene(SceneIndex);
     }
 
-    private void OnMouseEnter()
+    private void OnMouseEnter() //Mouse over
     {
-        hoverText.text = message;
-        hoverText.gameObject.SetActive(true);
+        hoverText.text = message;   //aggiorna il testo
+        hoverText.gameObject.SetActive(true); // Rendi visibile
     }
 
-    private void OnMouseExit()
+    private void OnMouseExit()  //Il mouse non è più sopra
     {
         hoverText.gameObject.SetActive(false);
     }

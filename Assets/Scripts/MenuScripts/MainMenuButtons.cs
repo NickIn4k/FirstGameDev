@@ -1,28 +1,17 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
+using UnityEngine.SceneManagement; 
 
 public class MainMenuButtons : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void LoadScene(int sceneIndex)
     {
-        SceneManager.LoadScene(sceneIndex);
+        SceneManager.LoadScene(sceneIndex); // Carica la scena corrispondente all'indice specificato
     }
 
     public void DeleteGame()
     {
-        PlayerPrefs.SetInt("levelAt", 3);
+        //PlayerPrefs => classe di salvataggio dati del gioco
+        PlayerPrefs.SetInt("levelAt", 3);   // Chiave "levelAt" a 3 => reset del gioco alla scena 3 (Livello 1)
     }
 
     public void QuitGame()
