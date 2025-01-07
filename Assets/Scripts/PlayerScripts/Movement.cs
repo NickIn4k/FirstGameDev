@@ -1,24 +1,35 @@
 using UnityEngine;
 using System.Timers;
 using Unity.VisualScripting;
+using static UnityEditor.Searcher.SearcherWindow.Alignment;
 
 public class Movement : MonoBehaviour
 {
     bool isGrounded;
-    bool debounce = false;
-    System.Timers.Timer debounceTimer;
+
+    public float groundDrag;
+
     Rigidbody rb;
+
     public Transform cam;
 
+    [Header("Movement Speed")]
+    public float moveSpeed = 10f;
+
+    [Header("Rotation Speed")]
     public float rLerp = .075f; // Speed of easing
 
     public LayerMask ground;
     Vector3 move;
 
+    float horizontalInput;
+    float verticalInput;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        rb.freezeRotation = true;
     }
 
     // Update is called once per frame
@@ -26,10 +37,12 @@ public class Movement : MonoBehaviour
     {
         checkGrounded();
 
-        float horizontal = Input.GetAxisRaw("Horizontal");
-        float vertical = Input.GetAxisRaw("Vertical");
+        if (isGrounded)
+            rb.linearDamping = groundDrag;
+        else
+            rb.linearDamping = 0;
 
-        move = new Vector3(vertical, 0f, -horizontal);
+        getInput();
 
         if (move != Vector3.zero) 
         {
@@ -41,27 +54,28 @@ public class Movement : MonoBehaviour
         if (transform.position.y < 0)
             this.transform.position = new Vector3(0,0,0);
 
-        // jumping
-        if (Input.GetKey(KeyCode.Space) && isGrounded && !debounce)
-        {
-            //debounce = true;
-            //jump();
-            //debounceTimer.Start();
-        }
-
     }
 
     private void FixedUpdate()
     {
+        getMovement();
+
         // movement
         move = rb.rotation * move;
-        rb.AddForce(move * Time.deltaTime * 100, ForceMode.Force);
+        rb.AddForce(move.normalized * Time.deltaTime * 10f * moveSpeed, ForceMode.Force);
     }
 
-    void jump()
+    void getInput() 
     {
-        isGrounded = false;
-        rb.AddForce(Vector3.up * 200);
+        // inputs
+        horizontalInput = Input.GetAxisRaw("Horizontal");
+        verticalInput = Input.GetAxisRaw("Vertical");
+    }
+
+    void getMovement()
+    {
+        // movement direction
+        move = new Vector3(verticalInput, 0f, -horizontalInput);
     }
 
     void checkGrounded()
