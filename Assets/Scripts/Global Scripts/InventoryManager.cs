@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,6 +13,10 @@ public class InventoryManager : MonoBehaviour
 
     public Transform ItemContent;               // Contenitore UI per gli oggetti
     public GameObject InventoryItem;            // Prefab che rappresenta un elemento
+    public GameObject DescriptionUI;
+    public TextMeshProUGUI NameText;
+    public TextMeshProUGUI DescriptionText;
+    public Image Icon;
 
     private void Awake()
     {
@@ -45,6 +50,25 @@ public class InventoryManager : MonoBehaviour
             // Imposta il testo e l'icona del nuovo oggetto UI in base ai dati dell'oggetto
             ItemName.text = item.ItemName;
             ItemIcon.sprite = item.Icon;
+
+            // Aggiunge un evento per il mouse hover (OnPointerEnter)
+            var button = obj.GetComponent<Button>();
+            button.onClick.AddListener(() => ShowDescription(item));
         }
+    }
+
+    // Mostra la descrizione dell'oggetto
+    private void ShowDescription(Items item)
+    {
+        DescriptionUI.SetActive(true);
+        NameText.text = item.ItemName;
+        Icon.sprite = item.Icon;
+        DescriptionText.text = item.Description;
+    }
+
+    // Nasconde la descrizione
+    public void HideDescription()
+    {
+        DescriptionUI.SetActive(false);
     }
 }

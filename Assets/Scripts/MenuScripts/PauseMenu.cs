@@ -13,6 +13,7 @@ public class PauseMenu : MonoBehaviour
     public GameObject QuestUI;      // Missioni (quests)
     public GameObject ScreenUI;     // Schermo esterno
     public GameObject CodeUI;       // Schermo di codice
+    public GameObject DescriptionUI; // Descrizione nell'inventario
     public GameObject Rotator;      // Rotator della Main Camera
 
     void Start()
@@ -51,7 +52,8 @@ public class PauseMenu : MonoBehaviour
         }
         else if (index == 2 && !GamePaused)
         {
-            InventoryUI.SetActive(false); // Nascondi pannello 
+            InventoryUI.SetActive(false); // Nascondi pannello
+            DescriptionUI.SetActive(false);
             InventoryOn = false;
         }
 

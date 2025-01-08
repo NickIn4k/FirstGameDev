@@ -1,5 +1,6 @@
 using UnityEngine;
 using TMPro;
+using System.Linq;
 
 public class TutorialQuestManager : MonoBehaviour
 {
@@ -25,7 +26,7 @@ public class TutorialQuestManager : MonoBehaviour
             questStep++;
             ShowQuestMessage();
         }
-        else if (questStep == 2 && InventoryManager.Manager.Inventory.Count > 0)    //Prendere l'oggetto
+        else if (questStep == 2 && InventoryManager.Manager.Inventory.Any(Items => Items.Id == 1))    //Prendere l'oggetto
         {
             questStep++;
             ShowQuestMessage();
@@ -57,7 +58,7 @@ public class TutorialQuestManager : MonoBehaviour
         else if (questStep == 2)
             textQuest.text = "Pick up the objects by left-clicking it.";
         else if (questStep == 3)
-            textQuest.text = "Press Tab to open the inventory.";
+            textQuest.text = "Press Tab to open the inventory and click on the hacking device.";
         else if (questStep == 4)
             textQuest.text = "Use your Hacking Device to see what's written inside";
         else if (questStep == 5)
