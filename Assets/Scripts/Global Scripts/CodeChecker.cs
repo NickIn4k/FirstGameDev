@@ -15,7 +15,8 @@ public class CodeChecker : MonoBehaviour
     void Start()
     {
         code = "143652"; 
-        isOpen = false;  
+        isOpen = false;
+        InputField.text = "...";
     }
 
     public void ValidateInput()
@@ -23,7 +24,7 @@ public class CodeChecker : MonoBehaviour
         if (!isOpen) // Controlla se la porta non è già aperta
         {
             OutputText.text = string.Empty;
-            string input = InputField.text.Split(' ', System.StringSplitOptions.RemoveEmptyEntries)[2]; // Input dell'utente
+            string input = InputField.text; // Input dell'utente
             Debug.Log(input); 
 
             if (!string.IsNullOrEmpty(input) && input == code)
