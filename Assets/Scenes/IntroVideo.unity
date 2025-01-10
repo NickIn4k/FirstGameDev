@@ -482,8 +482,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 55ee7589dc7037f4caf1ef474fb7194a, type: 3}
-  m_Resource: {fileID: 8300000, guid: 55ee7589dc7037f4caf1ef474fb7194a, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 0286a5866aedf5243aba1d07e3bff9fb, type: 3}
+  m_Resource: {fileID: 8300000, guid: 0286a5866aedf5243aba1d07e3bff9fb, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -608,14 +608,12 @@ VideoPlayer:
   m_TimeUpdateMode: 2
   m_PlaybackSpeed: 1
   m_AudioOutputMode: 2
-  m_TargetAudioSources:
-  - {fileID: 0}
-  m_DirectAudioVolumes:
-  - 1
+  m_TargetAudioSources: []
+  m_DirectAudioVolumes: []
   m_Url: 
-  m_EnabledAudioTracks: 01
-  m_DirectAudioMutes: 00
-  m_ControlledAudioTrackCount: 1
+  m_EnabledAudioTracks: 
+  m_DirectAudioMutes: 
+  m_ControlledAudioTrackCount: 0
   m_PlayOnAwake: 0
   m_SkipOnDrop: 1
   m_Looping: 0
