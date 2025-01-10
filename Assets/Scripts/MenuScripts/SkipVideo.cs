@@ -10,7 +10,17 @@ public class SkipVideo : MonoBehaviour
     public float holdTime = 3f;    //Tempo necessario per saltare
     public int SceneIndex;
 
-    private float holdDuration = 0f; //Contatore per il tempo tenuto premuto
+    private float holdDuration; //Contatore per il tempo tenuto premuto
+
+    void Start()
+    {
+        holdDuration = 0f;
+        if (progressCircle != null)
+            progressCircle.fillAmount = 0f;
+
+        if (videoPlayer != null && !videoPlayer.isPlaying)
+            videoPlayer.Play();
+    }
 
     void Update()
     {
