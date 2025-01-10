@@ -105,5 +105,7 @@ public class PauseMenu : MonoBehaviour
         }
             
         Time.timeScale = 0f;        // Ferma il tempo di gioco
+
+
     }
 }
