@@ -5,10 +5,14 @@ using System.Linq;
 public class TutorialQuestManager : MonoBehaviour
 {
     public TextMeshProUGUI textQuest;
+    public GameObject ScreenGlowing;
+    public GameObject LockGlowing;
     private int questStep = 0;
 
     void Start()
     {
+        ScreenGlowing.SetActive(false);
+        LockGlowing.SetActive(false);
         //Imposta il primo messaggio del tutorial
         ShowQuestMessage();
     }
@@ -39,6 +43,8 @@ public class TutorialQuestManager : MonoBehaviour
         else if (questStep == 4)   //Leggere lo schermo con l'oggetto
         {
             questStep++;
+            ScreenGlowing.SetActive(true);
+            LockGlowing.SetActive(true);
             ShowQuestMessage();
         }
         else if (questStep == 5 && CodeChecker.isOpen)   //Inserire il codice
