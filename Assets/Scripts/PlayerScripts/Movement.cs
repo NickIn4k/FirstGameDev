@@ -49,7 +49,7 @@ public class Movement : MonoBehaviour
         }
 
         if (transform.position.y < 0)
-            this.transform.position = new Vector3(0,0,0);
+            this.transform.position = new Vector3(0,4,0);
 
     }
 
