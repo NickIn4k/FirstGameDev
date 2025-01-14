@@ -11,7 +11,7 @@ public class LevelSelector : MonoBehaviour
 
     void Start()
     {
-        hoverText.gameObject.SetActive(false);
+        hoverText.text = "Use <- or -> to move\naround the map";   //aggiorna il testo
     }
 
     private void OnMouseDown()  //onclick
@@ -29,6 +29,6 @@ public class LevelSelector : MonoBehaviour
 
     private void OnMouseExit()  //Il mouse non è più sopra
     {
-        hoverText.gameObject.SetActive(false);
+        hoverText.text = "Use <- or -> to move\naround the map";   //aggiorna il testo
     }
 }
