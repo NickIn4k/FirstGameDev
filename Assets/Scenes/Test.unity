@@ -260,8 +260,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lookAt: {fileID: 1644606713}
   lookAtMoving: {fileID: 1319443119}
-  pLerp: 0.1
-  rLerp: 0.2
+  pLerp: 100
+  rLerp: 100
 --- !u!114 &407998181
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -485,7 +485,7 @@ GameObject:
   - component: {fileID: 656314706}
   - component: {fileID: 656314705}
   - component: {fileID: 656314704}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -499,7 +499,7 @@ MeshCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 656314703}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 3ed621e826df18b48a0a6e8aa315ae73, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -718,7 +718,7 @@ MonoBehaviour:
   plr: {fileID: 2013170314}
   maxAngleY: 50
   minAngleY: -40
-  Sensitivity: 0.5
+  Sensitivity: 6
 --- !u!1 &1327977098
 GameObject:
   m_ObjectHideFlags: 0
@@ -946,7 +946,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2013170309}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 3ed621e826df18b48a0a6e8aa315ae73, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -1002,6 +1002,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textQuest: {fileID: 0}
+  ScreenGlowing: {fileID: 0}
+  LockGlowing: {fileID: 0}
 --- !u!114 &2013170313
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1014,11 +1016,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15abf96727b6e7c439201c13601d45f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  groundDrag: 0
   cam: {fileID: 1319443119}
-  rLerp: 0.075
+  moveSpeed: 1000
+  rLerp: 0.0075
   ground:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 128
 --- !u!4 &2013170314
 Transform:
   m_ObjectHideFlags: 0
