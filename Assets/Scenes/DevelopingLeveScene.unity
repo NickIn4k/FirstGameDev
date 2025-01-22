@@ -1956,7 +1956,7 @@ MonoBehaviour:
   groundDrag: 5
   cam: {fileID: 1512551842}
   moveSpeed: 200
-  rLerp: 0.075
+  rLerp: 0.35
   ground:
     serializedVersion: 2
     m_Bits: 128
@@ -1989,6 +1989,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textQuest: {fileID: 616677731}
+  ScreenGlowing: {fileID: 0}
+  LockGlowing: {fileID: 0}
 --- !u!1 &343835661
 GameObject:
   m_ObjectHideFlags: 0
@@ -6731,7 +6733,7 @@ MonoBehaviour:
   plr: {fileID: 332301628}
   maxAngleY: 50
   minAngleY: -45
-  Sensitivity: 0.5
+  Sensitivity: 5
 --- !u!1 &1518838022
 GameObject:
   m_ObjectHideFlags: 0
@@ -7214,8 +7216,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lookAt: {fileID: 1215033172}
   lookAtMoving: {fileID: 1512551842}
-  pLerp: 0.3
-  rLerp: 0.3
+  pLerp: 5
+  rLerp: 5
 --- !u!114 &1592269573
 MonoBehaviour:
   m_ObjectHideFlags: 0

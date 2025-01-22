@@ -45,6 +45,7 @@ public class PauseMenu : MonoBehaviour
 
     void Resume(int index)
     {
+        Cursor.lockState = CursorLockMode.Locked;
         if (index == 1 && !InventoryOn) 
         {
             PauseMenuUI.SetActive(false); // Nascondi pannello
@@ -72,11 +73,12 @@ public class PauseMenu : MonoBehaviour
         //Reset della grafica UI e del tempo del gioco
         QuestUI.SetActive(true);    
         Rotator.SetActive(true);    
-        Time.timeScale = 1f;        // Tempo di gioco a velocità normale
+        Time.timeScale = 1f;        // Tempo di gioco a velocitï¿½ normale
     }
 
     void Pause(int index)
     {
+        Cursor.lockState = CursorLockMode.None;
         if (index == 1 && !InventoryOn) 
         {
             PauseMenuUI.SetActive(true); 

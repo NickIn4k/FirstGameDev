@@ -10,12 +10,13 @@ public class ItemClicker : MonoBehaviour
 
     private void OnMouseDown()  //nel click
     {
-        if(Item.Id == 0 && InventoryManager.Manager.Inventory.Count > 0)    //Se è presente l'oggetto
+        if(Item.Id == 0 && InventoryManager.Manager.Inventory.Count > 0)    //Se ï¿½ presente l'oggetto
         {
             //Disattiva o attiva componenti UI
             QuestUI.SetActive(false);   
             Rotator.SetActive(false);
             Time.timeScale = 0f;    //blocco il gioco
+            Cursor.lockState = CursorLockMode.None;
             UI.SetActive(true);
         }
     }
@@ -23,6 +24,7 @@ public class ItemClicker : MonoBehaviour
     public void Resume()
     {   
         //Riattiva la grafica di base
+        Cursor.lockState = CursorLockMode.Locked;
         UI.SetActive(false);
         QuestUI.SetActive(true);
         Rotator.SetActive(true);

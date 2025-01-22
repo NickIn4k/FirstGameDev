@@ -1,4 +1,5 @@
 using UnityEngine;
+using Settings;
 
 public class Movement : MonoBehaviour
 {
@@ -21,6 +22,11 @@ public class Movement : MonoBehaviour
 
     float horizontalInput;
     float verticalInput;
+
+    void Awake()
+    {
+        CursorSettings.Lock();
+    }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -53,7 +59,7 @@ public class Movement : MonoBehaviour
 
     }
 
-    private void FixedUpdate()
+    private void FixedUpdate() // aggiornamento fisica
     {
         getMovement();
 
