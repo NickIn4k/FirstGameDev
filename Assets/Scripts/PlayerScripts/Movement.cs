@@ -78,13 +78,15 @@ public class Movement : MonoBehaviour
     void getMovement()
     {
         // movement direction
-        move = new Vector3(verticalInput, 0f, -horizontalInput);
+        move = new Vector3(horizontalInput, 0f, verticalInput);
     }
 
     void checkGrounded()
     {
         if (Physics.Raycast(transform.position, Vector3.down, GetComponent<CapsuleCollider>().bounds.size.y * 0.5f + 0.2f, ground))
+        {
             isGrounded = true;
+        }
         else
             isGrounded = false;
     }

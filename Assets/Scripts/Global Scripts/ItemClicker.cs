@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 //Gestione click degli oggetti non raccoglibili nell'inventario
@@ -8,17 +9,24 @@ public class ItemClicker : MonoBehaviour
     public GameObject QuestUI;
     public GameObject Rotator;
 
-    private void OnMouseDown()  //nel click
+    public InteractReceiver ir;
+
+    private void Start()
     {
-        if(Item.Id == 0 && InventoryManager.Manager.Inventory.Count > 0)    //Se � presente l'oggetto
+        ir = GetComponent<InteractReceiver>();
+        ir.OnInteract += () =>
         {
-            //Disattiva o attiva componenti UI
-            QuestUI.SetActive(false);   
-            Rotator.SetActive(false);
-            Time.timeScale = 0f;    //blocco il gioco
-            Cursor.lockState = CursorLockMode.None;
-            UI.SetActive(true);
-        }
+            if (Item.Id == 0 && InventoryManager.Manager.Inventory.Count > 0)    //Se � presente l'oggetto
+            {
+                //Disattiva o attiva componenti UI
+                QuestUI.SetActive(false);
+                Rotator.SetActive(false);
+                GetComponent<MeshCollider>().enabled = false;
+                Time.timeScale = 0f;    //blocco il gioco
+                Cursor.lockState = CursorLockMode.None;
+                UI.SetActive(true);
+            }
+        };
     }
 
     public void Resume()
@@ -29,5 +37,6 @@ public class ItemClicker : MonoBehaviour
         QuestUI.SetActive(true);
         Rotator.SetActive(true);
         Time.timeScale = 1f;
+        GetComponent<MeshCollider>().enabled = true;
     }
 }

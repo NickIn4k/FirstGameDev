@@ -9,6 +9,7 @@ public class Rotator : MonoBehaviour
     public int maxAngleY = 60; // Suggested less than 90
     public int minAngleY = -40; // Suggested more than -90
     public float Sensitivity = .5f; // Sensitivity
+    public float heightFromPlayer = .5f; // Height from player center of gravity
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -19,7 +20,7 @@ public class Rotator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = plr.position;
+        transform.position = plr.position + new Vector3(0, heightFromPlayer);
 
         // Handle mouse movement
         turn.x += Input.GetAxis("Mouse X") * Sensitivity;
@@ -32,6 +33,6 @@ public class Rotator : MonoBehaviour
             turn.y = minAngleY;
 
         // Camera rotation
-        transform.localRotation = Quaternion.Euler(0, turn.x, -turn.y);
+        transform.localRotation = Quaternion.Euler(turn.y, turn.x, 0);
     }
 }
