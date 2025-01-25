@@ -6,7 +6,7 @@ using static UnityEditor.Progress;
 public class InteractReceiver : MonoBehaviour
 {
     bool canPop = false;
-    bool canPopAgain = true;
+    public bool canPopAgain = true;
     public Transform lookAt;
     public Canvas canvas;
 
@@ -39,7 +39,9 @@ public class InteractReceiver : MonoBehaviour
 
         if (popUp != null) 
         {
-            popUp.transform.position = 0.5f * (transform.position + lookAt.transform.position) + Vector3.up;
+            Vector3 targetPosition = 0.5f * (transform.position + lookAt.transform.position) + Vector3.up;
+            targetPosition.y -= 0.4f; // offset è il valore per abbassare il popup
+            popUp.transform.position = targetPosition;
         }
     }
 
@@ -53,9 +55,10 @@ public class InteractReceiver : MonoBehaviour
     {
         InteractSender.OnShouldPopup -= ShouldPopupHandler;
         InteractSender.OnShouldNotPopup -= ShouldNotPopupHandler;
+
     }
 
-    void ShouldPopupHandler (object? sender, InteractArgs args)
+    void ShouldPopupHandler (object sender, InteractArgs args)
     {
         if (args.HitTransform == transform)
         {

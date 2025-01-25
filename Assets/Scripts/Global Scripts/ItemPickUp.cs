@@ -9,14 +9,20 @@ public class ItemPickUp : MonoBehaviour
     private void Start()
     {
         ir = GetComponent<InteractReceiver>();
-        ir.OnInteract += OnInteractHandler;
+        if (ir != null)
+            ir.OnInteract += OnInteractHandler;
+        else
+            Debug.Log("Oggetto InteractReceiver non trovato: Non posso completare il livello");
     }
 
     private void OnInteractHandler()
     {
-        ir.Unsubscribe();
         ir.OnInteract -= OnInteractHandler;
-        InventoryManager.Manager.Add(Item);
+        ir.Unsubscribe();
+
+        if (InventoryManager.Manager != null)
+            InventoryManager.Manager.Add(Item);
+
         Destroy(gameObject);    //Per eliminare l'item aggiunto
     }
 }

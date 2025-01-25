@@ -25,8 +25,8 @@ public class ShowPopup : MonoBehaviour
     {
         transform.LookAt(lookAt);
 
-        //Controlla se il tasto Enter è premuto
-        if (Input.GetKey(KeyCode.Return))
+        //Controlla se il tasto E è premuto
+        if (Input.GetKey(KeyCode.E))
         {
             holdDuration += Time.deltaTime;
 
@@ -36,13 +36,10 @@ public class ShowPopup : MonoBehaviour
 
             //Se il tempo necessario è raggiunto, DISTRUGGI
             if (holdDuration >= holdTime)
-            {
-                Debug.Log("Skibidi");
                 OnCompletion?.Invoke();
-            }
                 
         }
-        else if (Input.GetKeyUp(KeyCode.Return))
+        else if (Input.GetKeyUp(KeyCode.E))
         {
             //Resetta quando il tasto è rilasciato
             holdDuration = 0f;
