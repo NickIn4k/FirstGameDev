@@ -19,6 +19,9 @@ public class InteractReceiver : MonoBehaviour
     {
         InteractSender.OnShouldPopup += ShouldPopupHandler;
         InteractSender.OnShouldNotPopup += ShouldNotPopupHandler;
+
+        if (gameObject.layer != LayerMask.NameToLayer("interactible"))
+            Debug.LogWarning($"GameObject: {gameObject.name} has no interactible layer. Consider setting it.");
     }
 
     // Update is called once per frame
@@ -43,6 +46,11 @@ public class InteractReceiver : MonoBehaviour
             targetPosition.y -= 0.4f; // offset è il valore per abbassare il popup
             popUp.transform.position = targetPosition;
         }
+    }
+
+    private void OnDestroy()
+    {
+        Unsubscribe();
     }
 
     void Interacted()

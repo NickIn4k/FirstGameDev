@@ -1,5 +1,12 @@
+using Settings;
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+
+public enum CursorUnlockedScenes 
+{
+    MapSelector = 1,
+}
 
 public class MoveToNextLevel : MonoBehaviour
 {
@@ -18,6 +25,8 @@ public class MoveToNextLevel : MonoBehaviour
                 Debug.Log("HAI VINTO!!");
             else    //Se ci sono ancora livelli da sbloccare
             {
+                if (Enum.IsDefined(typeof(CursorUnlockedScenes), nextSceneLoad)) // Unlocks cursor if it's not a level
+                    CursorSettings.Unlock();
                 SceneManager.LoadScene(nextSceneLoad);  //Carico il livello successivo
 
                 if(nextSceneLoad > PlayerPrefs.GetInt("levelAt"))   //Legge l'ultimo livello sbloccato
@@ -25,7 +34,8 @@ public class MoveToNextLevel : MonoBehaviour
                     PlayerPrefs.SetInt("levelAt", nextSceneLoad);
                 }
             }
-            
+
+            CursorSettings.Unlock();
             SceneManager.LoadScene(1);
         }
     }
