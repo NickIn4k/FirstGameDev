@@ -1,7 +1,7 @@
 using System;
 using System.Linq;
 using UnityEngine;
-using static UnityEditor.Progress;
+//using static UnityEditor.Progress;
 
 public class InteractReceiver : MonoBehaviour
 {
@@ -43,7 +43,7 @@ public class InteractReceiver : MonoBehaviour
         if (popUp != null) 
         {
             Vector3 targetPosition = 0.5f * (transform.position + lookAt.transform.position) + Vector3.up;
-            targetPosition.y -= 0.4f; // offset è il valore per abbassare il popup
+            targetPosition.y -= 0.4f; // offset ï¿½ il valore per abbassare il popup
             popUp.transform.position = targetPosition;
         }
     }
