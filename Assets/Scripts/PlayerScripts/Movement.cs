@@ -23,19 +23,23 @@ public class Movement : MonoBehaviour
     float horizontalInput;
     float verticalInput;
 
+    Animator animator;
+
     void Awake()
-    {
+    { 
         CursorSettings.Lock();
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        animator = GetComponentInChildren<Animator>();
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
     }
 
     // Update is called once per frame
+
     void Update()
     {
         checkGrounded();
@@ -47,16 +51,32 @@ public class Movement : MonoBehaviour
 
         getInput();
 
-        if (move != Vector3.zero) 
+        // Controlla se il giocatore si sta muovendo avanti
+        if (verticalInput > 0 || horizontalInput > 0)
         {
-            // if moving lerp player rotation to camera forward
+            animator.SetBool("isWalkingForward", true);
+            animator.SetBool("isWalkingBack", false);
+        }
+        else if(verticalInput < 0 || horizontalInput < 0)
+        {
+            animator.SetBool("isWalkingBack", true);
+            animator.SetBool("isWalkingForward", false);
+        }
+        else
+        {
+            animator.SetBool("isWalkingForward", false);
+            animator.SetBool("isWalkingBack", false);
+        }
+
+        if (move != Vector3.zero)
+        {
+            // Se si sta muovendo, lerp della rotazione verso la direzione della telecamera
             Vector3 eulerRotation = new Vector3(transform.eulerAngles.x, cam.eulerAngles.y, transform.eulerAngles.z);
             transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(eulerRotation), rLerp);
         }
 
         if (transform.position.y < 0)
-            this.transform.position = new Vector3(0,4,0);
-
+            this.transform.position = new Vector3(0, 4, 0);
     }
 
     private void FixedUpdate() // aggiornamento fisica
