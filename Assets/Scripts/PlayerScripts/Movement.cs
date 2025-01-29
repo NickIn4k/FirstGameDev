@@ -52,20 +52,40 @@ public class Movement : MonoBehaviour
         getInput();
 
         // Controlla se il giocatore si sta muovendo avanti
-        if (verticalInput > 0 || horizontalInput > 0)
+        if (verticalInput > 0)
         {
             animator.SetBool("isWalkingForward", true);
             animator.SetBool("isWalkingBack", false);
+            animator.SetBool("isWalkingRight", false);
+            animator.SetBool("isWalkingLeft", false);
         }
-        else if(verticalInput < 0 || horizontalInput < 0)
+        else if(verticalInput < 0 )
         {
             animator.SetBool("isWalkingBack", true);
             animator.SetBool("isWalkingForward", false);
+            animator.SetBool("isWalkingRight", false);
+            animator.SetBool("isWalkingLeft", false);
+        }
+        else if(horizontalInput < 0)
+        {
+            animator.SetBool("isWalkingLeft", true);
+            animator.SetBool("isWalkingForward", false);
+            animator.SetBool("isWalkingBack", false);
+            animator.SetBool("isWalkingRight", false);
+        }
+        else if(horizontalInput > 0)
+        {
+            animator.SetBool("isWalkingRight", true);
+            animator.SetBool("isWalkingLeft", false);
+            animator.SetBool("isWalkingForward", false);
+            animator.SetBool("isWalkingBack", false);
         }
         else
         {
             animator.SetBool("isWalkingForward", false);
             animator.SetBool("isWalkingBack", false);
+            animator.SetBool("isWalkingRight", false);
+            animator.SetBool("isWalkingLeft", false);
         }
 
         if (move != Vector3.zero)
