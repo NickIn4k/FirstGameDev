@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -10,13 +11,15 @@ public class CodeChecker : MonoBehaviour
     [SerializeField] Material OpenMaterial;    
 
     private string code;        // Codice segreto da validare
-    public static bool isOpen = false; 
-
+    public static bool isOpen = false;
+    public GameObject EndDoor;
+    private Animator animator;
     void Start()
     {
         code = "143652"; 
         isOpen = false;
         InputField.text = "...";
+        animator = EndDoor.GetComponentInChildren<Animator>();
     }
 
     public void ValidateInput()
@@ -32,7 +35,6 @@ public class CodeChecker : MonoBehaviour
                 OutputText.text = "     >: Valid input..\n          Now opening the door..";
                 OutputText.color = Color.green; // Testo di feedback in verde
                 isOpen = true;
-
                 OpenTheDoor(Door, OpenMaterial);
             }
             else
@@ -61,6 +63,7 @@ public class CodeChecker : MonoBehaviour
         Collider collider = Door.GetComponent<Collider>();
         if (collider != null)
         {
+            animator.SetBool("isOpening", true);
             collider.isTrigger = true; // Attiva la modalità trigger
         }
 
