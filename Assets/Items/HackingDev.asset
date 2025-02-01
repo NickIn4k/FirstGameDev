@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Id: 1
   ItemName: Hacking Device
-  Description: 'This is an hacking device, built by Lyra all by herself! You can
-    access to any PC or screen when you have it in your inventory! Use it wisely... '
+  Description: 'This is an hacking device, designed by Lyra all by herself! You can
+    hack into W.R.A.T.H.''s technologies when you have it in your inventory! Use
+    it wisely... '
   Value: 10
   Icon: {fileID: 21300000, guid: 1a0e7109d7f57ef4abb7a8cc92ba9c29, type: 3}

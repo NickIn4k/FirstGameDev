@@ -62,7 +62,7 @@ public class TutorialQuestManager : MonoBehaviour
         else if (questStep == 1)
             textQuest.text = "Move the mouse to look around.";
         else if (questStep == 2)
-            textQuest.text = "Find and pick up the object by pressing 'E'";
+            textQuest.text = "Find and pick up the object by holding 'E' next to it";
         else if (questStep == 3)
             textQuest.text = "Press Tab to open the inventory and click on the hacking device.";
         else if (questStep == 4)

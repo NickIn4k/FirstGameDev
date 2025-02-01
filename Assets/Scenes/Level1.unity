@@ -8497,7 +8497,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -478.99982, y: -14.003296}
+  m_AnchoredPosition: {x: -478.99988, y: -14.003296}
   m_SizeDelta: {x: -1178.4237, y: -211.3699}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &343835663
@@ -11377,7 +11377,7 @@ MonoBehaviour:
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
-  m_lineSpacing: 0
+  m_lineSpacing: 20
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
@@ -26196,7 +26196,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   progressCircle: {fileID: 226478538}
-  holdTime: 0.75
+  holdTime: 0.5
   lookAt: {fileID: 1740296205}
 --- !u!223 &1276820231
 Canvas:
