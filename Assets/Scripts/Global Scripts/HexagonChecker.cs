@@ -5,14 +5,14 @@ public class HexagonChecker : MonoBehaviour
 {
     public GameObject[] hexagons;   //Array degli esagoni da controllare
     public int[] referenceAngles;   //Array degli angoli di riferimento (0-360°)
-    public Button checkButton;      //Pulsante da collegare nell'Inspector
+    public Rotator rotator;
 
-    private void Start()
+    private void Start() 
     {
-        checkButton.onClick.AddListener(CheckRotations);    //Assegna il controllo al pulsante
+        
     }
 
-    void CheckRotations()
+    public void CheckRotations()
     {
         if (hexagons.Length != referenceAngles.Length)
         {
