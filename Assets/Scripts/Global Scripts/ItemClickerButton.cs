@@ -8,6 +8,9 @@ public class ItemClickerOld : MonoBehaviour
     public GameObject QuestUI;
     public GameObject Rotator;
 
+    [Header("Non toccare")]
+    public Collider cld; //
+
     private void OnMouseDown()  //nel click
     {
         if (Item.Id == 0 && InventoryManager.Manager.Inventory.Count > 0)    //Se è presente l'oggetto
@@ -18,6 +21,7 @@ public class ItemClickerOld : MonoBehaviour
             Time.timeScale = 0f;    //blocco il gioco
             Cursor.lockState = CursorLockMode.None;
             UI.SetActive(true);
+            cld.enabled = true;
         }
     }
 
@@ -29,6 +33,6 @@ public class ItemClickerOld : MonoBehaviour
         QuestUI.SetActive(true);
         Rotator.SetActive(true);
         Time.timeScale = 1f;
-
+        cld.enabled = true;
     }
 }

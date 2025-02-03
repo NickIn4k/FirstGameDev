@@ -9,7 +9,7 @@ public class Movement : MonoBehaviour
 
     Rigidbody rb;
 
-    public Transform cam;
+    public Transform rotator;
 
     [Header("Movement Speed")]
     public float moveSpeed = 10f;
@@ -91,7 +91,7 @@ public class Movement : MonoBehaviour
         if (move != Vector3.zero)
         {
             // Se si sta muovendo, lerp della rotazione verso la direzione della telecamera
-            Vector3 eulerRotation = new Vector3(transform.eulerAngles.x, cam.eulerAngles.y, transform.eulerAngles.z);
+            Vector3 eulerRotation = new Vector3(transform.eulerAngles.x, rotator.eulerAngles.y, transform.eulerAngles.z);
             transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(eulerRotation), rLerp);
         }
 

@@ -24,6 +24,7 @@ public class ItemClicker : MonoBehaviour
                 GetComponent<MeshCollider>().enabled = false;
                 Time.timeScale = 0f;    //blocco il gioco
                 Cursor.lockState = CursorLockMode.None;
+                UI.GetComponent<ItemClickerOld>().cld = GetComponent<Collider>();
                 UI.SetActive(true);
             }
         };

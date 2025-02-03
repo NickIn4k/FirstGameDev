@@ -956,7 +956,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   groundDrag: 4
-  cam: {fileID: 521812419}
+  rotator: {fileID: 1480795456}
   moveSpeed: 100
   rLerp: 0.07
   ground:
