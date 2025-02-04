@@ -600,6 +600,7 @@ MonoBehaviour:
   UI: {fileID: 63297898}
   QuestUI: {fileID: 93310510}
   Rotator: {fileID: 635833148}
+  cld: {fileID: 0}
 --- !u!1 &64131184
 GameObject:
   m_ObjectHideFlags: 0
@@ -8314,7 +8315,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   groundDrag: 4
-  cam: {fileID: 635833149}
+  rotator: {fileID: 0}
   moveSpeed: 100
   rLerp: 0.07
   ground:
@@ -11861,6 +11862,7 @@ MonoBehaviour:
   UI: {fileID: 664318225}
   QuestUI: {fileID: 93310510}
   Rotator: {fileID: 635833148}
+  cld: {fileID: 0}
 --- !u!1 &671273201
 GameObject:
   m_ObjectHideFlags: 0
