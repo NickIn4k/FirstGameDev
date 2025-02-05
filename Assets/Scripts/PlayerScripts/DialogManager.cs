@@ -1,20 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using TMPro;
-using GLTF.Schema;
-using Mono.Cecil.Cil;
-using static Unity.Burst.Intrinsics.X86;
-using static UnityEngine.InputManagerEntry;
-using System.ComponentModel;
-using System.Net.Sockets;
-using Unity.Burst.Intrinsics;
-using Unity.VisualScripting.Antlr3.Runtime.Tree;
-using Unity.VisualScripting;
-using UnityEditor.Experimental.GraphView;
-using UnityEditor;
-using UnityEngine.Device;
-using UnityEngine.InputSystem;
-using UnityEngine.UIElements;
+
 public class DialogManager : MonoBehaviour
 {
     public Transform player;
@@ -51,6 +38,11 @@ public class DialogManager : MonoBehaviour
         playerMovementScript = player.GetComponent<Movement>();
         playerAnimator = player.GetComponentInChildren<Animator>();
         textComponent.text = string.Empty;
+        
+        if (gameObject.name == "Lyra")
+            animator.SetBool("isLyra", true);
+        else
+            animator.SetBool("isLyra", false);
     }
 
     void Update()

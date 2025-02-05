@@ -596,11 +596,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6fc044199aab494bb0a856af3345e4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Item: {fileID: 0}
-  UI: {fileID: 63297898}
-  QuestUI: {fileID: 93310510}
-  Rotator: {fileID: 635833148}
-  cld: {fileID: 0}
 --- !u!1 &64131184
 GameObject:
   m_ObjectHideFlags: 0
@@ -8315,7 +8310,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   groundDrag: 4
-  rotator: {fileID: 0}
+  rotator: {fileID: 635833149}
   moveSpeed: 100
   rLerp: 0.07
   ground:
@@ -11858,11 +11853,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6fc044199aab494bb0a856af3345e4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Item: {fileID: 0}
-  UI: {fileID: 664318225}
-  QuestUI: {fileID: 93310510}
-  Rotator: {fileID: 635833148}
-  cld: {fileID: 0}
 --- !u!1 &671273201
 GameObject:
   m_ObjectHideFlags: 0
