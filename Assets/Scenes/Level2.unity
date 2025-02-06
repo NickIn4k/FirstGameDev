@@ -16335,7 +16335,9 @@ MonoBehaviour:
   - {fileID: 480271283}
   - {fileID: 1603594567}
   referenceAngles: 3c0000002c0100000000000000000000
-  rotator: {fileID: 0}
+  rotator: {fileID: 1480795455}
+  animator: {fileID: 565950280}
+  Door: {fileID: 72840273}
 --- !u!1 &1645514625
 GameObject:
   m_ObjectHideFlags: 0

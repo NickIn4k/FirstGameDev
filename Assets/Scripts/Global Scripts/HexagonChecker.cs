@@ -6,6 +6,8 @@ public class HexagonChecker : MonoBehaviour
     public GameObject[] hexagons;   //Array degli esagoni da controllare
     public int[] referenceAngles;   //Array degli angoli di riferimento (0-360°)
     public Rotator rotator;
+    public Animator animator;
+    public GameObject Door;
 
     private void Start() 
     {
@@ -33,6 +35,19 @@ public class HexagonChecker : MonoBehaviour
         }
 
         Debug.Log("Tutti gli esagoni sono nella posizione corretta!");
-        //AZIONE SUCCESSIVA DA AGGIUNGERE
+        OpenTheDoor();
+    }
+
+    private void OpenTheDoor()
+    {
+        //Rende il collider della porta un trigger
+        Collider collider = Door.GetComponent<Collider>();
+        if (collider != null)
+        {
+            animator.SetBool("isOpening", true);
+            collider.isTrigger = false; //Attiva la modalita' trigger
+        }
+
+        Debug.Log("The Tower is now accessible!");
     }
 }
