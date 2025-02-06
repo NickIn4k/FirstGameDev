@@ -593,9 +593,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 63297898}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b6fc044199aab494bb0a856af3345e4a, type: 3}
+  m_Script: {fileID: 11500000, guid: b76d5bd8a1f91d94a8f66623cdb540a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Item: {fileID: 0}
+  UI: {fileID: 63297898}
+  QuestUI: {fileID: 93310510}
+  Rotator: {fileID: 635833148}
+  cld: {fileID: 0}
 --- !u!1 &64131184
 GameObject:
   m_ObjectHideFlags: 0
@@ -11850,9 +11855,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 664318225}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b6fc044199aab494bb0a856af3345e4a, type: 3}
+  m_Script: {fileID: 11500000, guid: b76d5bd8a1f91d94a8f66623cdb540a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Item: {fileID: 0}
+  UI: {fileID: 664318225}
+  QuestUI: {fileID: 93310510}
+  Rotator: {fileID: 635833148}
+  cld: {fileID: 0}
 --- !u!1 &671273201
 GameObject:
   m_ObjectHideFlags: 0
@@ -25915,6 +25925,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 343835662}
+  - {fileID: 1374551588}
   m_Father: {fileID: 1612069018}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -26450,7 +26461,7 @@ RectTransform:
   m_Children:
   - {fileID: 430860767}
   - {fileID: 1230296011}
-  m_Father: {fileID: 1612069018}
+  m_Father: {fileID: 1254291991}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -28045,7 +28056,6 @@ RectTransform:
   - {fileID: 664318226}
   - {fileID: 63297899}
   - {fileID: 1254291991}
-  - {fileID: 1374551588}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
