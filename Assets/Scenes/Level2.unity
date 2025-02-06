@@ -2364,6 +2364,42 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6836354889480822465, guid: f11c79eb4fcc59b4daba9f98ada47a2c, type: 3}
   m_PrefabInstance: {fileID: 1225566523}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &224215276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 224215267}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: daddc8584778b0847b0f6243f68eef82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Item: {fileID: 11400000, guid: 513cc8e309f4307498633b4a2592a1cc, type: 2}
+  UI: {fileID: 1639909927}
+  QuestUI: {fileID: 0}
+  InventoryUI: {fileID: 1162933630}
+  MenuUI: {fileID: 737279091}
+  Rotator: {fileID: 1480795454}
+  ir: {fileID: 0}
+--- !u!114 &224215279
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 224215267}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b76d5bd8a1f91d94a8f66623cdb540a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Item: {fileID: 11400000, guid: 513cc8e309f4307498633b4a2592a1cc, type: 2}
+  UI: {fileID: 1639909927}
+  QuestUI: {fileID: 0}
+  Rotator: {fileID: 1480795454}
+  cld: {fileID: 0}
 --- !u!1 &225651859
 GameObject:
   m_ObjectHideFlags: 0
@@ -10468,6 +10504,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 224215276}
+        m_TargetAssemblyTypeName: ItemClicker, Assembly-CSharp
+        m_MethodName: Resume
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1039488169
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12273,27 +12321,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6836354889480822465, guid: f11c79eb4fcc59b4daba9f98ada47a2c, type: 3}
       propertyPath: m_LocalScale.x
-      value: 2.2023091
+      value: 1.4165734
       objectReference: {fileID: 0}
     - target: {fileID: 6836354889480822465, guid: f11c79eb4fcc59b4daba9f98ada47a2c, type: 3}
       propertyPath: m_LocalScale.y
-      value: 2.2023194
+      value: 1.4165801
       objectReference: {fileID: 0}
     - target: {fileID: 6836354889480822465, guid: f11c79eb4fcc59b4daba9f98ada47a2c, type: 3}
       propertyPath: m_LocalScale.z
-      value: 2.2023096
+      value: 1.4165738
       objectReference: {fileID: 0}
     - target: {fileID: 6836354889480822465, guid: f11c79eb4fcc59b4daba9f98ada47a2c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.94
+      value: -7.953
       objectReference: {fileID: 0}
     - target: {fileID: 6836354889480822465, guid: f11c79eb4fcc59b4daba9f98ada47a2c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -5.129
+      value: -5.21
       objectReference: {fileID: 0}
     - target: {fileID: 6836354889480822465, guid: f11c79eb4fcc59b4daba9f98ada47a2c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -6.181
+      value: -3.94
       objectReference: {fileID: 0}
     - target: {fileID: 6836354889480822465, guid: f11c79eb4fcc59b4daba9f98ada47a2c, type: 3}
       propertyPath: m_LocalRotation.w
@@ -12336,6 +12384,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6166637497359139963, guid: f11c79eb4fcc59b4daba9f98ada47a2c, type: 3}
       insertIndex: -1
       addedObject: {fileID: 224215269}
+    - targetCorrespondingSourceObject: {fileID: 6166637497359139963, guid: f11c79eb4fcc59b4daba9f98ada47a2c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 224215276}
+    - targetCorrespondingSourceObject: {fileID: 6166637497359139963, guid: f11c79eb4fcc59b4daba9f98ada47a2c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 224215279}
   m_SourcePrefab: {fileID: 100100000, guid: f11c79eb4fcc59b4daba9f98ada47a2c, type: 3}
 --- !u!1 &1225737796
 GameObject:
@@ -14160,10 +14214,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1639909927}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 224215276}
+        m_TargetAssemblyTypeName: ItemClicker, Assembly-CSharp
+        m_MethodName: Resume
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

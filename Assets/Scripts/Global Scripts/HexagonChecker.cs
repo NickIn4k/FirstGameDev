@@ -9,11 +9,6 @@ public class HexagonChecker : MonoBehaviour
     public Animator animator;
     public GameObject Door;
 
-    private void Start() 
-    {
-        
-    }
-
     public void CheckRotations()
     {
         if (hexagons.Length != referenceAngles.Length)
@@ -41,13 +36,11 @@ public class HexagonChecker : MonoBehaviour
     private void OpenTheDoor()
     {
         //Rende il collider della porta un trigger
-        Collider collider = Door.GetComponent<Collider>();
-        if (collider != null)
+        
+        if (Door != null)
         {
+            Door.SetActive(false);
             animator.SetBool("isOpening", true);
-            collider.isTrigger = false; //Attiva la modalita' trigger
         }
-
-        Debug.Log("The Tower is now accessible!");
     }
 }
