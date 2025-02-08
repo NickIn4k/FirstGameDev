@@ -4,23 +4,32 @@ public class MazePlayerController : MonoBehaviour
 {
     //Velocità di movimento
     public float moveSpeed = 5f; //Velocità di movimento del giocatore
+    public float rotationSpeed = 360f; //Velocità di rotazione (gradi al secondo)
 
     void Update()
     {
         //Input WASD per il movimento
-        float moveX = Input.GetAxisRaw("Horizontal"); //Movimento orizzontale
-        float moveY = Input.GetAxisRaw("Vertical"); //Movimento verticale
+        float moveX = Input.GetAxisRaw("Horizontal"); //Input orizzontale
+        float moveY = Input.GetAxisRaw("Vertical"); //Input verticale
 
-        //Calcola la direzione di movimento (assumiamo movimento sul piano XZ per un labirinto visto dall'alto)
+        //Calcola la direzione di movimento sul piano XZ
         Vector3 movement = new Vector3(moveX, 0f, moveY).normalized;
+
+        //Se c'è input, ruota gradualmente verso la direzione di movimento
+        if(movement != Vector3.zero)
+        {
+            Quaternion targetRotation = Quaternion.LookRotation(movement, Vector3.up);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+        }
+
+        //Sposta il giocatore nella direzione di movimento
         transform.position += movement * moveSpeed * Time.deltaTime;
     }
 
-    //Verifica collisione con l'oggetto "Maze End"
+    //Controlla le collisioni con l'oggetto "Maze End"
     private void OnTriggerEnter(Collider other)
     {
-        //Se il player colpisce un oggetto con il tag "Maze End", stampa "Hai vinto"
-        if (other.CompareTag("Maze End"))
+        if(other.CompareTag("Maze End"))
         {
             Debug.Log("Hai vinto");
         }
