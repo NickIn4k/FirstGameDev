@@ -27,9 +27,7 @@ public class ItemClicker : MonoBehaviour
                 try { UI.GetComponent<ItemClickerOld>().cld = GetComponent<Collider>(); }
                 catch { Debug.Log("cld non trovato!"); }
                
-                if(UI!=null) 
-                    UI.SetActive(true);
-
+                if(UI!=null) UI.SetActive(true);
             }
         };
     }

@@ -9,7 +9,19 @@ public class ItemClickerOld : MonoBehaviour
     public GameObject Rotator;
 
     [Header("Non toccare")]
-    public Collider cld; 
+    public Collider cld;
+
+    public void Resume()
+    {
+        //Riattiva la grafica di base
+        Cursor.lockState = CursorLockMode.Locked;
+        if (UI != null)
+            UI.SetActive(false);
+        QuestUI.SetActive(true);
+        Rotator.SetActive(true);
+        Time.timeScale = 1f;
+        cld.enabled = true;
+    }
 }
 
 /*   Old code
@@ -27,17 +39,5 @@ public class ItemClickerOld : MonoBehaviour
                 UI.SetActive(true);
             cld.enabled = true;
         }
-    }
-
-    public void Resume()
-    {
-        //Riattiva la grafica di base
-        Cursor.lockState = CursorLockMode.Locked;
-        if (UI != null) 
-            UI.SetActive(false);
-        QuestUI.SetActive(true);
-        Rotator.SetActive(true);
-        Time.timeScale = 1f;
-        cld.enabled = true;
     }
 */

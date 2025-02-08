@@ -32,40 +32,24 @@ public class ElectricMinigameManager : MonoBehaviour
     //Avvio immediato del minigioco per test
     void Start()
     {
-        //Avvia il minigioco immediatamente per testare
-        mainCamera.enabled = false;
-        secondaryCamera.enabled = true;
-        secondaryCamera.transform.position = initialCameraPos;
-        playerController.transform.position = initialPlayerPos;
-        minigameCanvas.SetActive(false); //Disattiva il canvas per iniziare subito il gioco
-        playerController.enabled = true;
-        cameraScroller.enabled = true;
-    }
-
-    //Queste funzioni rimangono per l'uso con i pulsanti, se deciderai di riattivare il canvas
-    public void ActivateMinigameUI()
-    {
-        mainCamera.enabled = false;
-        secondaryCamera.enabled = true;
-        secondaryCamera.transform.position = initialCameraPos;
-        playerController.transform.position = initialPlayerPos;
-        minigameCanvas.SetActive(true);
+       
+        
     }
 
     public void StartMinigame()
     {
+        mainCamera.enabled = false;
         minigameCanvas.SetActive(false);
+
+        secondaryCamera.transform.position = initialCameraPos;
+        playerController.transform.position = initialPlayerPos;
+
+        secondaryCamera.enabled = true;
         playerController.enabled = true;
         cameraScroller.enabled = true;
-    }
 
-    public void ReturnToMainGame()
-    {
-        playerController.enabled = false;
-        cameraScroller.enabled = false;
-        minigameCanvas.SetActive(false);
-        secondaryCamera.enabled = false;
-        mainCamera.enabled = true;
+        playerController.enabled = true;
+        cameraScroller.enabled = true;
     }
 
     public void OnGameOver()
