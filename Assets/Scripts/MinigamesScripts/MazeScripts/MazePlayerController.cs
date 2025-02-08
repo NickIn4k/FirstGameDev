@@ -1,3 +1,4 @@
+using GLTF.Schema;
 using UnityEngine;
 
 public class MazePlayerController : MonoBehaviour
@@ -5,6 +6,15 @@ public class MazePlayerController : MonoBehaviour
     //Velocità di movimento
     public float moveSpeed = 5f; //Velocità di movimento del giocatore
     public float rotationSpeed = 360f; //Velocità di rotazione (gradi al secondo)
+
+    public Items Item;
+    public GameObject MainCamera;
+    public GameObject Maze;
+    public GameObject Rotator;
+    public GameObject MazePlayer;
+    public GameObject Player;
+    public GameObject Door;
+    public Animator animator;
 
     void Update()
     {
@@ -31,7 +41,33 @@ public class MazePlayerController : MonoBehaviour
     {
         if(other.CompareTag("Maze End"))
         {
-            Debug.Log("Hai vinto");
+            Resume();
+        }
+    }
+
+    private void Resume()
+    {
+        //Riattiva la grafica di base
+        Cursor.lockState = CursorLockMode.Locked;
+        Player.SetActive(true);
+        Rotator.SetActive(true);
+        MainCamera.SetActive(true);
+
+        Maze.SetActive(false);
+        MazePlayer.SetActive(false);
+
+        Time.timeScale = 1f;
+        OpenTheDoor();
+    }
+
+    private void OpenTheDoor()
+    {
+        //Rende il collider della porta un trigger
+
+        if (Door != null)
+        {
+            Door.SetActive(false);
+            animator.SetBool("isOpening", true);
         }
     }
 }

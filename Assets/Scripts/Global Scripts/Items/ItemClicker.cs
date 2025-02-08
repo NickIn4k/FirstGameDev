@@ -27,7 +27,8 @@ public class ItemClicker : MonoBehaviour
                 try { UI.GetComponent<ItemClickerOld>().cld = GetComponent<Collider>(); }
                 catch { Debug.Log("cld non trovato!"); }
                
-                UI.SetActive(true);
+                if(UI!=null) 
+                    UI.SetActive(true);
 
             }
         };
@@ -37,7 +38,8 @@ public class ItemClicker : MonoBehaviour
     {   
         //Riattiva la grafica di base
         Cursor.lockState = CursorLockMode.Locked;
-        UI.SetActive(false);
+        if(UI != null) 
+            UI.SetActive(false);
         if(QuestUI != null) QuestUI.SetActive(true);
         Rotator.SetActive(true);
         Time.timeScale = 1f;
