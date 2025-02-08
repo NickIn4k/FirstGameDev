@@ -16,19 +16,7 @@ public class DialogManager : MonoBehaviour
     public TextMeshProUGUI textComponent;
     public float TextSpeed;
     int index;
-    private readonly string[] lines = { 
-        "Lyra: 'Oh, a human! You don’t see many of us around here anymore...'",
-        "Lira: 'What are you doing here?'",
-        "Lyra: 'My name is Lyra! I’m part of a rebel group fighting against W.R.A.T.H.!'" ,
-        "Lyra: 'Judging by your appearence, you must have heard about us..'",
-        "Lyra: 'I'm looking for someone to help me find my team..'",
-        "Lyra: 'Help me find them! They must be inside that tower down there!'",
-        "Lyra: 'To open the door, you need to find the secret code, but don’t worry..'",
-        "Lyra: 'Somewhere around here, I left my hacking device'",
-        "Lyra: 'It can be used to access the screens and reveal the secret codes...'",
-        "Lyra: 'Try looking around, maybe behind this house, or rather, what’s left of it..'",
-        "Lyra: 'Show me what you've got! It's your first mission.'"
-    };
+    public string[] lines;
 
     private bool isDialogueActive = false;
 
