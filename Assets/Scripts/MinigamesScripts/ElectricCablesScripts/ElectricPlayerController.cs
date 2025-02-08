@@ -64,9 +64,8 @@ public class ElectricPlayerController : MonoBehaviour
         if (other.CompareTag("InvisibleWall"))
         {
             if (minigameManager != null)
-            {
                 minigameManager.OnGameOver(); 
-            }
+            
         }
     }
 }

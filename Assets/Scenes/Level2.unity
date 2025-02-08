@@ -3338,9 +3338,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbf0d5e620487eb44b178b7878c041af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainCamera: {fileID: 1288188919}
-  secondaryCamera: {fileID: 1112736188}
-  minigameCanvas: {fileID: 1774610358}
+  mainCamera: {fileID: 521812418}
+  Game: {fileID: 1678136410}
+  secondaryCamera: {fileID: 1112736184}
+  UI: {fileID: 0}
   playerController: {fileID: 1322907009}
   cameraScroller: {fileID: 1112736189}
   cameraStartPos: {fileID: 1756664434}

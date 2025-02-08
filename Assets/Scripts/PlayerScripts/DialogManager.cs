@@ -93,7 +93,6 @@ public class DialogManager : MonoBehaviour
         }
         else
             EndDialogue();
-        
     }
 
     void EndDialogue()
@@ -101,6 +100,7 @@ public class DialogManager : MonoBehaviour
         isDialogueActive = false;
         playerMovementScript.enabled = true;
         animator.SetBool("isTalking", false);
+        animator.SetBool("isLyra", false);
         playerAnimator.SetBool("isInDialog", false);
         DialogUI.SetActive(false);
     }

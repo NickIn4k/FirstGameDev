@@ -15695,7 +15695,7 @@ GameObject:
   - component: {fileID: 1113258746}
   - component: {fileID: 1113258747}
   m_Layer: 0
-  m_Name: NPC
+  m_Name: Lyra
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
