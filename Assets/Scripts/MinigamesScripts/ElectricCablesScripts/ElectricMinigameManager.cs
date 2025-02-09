@@ -5,20 +5,19 @@ public class ElectricMinigameManager : MonoBehaviour
 {
     //Riferimenti alle Camere
     public GameObject mainCamera; //Camera del gioco principale
-    public GameObject Game; //Camera per il minigioco
-
+    public GameObject Game;       //Camera per il minigioco
     public GameObject secondaryCamera;
 
     //UI Minigame
-    public GameObject UI; //Canvas con i due pulsanti (in trasparenza)
+    public GameObject UI;         //Canvas con i due pulsanti (in trasparenza)
 
     //Riferimenti ai Controller
     public ElectricPlayerController playerController; //Script del giocatore
-    public ElectricCameraScroller cameraScroller; //Script che muove la camera
+    public ElectricCameraScroller cameraScroller;       //Script che muove la camera
 
     //Posizioni Iniziali (marker nella scena)
-    public Transform cameraStartPos; //Punto di partenza per la Secondary Camera
-    public Transform playerStartPos; //Punto di partenza per il giocatore
+    public Transform cameraStartPos;  //Punto di partenza per la Secondary Camera
+    public Transform playerStartPos;  //Punto di partenza per il giocatore
 
     //Variabili per salvare le posizioni iniziali fisse
     private Vector3 initialCameraPos;
@@ -40,9 +39,12 @@ public class ElectricMinigameManager : MonoBehaviour
         UI.SetActive(false);
         playerController.enabled = true;
         cameraScroller.enabled = true;
-
+        
         secondaryCamera.transform.position = initialCameraPos;
         playerController.transform.position = initialPlayerPos;
+        
+        //Resetta la lane del player alla lane centrale
+        playerController.ResetPlayerLane();
     }
 
     public void OnGameOver()
@@ -50,6 +52,7 @@ public class ElectricMinigameManager : MonoBehaviour
         playerController.enabled = false;
         cameraScroller.enabled = false;
         Game.SetActive(false);
+        secondaryCamera.SetActive(true);
         Cursor.lockState = CursorLockMode.None;
         UI.SetActive(true);
     }
