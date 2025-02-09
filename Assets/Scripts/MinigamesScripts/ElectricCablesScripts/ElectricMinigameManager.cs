@@ -52,6 +52,7 @@ public class ElectricMinigameManager : MonoBehaviour
         playerController.enabled = false;
         cameraScroller.enabled = false;
         Game.SetActive(false);
+        mainCamera.SetActive(true);
         secondaryCamera.SetActive(true);
         Cursor.lockState = CursorLockMode.None;
         UI.SetActive(true);

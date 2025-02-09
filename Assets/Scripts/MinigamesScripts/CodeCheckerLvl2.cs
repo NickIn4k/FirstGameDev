@@ -1,25 +1,20 @@
-using System.Threading.Tasks;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class CodeChecker : MonoBehaviour
+public class CodeCheckerLvl2 : MonoBehaviour
 {
     [SerializeField] TMP_InputField InputField; // Input per il codice
-    [SerializeField] TMP_Text OutputText;      
-    [SerializeField] GameObject Door;          
-    [SerializeField] Material OpenMaterial;    
-
+    [SerializeField] TMP_Text OutputText;
+    
+    public GameObject Door;
     public string code;        // Codice segreto da validare
     public static bool isOpen = false;
-    public GameObject EndDoor;
-    private Animator animator;
+    public Animator animator;
 
     void Start()
     {
         isOpen = false;
         InputField.text = "...";
-        animator = EndDoor.GetComponentInChildren<Animator>();
     }
 
     public void ValidateInput()
@@ -28,14 +23,14 @@ public class CodeChecker : MonoBehaviour
         {
             OutputText.text = string.Empty;
             string input = InputField.text; // Input dell'utente
-            Debug.Log(input); 
+            Debug.Log(input);
 
             if (!string.IsNullOrEmpty(input) && input == code)
             {
                 OutputText.text = "     >: Valid input..\n          Now opening the door..";
                 OutputText.color = Color.green; // Testo di feedback in verde
                 isOpen = true;
-                OpenTheDoor(Door, OpenMaterial);
+                OpenTheDoor();
             }
             else
             {
@@ -44,29 +39,17 @@ public class CodeChecker : MonoBehaviour
             }
         }
         else    // La porta è già aperta
-        { 
+        {
             OutputText.text = "     >: The door has already been opened!";
             OutputText.color = Color.yellow;
         }
     }
-
-    private void OpenTheDoor(GameObject Door, Material OpenMaterial)
+    private void OpenTheDoor()
     {
-        // Cambia il materiale della porta
-        Renderer renderer = Door.GetComponent<Renderer>();
-        if (renderer != null)
+        if (Door != null)
         {
-            renderer.material = OpenMaterial; // Applica il materiale "aperto"
-        }
-
-        // Rende il collider della porta un trigger
-        Collider collider = Door.GetComponent<Collider>();
-        if (collider != null)
-        {
+            Door.SetActive(false);
             animator.SetBool("isOpening", true);
-            collider.isTrigger = true; // Attiva la modalità trigger
         }
-
-        Debug.Log("The Tower is now accessible!");
     }
 }

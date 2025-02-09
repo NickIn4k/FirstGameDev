@@ -21510,7 +21510,7 @@ GameObject:
   - component: {fileID: 911661197}
   - component: {fileID: 911661196}
   - component: {fileID: 911661195}
-  - component: {fileID: 911661194}
+  - component: {fileID: 911661198}
   m_Layer: 5
   m_Name: Submit
   m_TagString: Untagged
@@ -21538,24 +21538,6 @@ RectTransform:
   m_AnchoredPosition: {x: -119.6, y: -144.6}
   m_SizeDelta: {x: 180.8698, y: 52.1741}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &911661194
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 911661192}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8aa96d6d49c64634f8da9319e2dcaa58, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  InputField: {fileID: 2030441553}
-  OutputText: {fileID: 504069629}
-  Door: {fileID: 1319343155}
-  OpenMaterial: {fileID: 2100000, guid: d50fd1331d4ce634f9f64c9405499505, type: 2}
-  code: 10492
-  EndDoor: {fileID: 941888539}
 --- !u!114 &911661195
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21600,8 +21582,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 911661194}
-        m_TargetAssemblyTypeName: CodeChecker, Assembly-CSharp
+      - m_Target: {fileID: 911661198}
+        m_TargetAssemblyTypeName: CodeCheckerLvl2, Assembly-CSharp
         m_MethodName: ValidateInput
         m_Mode: 1
         m_Arguments:
@@ -21650,6 +21632,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 911661192}
   m_CullTransparentMesh: 1
+--- !u!114 &911661198
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 911661192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76305eed19f9b3045ae091b13d5da587, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InputField: {fileID: 2030441553}
+  OutputText: {fileID: 504069629}
+  Door: {fileID: 941888539}
+  code: 104926
+  animator: {fileID: 1319343157}
 --- !u!1 &913760195
 GameObject:
   m_ObjectHideFlags: 0
@@ -47445,7 +47444,7 @@ Transform:
   m_GameObject: {fileID: 1916489765}
   serializedVersion: 2
   m_LocalRotation: {x: 0.6450576, y: 0, z: 0, w: 0.76413393}
-  m_LocalPosition: {x: 0, y: 25, z: -6.7}
+  m_LocalPosition: {x: 0, y: 21.6, z: -6.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
