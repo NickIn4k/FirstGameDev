@@ -2591,7 +2591,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &103575866
 Transform:
   m_ObjectHideFlags: 0
@@ -2602,7 +2602,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 285.286, y: 2.623, z: 59.217}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 320016947}
@@ -4600,7 +4600,7 @@ MonoBehaviour:
   MainCamera: {fileID: 521812418}
   Maze: {fileID: 531921029}
   Rotator: {fileID: 1480795454}
-  MazePlayer: {fileID: 0}
+  MazePlayer: {fileID: 103575865}
   Player: {fileID: 164221301}
   ir: {fileID: 0}
 --- !u!1 &186228086
@@ -7689,14 +7689,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 5
   rotationSpeed: 360
-  Item: {fileID: 0}
-  MainCamera: {fileID: 0}
-  Maze: {fileID: 0}
-  Rotator: {fileID: 0}
-  MazePlayer: {fileID: 320016944}
-  Player: {fileID: 0}
-  Door: {fileID: 0}
-  animator: {fileID: 0}
+  Item: {fileID: 11400000, guid: 513cc8e309f4307498633b4a2592a1cc, type: 2}
+  MainCamera: {fileID: 521812418}
+  Maze: {fileID: 531921029}
+  Rotator: {fileID: 1480795454}
+  MazePlayer: {fileID: 103575865}
+  Player: {fileID: 164221301}
+  Door: {fileID: 877492027}
+  animator: {fileID: 11712556}
 --- !u!65 &320016949
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12549,7 +12549,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &531921030
 Transform:
   m_ObjectHideFlags: 0
@@ -53347,6 +53347,6 @@ SceneRoots:
   - {fileID: 1480795456}
   - {fileID: 164221307}
   - {fileID: 1555781276}
+  - {fileID: 103575866}
   - {fileID: 531921030}
   - {fileID: 1678136411}
-  - {fileID: 103575866}
