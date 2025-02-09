@@ -15,9 +15,8 @@ public class ItemClickerOld : MonoBehaviour
     {
         //Riattiva la grafica di base
         Cursor.lockState = CursorLockMode.Locked;
-        if (UI != null)
-            UI.SetActive(false);
-        QuestUI.SetActive(true);
+        if (UI != null) UI.SetActive(false);
+        if(QuestUI != null) QuestUI.SetActive(true);
         Rotator.SetActive(true);
         Time.timeScale = 1f;
         cld.enabled = true;

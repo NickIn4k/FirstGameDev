@@ -10,13 +10,12 @@ public class CodeChecker : MonoBehaviour
     [SerializeField] GameObject Door;          
     [SerializeField] Material OpenMaterial;    
 
-    private string code;        // Codice segreto da validare
+    public string code;        // Codice segreto da validare
     public static bool isOpen = false;
     public GameObject EndDoor;
     private Animator animator;
     void Start()
     {
-        code = "143652"; 
         isOpen = false;
         InputField.text = "...";
         animator = EndDoor.GetComponentInChildren<Animator>();
