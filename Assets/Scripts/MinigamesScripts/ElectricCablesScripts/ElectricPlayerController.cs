@@ -1,7 +1,14 @@
+using GLTF.Schema;
 using UnityEngine;
 
 public class ElectricPlayerController : MonoBehaviour
 {
+    public GameObject MinigameCamera;
+    public GameObject MainCamera;
+    public GameObject Door;
+    public GameObject UI;
+    public Animator Animator;
+
     public float horizontalSpeed = 5f;
     public float laneSwitchSpeed = 5f;
 
@@ -65,7 +72,10 @@ public class ElectricPlayerController : MonoBehaviour
         }
         else if (other.CompareTag("ElectricMinigameEnd"))
         {
-            Debug.Log("Hai vinto");
+            MainCamera.SetActive(true);
+            MinigameCamera.SetActive(false);
+            UI.SetActive(false);
+            OpenTheDoor();
         }
     }
     
@@ -77,5 +87,16 @@ public class ElectricPlayerController : MonoBehaviour
         Vector3 pos = transform.position;
         pos.y = targetY;
         transform.position = pos;
+    }
+
+    private void OpenTheDoor()
+    {
+        //Rende il collider della porta un trigger
+
+        if (Door != null)
+        {
+            Door.SetActive(false);
+            Animator.SetBool("isOpening", true);
+        }
     }
 }
