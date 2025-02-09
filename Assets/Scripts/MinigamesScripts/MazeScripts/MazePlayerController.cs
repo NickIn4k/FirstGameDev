@@ -1,4 +1,5 @@
 using GLTF.Schema;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class MazePlayerController : MonoBehaviour
@@ -15,25 +16,28 @@ public class MazePlayerController : MonoBehaviour
     public GameObject Player;
     public GameObject Door;
     public Animator animator;
-
+    
     void Update()
     {
         //Input WASD per il movimento
         float moveX = Input.GetAxisRaw("Horizontal"); //Input orizzontale
         float moveY = Input.GetAxisRaw("Vertical"); //Input verticale
-
+       
         //Calcola la direzione di movimento sul piano XZ
         Vector3 movement = new Vector3(moveX, 0f, moveY).normalized;
 
         //Se c'è input, ruota gradualmente verso la direzione di movimento
         if(movement != Vector3.zero)
         {
-            Quaternion targetRotation = Quaternion.LookRotation(movement, Vector3.up);
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+            Quaternion targetRotation = Quaternion.LookRotation(movement, Vector3.right);   
+            Quaternion targetRotation1 = Quaternion.LookRotation(movement, Vector3.back);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime); 
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation1, rotationSpeed * Time.deltaTime);          
         }
 
         //Sposta il giocatore nella direzione di movimento
         transform.position += movement * moveSpeed * Time.deltaTime;
+        
     }
 
     //Controlla le collisioni con l'oggetto "Maze End"
