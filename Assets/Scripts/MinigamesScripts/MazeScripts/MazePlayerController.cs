@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class MazePlayerController : MonoBehaviour
 {
-    // Velocità di movimento e rotazione
+    //Velocità di movimento e rotazione
     public float moveSpeed = 5f;
     public float rotationSpeed = 360f;
 
@@ -16,50 +16,50 @@ public class MazePlayerController : MonoBehaviour
     public GameObject Door;
     public Animator animator;
 
-    // Salva la rotazione iniziale (impostata nell'editor)
+    //Salva la rotazione iniziale (impostata nell'editor)
     private Vector3 initialEuler;
 
-    // Offset per correggere l'orientamento del modello sull'asse Y (es. 180 se il modello è capovolto)
+    //Offset per correggere l'orientamento del modello sull'asse Y (es. 180 se il modello è capovolto)
     public float yRotationOffset = 180f;
 
     void Awake()
     {
-        // Salva la rotazione iniziale (X, Y, Z) impostata nell'editor
+        //Salva la rotazione iniziale (X, Y, Z) impostata nell'editor
         initialEuler = transform.rotation.eulerAngles;
 
-        // Impedisce al Rigidbody di ruotare sugli assi X e Z
+        //Impedisce al Rigidbody di ruotare sugli assi X e Z
         Rigidbody rb = GetComponent<Rigidbody>();
         rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
     }
 
     void Update()
     {
-        // Determina la direzione basata sui tasti WASD (movimento nelle 4 direzioni)
+        //Determina la direzione basata sui tasti WASD (movimento nelle 4 direzioni)
         Vector3 movement = Vector3.zero;
-        if (Input.GetKey(KeyCode.W))
+        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
         {
-            movement = Vector3.forward; // Nord (asse Z positivo)
+            movement = Vector3.forward; //Nord (asse Z positivo)
         }
-        else if (Input.GetKey(KeyCode.S))
+        else if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
         {
-            movement = Vector3.back;    // Sud (asse Z negativo)
+            movement = Vector3.back;    //Sud (asse Z negativo)
         }
-        else if (Input.GetKey(KeyCode.A))
+        else if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
         {
-            movement = Vector3.left;    // Ovest (asse X negativo)
+            movement = Vector3.left;    //Ovest (asse X negativo)
         }
-        else if (Input.GetKey(KeyCode.D))
+        else if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
         {
-            movement = Vector3.right;   // Est (asse X positivo)
+            movement = Vector3.right;   //Est (asse X positivo)
         }
 
         if (movement != Vector3.zero)
         {
-            // Muove il giocatore nella direzione scelta
+            //Muove il giocatore nella direzione scelta
             transform.position += movement * moveSpeed * Time.deltaTime;
 
-            // Calcola la rotazione target basata sul movimento
-            // Applichiamo un offset sull'asse Y per correggere la direzione del modello
+            //Calcola la rotazione target basata sul movimento
+            //Applichiamo un offset sull'asse Y per correggere la direzione del modello
             Quaternion fullTargetRotation = Quaternion.LookRotation(movement, Vector3.up) *
                                             Quaternion.Euler(0, yRotationOffset, 0);
             float targetY = fullTargetRotation.eulerAngles.y;
@@ -82,7 +82,7 @@ public class MazePlayerController : MonoBehaviour
 
     private void Resume()
     {
-        // Riattiva la grafica di base e altre impostazioni di fine livello
+        //Riattiva la grafica di base e altre impostazioni di fine livello
         Cursor.lockState = CursorLockMode.Locked;
         Player.SetActive(true);
         Rotator.SetActive(true);

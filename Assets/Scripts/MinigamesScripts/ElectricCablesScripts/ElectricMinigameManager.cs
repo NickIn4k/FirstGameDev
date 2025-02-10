@@ -3,27 +3,27 @@ using UnityEngine.UI;
 
 public class ElectricMinigameManager : MonoBehaviour
 {
-    //Riferimenti alle Camere
     public GameObject mainCamera; //Camera del gioco principale
-    public GameObject Game;       //Camera per il minigioco
-    public GameObject secondaryCamera;
+    public GameObject Game;       
+    public GameObject secondaryCamera;  //Camera per il minigioco
 
     //UI Minigame
-    public GameObject UI;         //Canvas con i due pulsanti (in trasparenza)
+    public GameObject UI;
 
     //Riferimenti ai Controller
     public ElectricPlayerController playerController; //Script del giocatore
     public ElectricCameraScroller cameraScroller;       //Script che muove la camera
 
-    //Posizioni Iniziali (marker nella scena)
     public Transform cameraStartPos;  //Punto di partenza per la Secondary Camera
     public Transform playerStartPos;  //Punto di partenza per il giocatore
 
     //Variabili per salvare le posizioni iniziali fisse
     private Vector3 initialCameraPos;
     private Vector3 initialPlayerPos;
+    public GameObject Rotator;
+    public GameObject Player;
 
-    //In Awake memorizziamo le posizioni iniziali dei marker
+    //In Awake memorizziamo le posizioni iniziali
     void Awake()
     {
         initialCameraPos = cameraStartPos.position;
@@ -39,6 +39,7 @@ public class ElectricMinigameManager : MonoBehaviour
         UI.SetActive(false);
         playerController.enabled = true;
         cameraScroller.enabled = true;
+        Player.SetActive(false);
         
         secondaryCamera.transform.position = initialCameraPos;
         playerController.transform.position = initialPlayerPos;
@@ -56,5 +57,19 @@ public class ElectricMinigameManager : MonoBehaviour
         secondaryCamera.SetActive(true);
         Cursor.lockState = CursorLockMode.None;
         UI.SetActive(true);
+    }
+
+    public void OnWin()
+    {
+        playerController.enabled = false;
+        cameraScroller.enabled = false;
+        Game.SetActive(false);
+        mainCamera.SetActive(true);
+        secondaryCamera.SetActive(false);
+        Cursor.lockState = CursorLockMode.Locked;
+        UI.SetActive(false);
+        Player.SetActive(true);
+        Rotator.SetActive(true);
+        Time.timeScale = 1f;
     }
 }

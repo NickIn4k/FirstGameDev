@@ -72,9 +72,7 @@ public class ElectricPlayerController : MonoBehaviour
         }
         else if (other.CompareTag("ElectricMinigameEnd"))
         {
-            MainCamera.SetActive(true);
-            MinigameCamera.SetActive(false);
-            UI.SetActive(false);
+            minigameManager.OnWin();
             OpenTheDoor();
         }
     }
