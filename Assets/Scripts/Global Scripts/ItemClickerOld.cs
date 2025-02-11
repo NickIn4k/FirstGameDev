@@ -14,6 +14,7 @@ public class ItemClickerOld : MonoBehaviour
     public void Resume()
     {
         //Riattiva la grafica di base
+        GeneralVariables.guiActive = false;
         Cursor.lockState = CursorLockMode.Locked;
         if (UI != null) UI.SetActive(false);
         if(QuestUI != null) QuestUI.SetActive(true);
@@ -27,7 +28,7 @@ public class ItemClickerOld : MonoBehaviour
  *   
  *  private void OnMouseDown()  //nel click
     {
-        if (Item.Id == 0 && InventoryManager.Manager.Inventory.Count > 0)    //Se è presente l'oggetto
+        if (Item.Id == 0 && InventoryManager.Manager.Inventory.Count > 0)    //Se ï¿½ presente l'oggetto
         {
             //Disattiva o attiva componenti UI
             QuestUI.SetActive(false);

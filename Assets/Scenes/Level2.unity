@@ -3678,7 +3678,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -270.94, y: -68.06, z: 875.76}
-  m_LocalScale: {x: 0.49795, y: 0.49795, z: 0.49795}
+  m_LocalScale: {x: 0.31551677, y: 0.2673138, z: 0.37119183}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 235426896}
@@ -3950,7 +3950,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 1, b: 1, a: 1}
+      maxColor: {r: 0.49019608, g: 0.9764706, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -4014,7 +4014,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 5
+      scalar: 15
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -4067,7 +4067,7 @@ ParticleSystem:
     startSizeY:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 5
+      scalar: 15
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -4120,7 +4120,7 @@ ParticleSystem:
     startSizeZ:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 5
+      scalar: 15
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -4331,7 +4331,7 @@ ParticleSystem:
         m_RotationOrder: 4
     randomizeRotationDirection: 0
     gravitySource: 0
-    maxNumParticles: 2000
+    maxNumParticles: 100
     customEmitterVelocity: {x: 0, y: 0, z: 0}
     size3D: 1
     rotation3D: 0
@@ -4391,7 +4391,7 @@ ParticleSystem:
   ShapeModule:
     serializedVersion: 6
     enabled: 1
-    type: 0
+    type: 5
     angle: 25
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
@@ -19861,8 +19861,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 531921029}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 284, y: 8.8, z: 61.2}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 217.73999, y: -0.40115738, z: -288.96994}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -20048,7 +20048,7 @@ Transform:
   - {fileID: 2118337543}
   - {fileID: 2014512754}
   - {fileID: 2014030371}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1678136411}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &533430195
 GameObject:
@@ -37158,7 +37158,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2146c454366d7d24e926c6086c95aaf4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scrollSpeed: 7.5
+  scrollSpeed: 14
   cameraEndPos: {fileID: 1578509587}
 --- !u!1 &1115773143
 GameObject:
@@ -44040,7 +44040,7 @@ MonoBehaviour:
   Door: {fileID: 613769021}
   UI: {fileID: 1774610358}
   Animator: {fileID: 1180099144}
-  horizontalSpeed: 7.5
+  horizontalSpeed: 14
   laneSwitchSpeed: 5
   minigameManager: {fileID: 145053816}
 --- !u!65 &1322907010
@@ -56471,6 +56471,7 @@ Transform:
   - {fileID: 1578509587}
   - {fileID: 709937453}
   - {fileID: 217470527}
+  - {fileID: 531921030}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1678806475
@@ -68248,7 +68249,6 @@ SceneRoots:
   - {fileID: 164221307}
   - {fileID: 1555781276}
   - {fileID: 103575866}
-  - {fileID: 531921030}
   - {fileID: 1678136411}
   - {fileID: 579472396}
   - {fileID: 145849076}

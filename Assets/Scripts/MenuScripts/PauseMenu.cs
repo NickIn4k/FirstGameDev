@@ -1,3 +1,4 @@
+using Settings;
 using UnityEngine;
 
 public class PauseMenu : MonoBehaviour
@@ -45,7 +46,9 @@ public class PauseMenu : MonoBehaviour
 
     void Resume(int index)
     {
-        Cursor.lockState = CursorLockMode.Locked;
+        if (!GeneralVariables.guiActive)
+            CursorSettings.Lock();
+
         if (index == 1 && !InventoryOn) 
         {
             PauseMenuUI.SetActive(false); // Nascondi pannello
@@ -78,7 +81,8 @@ public class PauseMenu : MonoBehaviour
 
     void Pause(int index)
     {
-        Cursor.lockState = CursorLockMode.None;
+        CursorSettings.Unlock();
+        
         if (index == 1 && !InventoryOn) 
         {
             PauseMenuUI.SetActive(true); 

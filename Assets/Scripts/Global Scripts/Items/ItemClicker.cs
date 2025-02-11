@@ -1,3 +1,4 @@
+using Settings;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -19,11 +20,12 @@ public class ItemClicker : MonoBehaviour
             if (Item.Id == 0 && InventoryManager.Manager.Inventory.Count >= 0)    
             {
                 //Disattiva o attiva componenti UI
+                GeneralVariables.guiActive = true;
                 if(QuestUI != null) QuestUI.SetActive(false);
                 Rotator.SetActive(false);
                 GetComponent<MeshCollider>().enabled = false;
                 //Time.timeScale = 0f;    //blocco il gioco
-                Cursor.lockState = CursorLockMode.None;
+                CursorSettings.Unlock();
                 try { UI.GetComponent<ItemClickerOld>().cld = GetComponent<Collider>(); }
                 catch { Debug.Log("cld non trovato!"); }
                
@@ -35,7 +37,8 @@ public class ItemClicker : MonoBehaviour
     public void Resume()
     {   
         //Riattiva la grafica di base
-        Cursor.lockState = CursorLockMode.Locked;
+        GeneralVariables.guiActive = false;
+        CursorSettings.Lock();
         if(UI != null) 
             UI.SetActive(false);
         if(QuestUI != null) QuestUI.SetActive(true);

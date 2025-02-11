@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Settings;
+using UnityEngine;
 
 public class Level2CanvasManager : MonoBehaviour
 {
@@ -25,9 +26,13 @@ public class Level2CanvasManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))   // ESC 
         {
             if (GamePaused)
+            {
                 Resume(1); // (1 = menu di pausa)
+            }   
             else
+            {
                 Pause(1);
+            }
         }
 
         if (Input.GetKeyDown(KeyCode.Tab)) //TAB
@@ -41,7 +46,9 @@ public class Level2CanvasManager : MonoBehaviour
 
     void Resume(int index)
     {
-        Cursor.lockState = CursorLockMode.Locked;
+        if (!GeneralVariables.guiActive)
+            CursorSettings.Lock();
+
         if (index == 1 && !InventoryOn)
         {
             PauseMenuUI.SetActive(false); // Nascondi pannello
@@ -67,7 +74,8 @@ public class Level2CanvasManager : MonoBehaviour
 
     void Pause(int index)
     {
-        Cursor.lockState = CursorLockMode.None;
+        CursorSettings.Unlock();
+        
         if (index == 1 && !InventoryOn)
         {
             PauseMenuUI.SetActive(true);
