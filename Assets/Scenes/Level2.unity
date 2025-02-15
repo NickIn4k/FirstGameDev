@@ -37097,7 +37097,7 @@ MonoBehaviour:
   player: {fileID: 164221307}
   target: {fileID: 871402059}
   DialogUI: {fileID: 106100548}
-  detectionRadius: 3
+  detectionRadius: 5
   Player: {fileID: 164221301}
   textComponent: {fileID: 1799327604}
   TextSpeed: -0.1
