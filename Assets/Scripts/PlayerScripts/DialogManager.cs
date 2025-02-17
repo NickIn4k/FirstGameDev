@@ -17,6 +17,7 @@ public class DialogManager : MonoBehaviour
     public float TextSpeed;
     int index;
     public string[] lines;
+    public bool CanPlayAgain = false;
 
     private bool isDialogueActive = false;
 
@@ -26,7 +27,7 @@ public class DialogManager : MonoBehaviour
         playerMovementScript = player.GetComponent<Movement>();
         playerAnimator = player.GetComponentInChildren<Animator>();
         textComponent.text = string.Empty;
-        
+
         if (gameObject.name == "Lyra")
             animator.SetBool("isLyra", true);
         else
@@ -50,7 +51,6 @@ public class DialogManager : MonoBehaviour
         {
             if (textComponent.text == lines[index])
                 NextLine();
-            
             else
             {
                 StopAllCoroutines();
@@ -63,7 +63,6 @@ public class DialogManager : MonoBehaviour
     {
         isDialogueActive = true;
         detectionRadius = -1; // Evita che il dialogo si riattivi
-
         Debug.Log("Il player è vicino all'oggetto!");
         animator.SetBool("isTalking", true);
         playerAnimator.SetBool("isInDialog", true);
@@ -103,5 +102,14 @@ public class DialogManager : MonoBehaviour
         animator.SetBool("isLyra", false);
         playerAnimator.SetBool("isInDialog", false);
         DialogUI.SetActive(false);
+
+        if (CanPlayAgain)
+            StartCoroutine(ResetDetectionRadius());
+    }
+
+    IEnumerator ResetDetectionRadius()
+    {
+        yield return new WaitForSeconds(3f);
+        detectionRadius = 4.5f;
     }
 }
