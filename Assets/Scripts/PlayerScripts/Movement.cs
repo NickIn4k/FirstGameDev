@@ -55,16 +55,12 @@ public class Movement : MonoBehaviour
         if (verticalInput > 0)
         {
             animator.SetBool("isWalkingForward", true);
-            animator.SetBool("isWalkingBack", false);
-            animator.SetBool("isWalkingRight", false);
-            animator.SetBool("isWalkingLeft", false);
+            
         }
         else if(verticalInput < 0 )
         {
             animator.SetBool("isWalkingBack", true);
-            animator.SetBool("isWalkingForward", false);
-            animator.SetBool("isWalkingRight", false);
-            animator.SetBool("isWalkingLeft", false);
+      
         }
         else if(horizontalInput < 0)
         {
