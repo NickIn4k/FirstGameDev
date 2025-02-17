@@ -2855,6 +2855,38 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 52798026}
   m_CullTransparentMesh: 1
+--- !u!1 &58894804 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 5b82b346346075e4a85bf6cd0ff1affa, type: 3}
+  m_PrefabInstance: {fileID: 741197761}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &58894805 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 5b82b346346075e4a85bf6cd0ff1affa, type: 3}
+  m_PrefabInstance: {fileID: 741197761}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &58894806
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 58894804}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9bbfeb0cc6c1e514ca64da240aa3efee, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 1
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &59553092
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -32969,6 +33001,82 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.0458369, y: 0.007840794, z: 0.0104652755}
   m_Center: {x: -0.000057058398, y: 0.03743615, z: 0.00009235692}
+--- !u!1001 &741197761
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1711801878}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 5b82b346346075e4a85bf6cd0ff1affa, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.3889
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5b82b346346075e4a85bf6cd0ff1affa, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.3889
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5b82b346346075e4a85bf6cd0ff1affa, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.3889
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5b82b346346075e4a85bf6cd0ff1affa, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -50.11
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5b82b346346075e4a85bf6cd0ff1affa, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 36.59
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5b82b346346075e4a85bf6cd0ff1affa, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 88.53
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5b82b346346075e4a85bf6cd0ff1affa, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.57977915
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5b82b346346075e4a85bf6cd0ff1affa, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5b82b346346075e4a85bf6cd0ff1affa, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.81477374
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5b82b346346075e4a85bf6cd0ff1affa, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5b82b346346075e4a85bf6cd0ff1affa, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5b82b346346075e4a85bf6cd0ff1affa, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 109.13
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5b82b346346075e4a85bf6cd0ff1affa, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7303206622515095964, guid: 5b82b346346075e4a85bf6cd0ff1affa, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 9034040193485772877, guid: 5b82b346346075e4a85bf6cd0ff1affa, type: 3}
+    - target: {fileID: 919132149155446097, guid: 5b82b346346075e4a85bf6cd0ff1affa, type: 3}
+      propertyPath: m_Name
+      value: Ely By K.Atienza@Talking
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5b82b346346075e4a85bf6cd0ff1affa, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 58894806}
+  m_SourcePrefab: {fileID: 100100000, guid: 5b82b346346075e4a85bf6cd0ff1affa, type: 3}
 --- !u!1001 &744642722
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -36406,7 +36514,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6836354889480822465, guid: f11c79eb4fcc59b4daba9f98ada47a2c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 15.347
+      value: 15.024
       objectReference: {fileID: 0}
     - target: {fileID: 6836354889480822465, guid: f11c79eb4fcc59b4daba9f98ada47a2c, type: 3}
       propertyPath: m_LocalRotation.w
@@ -37102,10 +37210,17 @@ MonoBehaviour:
   textComponent: {fileID: 1799327604}
   TextSpeed: -0.1
   lines:
-  - '"Frase1"'
-  - '"Frase2"'
-  - '"Frase3"'
-  - '"Frase4"'
+  - '"Lyra: ''Oh, you made it. I didn''t think you were cut for the job, but I guess
+    I was wrong.''"'
+  - '"Lyra: ''Since you are here, help me out, will you?''"'
+  - '"Lyra: ''You better keep your guard high in a dark place like this.''"'
+  - '"Lyra: ''You know, it wasn''t always like this. In the past, sunlight would
+    shine through every window.''"'
+  - '"Lyra: ''But now we are surrounded by darkness everywhere we go.''"'
+  - '"Lyra: ''But we are tired of that, and we need every hand we can find, so please
+    help me find my friends.''"'
+  - '"Lyra: ''You don''t need me to show you again how to use the hacking device,
+    right?''"'
 --- !u!1 &875946139
 GameObject:
   m_ObjectHideFlags: 0
@@ -56383,7 +56498,7 @@ GameObject:
   - component: {fileID: 1336226706}
   - component: {fileID: 1336226705}
   m_Layer: 0
-  m_Name: Cyborg
+  m_Name: Aren
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -56409,9 +56524,19 @@ MonoBehaviour:
   textComponent: {fileID: 1799327604}
   TextSpeed: -0.1
   lines:
-  - '"frase1"'
-  - '"frase2"'
-  - '"frase3"'
+  - '"Aren: ''Wo, wo, wo! Who are you?''"'
+  - '"Aren: ''Did you say Lyra sent you? How can I believe that?''"'
+  - '"Aren: ''Now I believe you. Lyra would never lend her hacking device to someone
+    she didn''t think was worthy of her trust.''"'
+  - '"Aren: ''How I got stuck in here? Well, I was hungry, and I must have been caught
+    up in a trap while I was looking for food.''"'
+  - '"Aren: ''The upside in this is that I have found what I came looking for, so
+    now I can finally eat.''"'
+  - '"Aren: ''Oh yeah, I almost forgot. I found this strange post-it behind a cupboard.
+    I don''t know if it might help you.''"'
+  - '"Aren: ''There was a code written on it: 104926. Maybe it will be useful.''"'
+  - '"Aren: ''There was a code written on it: 104926. Maybe it will be useful.''"  '
+  - '"Aren: ''Now go and let me eat in peace. I''ll catch up later.''"'
 --- !u!4 &1336226706
 Transform:
   m_ObjectHideFlags: 0
@@ -72382,6 +72507,66 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1710741531}
   m_Mesh: {fileID: 8885013454088630489, guid: 5cb2da6198e920a4cadc368236fd9b6b, type: 3}
+--- !u!1 &1711801876
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1711801878}
+  - component: {fileID: 1711801877}
+  m_Layer: 0
+  m_Name: Kade
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1711801877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1711801876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3611b77402b77cc448f7e36617a785a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 164221307}
+  target: {fileID: 58894805}
+  DialogUI: {fileID: 106100548}
+  detectionRadius: 3
+  Player: {fileID: 164221301}
+  textComponent: {fileID: 1799327604}
+  TextSpeed: -0.1
+  lines:
+  - '"Kade: ''Who are you? Who sent you here? Are you a spy?''"'
+  - '"Kade: ''I see Lyra sent you. Well, thanks for finding me.''"'
+  - '"Kade: ''Oh, you want to know where the others are?''"'
+  - '"Kade: ''We separated a while ago, but if I know Aren well enough, he must be
+    trying to find food, just like always.''"'
+  - '"Kade: ''Oh, and one last thing before you go. I think there''s a key-card hidden
+    somewhere on this floor that can lead us to the next one.''"'
+--- !u!4 &1711801878
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1711801876}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: -0.60848445, z: 0, w: 0.79356587}
+  m_LocalPosition: {x: 74.12, y: -36.6313, z: 38.22}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 58894805}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -74.96, z: 0}
 --- !u!1 &1713003553
 GameObject:
   m_ObjectHideFlags: 0
@@ -77217,7 +77402,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6836354889480822465, guid: f11c79eb4fcc59b4daba9f98ada47a2c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 27.016
+      value: 26.86
       objectReference: {fileID: 0}
     - target: {fileID: 6836354889480822465, guid: f11c79eb4fcc59b4daba9f98ada47a2c, type: 3}
       propertyPath: m_LocalPosition.y
@@ -86382,6 +86567,7 @@ SceneRoots:
   - {fileID: 1637893918}
   - {fileID: 871402059}
   - {fileID: 1336226706}
+  - {fileID: 1711801878}
   - {fileID: 521812419}
   - {fileID: 1480795456}
   - {fileID: 164221307}
