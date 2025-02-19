@@ -6,21 +6,13 @@ public class ItemClickerOld : MonoBehaviour
     public Items Item;
     public GameObject UI;
     public GameObject QuestUI;
-    public GameObject Rotator;
 
     [Header("Non toccare")]
     public Collider cld;
 
     public void Resume()
     {
-        //Riattiva la grafica di base
-        GeneralVariables.guiActive = false;
-        Cursor.lockState = CursorLockMode.Locked;
-        if (UI != null) UI.SetActive(false);
-        if(QuestUI != null) QuestUI.SetActive(true);
-        Rotator.SetActive(true);
-        Time.timeScale = 1f;
-        cld.enabled = true;
+        GeneralMethods.ResumeGame(UI, QuestUI, cld);
     }
 }
 

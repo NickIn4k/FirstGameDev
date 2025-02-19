@@ -15,7 +15,7 @@ public class PauseMenu : MonoBehaviour
     public GameObject ScreenUI;     // Schermo esterno
     public GameObject CodeUI;       // Schermo di codice
     public GameObject DescriptionUI; // Descrizione nell'inventario
-    public GameObject Rotator;      // Rotator della Main Camera
+    GameObject Rotator;      // Rotator della Main Camera
 
     void Start()
     {
@@ -23,6 +23,8 @@ public class PauseMenu : MonoBehaviour
         InventoryOn = false;
         OnScreen = false;
         OnCode = false;
+
+        Rotator = GeneralMethods.GetRotator();
     }
 
     void Update()

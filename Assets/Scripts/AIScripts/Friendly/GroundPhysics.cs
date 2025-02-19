@@ -2,11 +2,14 @@ using UnityEngine;
 
 public class GroundPhysics : MonoBehaviour
 {
-    bool isGrounded;
-    public float groundDrag;
-    public LayerMask ground;
 
     Rigidbody rb;
+
+    bool isGrounded;
+    public LayerMask ground;
+
+    [Header("Stats")]
+    public float groundDrag;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()

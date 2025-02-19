@@ -1,9 +1,10 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Rotator : MonoBehaviour
 {
-    public Vector2 turn;
-    public Transform plr;
+    Vector2 turn;
+    Transform plr;
 
     // Change the angle restrictions
     public int maxAngleY = 60; // Suggested less than 90
@@ -14,13 +15,14 @@ public class Rotator : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        plr = GeneralMethods.GetPlayer().transform;
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.position = plr.position + new Vector3(0, heightFromPlayer);
+        Vector3 newPos = plr.position + new Vector3(0, heightFromPlayer);
+        transform.position = newPos;
 
         // Handle mouse movement
         turn.x += Input.GetAxis("Mouse X") * Sensitivity;

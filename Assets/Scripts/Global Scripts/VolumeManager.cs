@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.UI;
 
 public class VolumeManager : MonoBehaviour
@@ -26,6 +27,8 @@ public class VolumeManager : MonoBehaviour
     {
         //Aggiorna il volume globale
         AudioListener.volume = volume;
+
+        Debug.Log(volume);
 
         //Salva il valore nei PlayerPrefs
         PlayerPrefs.SetFloat(VolumeKey, volume);

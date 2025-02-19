@@ -1,3 +1,4 @@
+using GLTF.Schema;
 using System;
 using System.Linq;
 using UnityEngine;
@@ -7,8 +8,9 @@ public class InteractReceiver : MonoBehaviour
 {
     bool canPop = false;
     public bool canPopAgain = true;
-    public Transform lookAt;
-    public Canvas canvas;
+    Transform lookAt;
+    GameObject canvasGameObject;
+    Canvas canvas;
 
     Canvas popUp;
 
@@ -17,6 +19,11 @@ public class InteractReceiver : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        canvasGameObject = GeneralMethods.GetInteractCanvas();
+        canvas = canvasGameObject.GetComponent<Canvas>();
+
+        lookAt = GeneralMethods.GetCamera().GetComponentsInChildren<Transform>()[1];
+
         InteractSender.OnShouldPopup += ShouldPopupHandler;
         InteractSender.OnShouldNotPopup += ShouldNotPopupHandler;
 
@@ -50,7 +57,7 @@ public class InteractReceiver : MonoBehaviour
 
     private void OnDestroy()
     {
-        Unsubscribe();
+        Unsubscribe(); // Do not touch
     }
 
     void Interacted()

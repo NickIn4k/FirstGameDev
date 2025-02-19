@@ -5,19 +5,19 @@ public class Movement : MonoBehaviour
 {
     bool isGrounded;
 
-    public float groundDrag;
-
     Rigidbody rb;
-
-    public Transform rotator;
+    Transform rotator;
 
     [Header("Movement Speed")]
     public float moveSpeed = 10f;
+    public float groundDrag;
 
     [Header("Rotation Speed")]
     public float rLerp = .075f; // Speed of easing
 
+    [Header("What is ground")]
     public LayerMask ground;
+
     Vector3 move;
 
     float horizontalInput;
@@ -27,6 +27,7 @@ public class Movement : MonoBehaviour
 
     void Awake()
     { 
+        rotator = GeneralMethods.GetRotator().transform;
         CursorSettings.Lock();
     }
 

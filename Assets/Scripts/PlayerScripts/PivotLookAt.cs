@@ -2,14 +2,14 @@ using UnityEngine;
 
 public class PivotLookAt : MonoBehaviour
 {
-    public Transform lookAt;
+    Transform lookAt;
     public int maxDistance = 5; // Maximum distance from player
     public int minDistance = 2; // Minimum distance from player
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        lookAt = GeneralMethods.GetRotator().GetComponent<Transform>();
     }
 
     // Update is called once per frame

@@ -12,7 +12,6 @@ public class Level2CanvasManager : MonoBehaviour
     public GameObject InventoryUI;  // Inventario
     public GameObject ScreenUI;     // Schermo esterno
     public GameObject DescriptionUI; // Descrizione nell'inventario
-    public GameObject Rotator;      // Rotator della Main Camera
 
     void Start()
     {
@@ -68,7 +67,7 @@ public class Level2CanvasManager : MonoBehaviour
         }
 
         //Reset della grafica UI e del tempo del gioco
-        Rotator.SetActive(true);
+        GeneralMethods.GetRotator().SetActive(true);
         Time.timeScale = 1f;        // Tempo di gioco a velocit� normale
     }
 
@@ -89,7 +88,7 @@ public class Level2CanvasManager : MonoBehaviour
         }
 
         //Disattiva oggetti e blocca il tempo di gioco
-        Rotator.SetActive(false);
+        GeneralMethods.GetRotator().SetActive(false);
 
         if (ScreenUI.activeSelf)
         {
