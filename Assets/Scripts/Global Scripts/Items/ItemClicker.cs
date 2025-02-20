@@ -6,8 +6,13 @@ using UnityEngine;
 public class ItemClicker : MonoBehaviour
 {
     public Items Item;
-    public GameObject UI;
-    public GameObject QuestUI;
+
+    #nullable enable
+    public GameObject? UI = null;
+    public GameObject? QuestUI = null;
+
+
+    #nullable disable
 
     InteractReceiver ir;
 

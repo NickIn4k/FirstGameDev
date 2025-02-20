@@ -28,7 +28,9 @@ public static class GeneralMethods
     {
         return GameObject.FindObjectsByType<GameObject>(findObjectsInactive: FindObjectsInactive.Include, sortMode: FindObjectsSortMode.None).Where((gameObject, b) => gameObject.name == "Interact").ToArray()[0];
     }
-    public static void FreezeGame(GameObject UI = null, GameObject QuestUI = null, Collider collider = null)
+
+    #nullable enable
+    public static void FreezeGame(GameObject? UI = null, GameObject? QuestUI = null, Collider? collider = null)
     {
         //Disattiva o attiva componenti UI
         GeneralVariables.guiActive = true;
@@ -39,15 +41,15 @@ public static class GeneralMethods
             QuestUI.SetActive(false);
         if (collider != null)
             collider.enabled = false;
-        if (UI != null && collider != null)
-            UI.GetComponent<ItemClickerOld>().cld = collider;
+        if (UI != null && collider != null && UI.TryGetComponent<ItemClickerOld>(out var cd))
+            cd.cld = collider;
 
         GetRotator().SetActive(false);
 
         //Time.timeScale = 0f;    //blocco il gioco
         CursorSettings.Unlock();
     }
-    public static void ResumeGame(GameObject UI = null, GameObject QuestUI = null, Collider collider = null)
+    public static void ResumeGame(GameObject? UI = null, GameObject? QuestUI = null, Collider? collider = null)
     {
         //Riattiva la grafica di base
         GeneralVariables.guiActive = false;
@@ -64,4 +66,6 @@ public static class GeneralMethods
         //Time.timeScale = 1f;
         CursorSettings.Lock();
     }
+
+    #nullable disable
 }
