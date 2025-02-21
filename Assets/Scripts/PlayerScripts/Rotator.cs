@@ -9,7 +9,7 @@ public class Rotator : MonoBehaviour
     // Change the angle restrictions
     public int maxAngleY = 60; // Suggested less than 90
     public int minAngleY = -40; // Suggested more than -90
-    public float Sensitivity = .5f; // Sensitivity
+    public float Sensitivity = GeneralVariables.Sensitivity; // Sensitivity
     public float heightFromPlayer = .5f; // Height from player center of gravity
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
