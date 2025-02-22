@@ -20985,7 +20985,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd01633e852741438c09fc973c40de9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  volumeSlider: {fileID: 991540960}
 --- !u!114 &347922531
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -47121,17 +47120,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 991236961}
   m_Mesh: {fileID: 8885013454088630489, guid: 5cb2da6198e920a4cadc368236fd9b6b, type: 3}
---- !u!114 &991540960 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8893929711640300963, guid: a3961d245d0637546b79c5fc9fd96580, type: 3}
-  m_PrefabInstance: {fileID: 241625394}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &993132689
 GameObject:
   m_ObjectHideFlags: 0
@@ -71760,7 +71748,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &1562166626
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -78596,8 +78584,6 @@ MonoBehaviour:
   - '"Kade: ''Oh, you want to know where the others are?''"'
   - '"Kade: ''We separated a while ago, but if I know Aren well enough, he must be
     trying to find food, just like always.''"'
-  - '"Kade: ''Oh, and one last thing before you go. I think there''s a key-card hidden
-    somewhere on this floor that can lead us to the next one.''"'
   CanPlayAgain: 0
 --- !u!4 &1711801878
 Transform:
@@ -85628,13 +85614,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1916489765}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.61566144, y: 0, z: 0, w: 0.7880108}
-  m_LocalPosition: {x: 0, y: 19, z: -8.7}
+  m_LocalRotation: {x: 0.6889873, y: 0, z: 0, w: 0.7247734}
+  m_LocalPosition: {x: -3.5, y: 14.8, z: 2.28}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 531921030}
-  m_LocalEulerAnglesHint: {x: 76, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 87.1, y: 0, z: 0}
 --- !u!114 &1916489767
 MonoBehaviour:
   m_ObjectHideFlags: 0
