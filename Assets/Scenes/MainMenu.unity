@@ -4934,6 +4934,7 @@ GameObject:
   - component: {fileID: 787217238}
   - component: {fileID: 787217240}
   - component: {fileID: 787217239}
+  - component: {fileID: 787217241}
   m_Layer: 5
   m_Name: SettingsManager
   m_TagString: Untagged
@@ -4972,7 +4973,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfab58605dbe1954d9b5a9458a22797d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  volumeSlider: {fileID: 1994367793}
+  volumeSlider: {fileID: 1761046785}
   audioSource: {fileID: 307727648}
 --- !u!114 &787217240
 MonoBehaviour:
@@ -4987,6 +4988,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sensibilitySlider: {fileID: 1838868179}
+--- !u!114 &787217241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 787217237}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cd01633e852741438c09fc973c40de9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  volumeSlider: {fileID: 1994367793}
 --- !u!1 &791491046
 GameObject:
   m_ObjectHideFlags: 0
