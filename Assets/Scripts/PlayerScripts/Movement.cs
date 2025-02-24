@@ -18,6 +18,10 @@ public class Movement : MonoBehaviour
     [Header("What is ground")]
     public LayerMask ground;
 
+    // Fattore che controlla l'impatto dell'offset di rotazione in movimento diagonale (0 = nessun offset, 1 = offset completo)
+    [Header("Diagonal Rotation Factor")]
+    public float diagonalRotationFactor = 0.2f;
+
     Vector3 move;
 
     float horizontalInput;
@@ -26,7 +30,7 @@ public class Movement : MonoBehaviour
     Animator animator;
 
     void Awake()
-    { 
+    {
         rotator = GeneralMethods.GetRotator().transform;
         CursorSettings.Lock();
     }
@@ -40,7 +44,6 @@ public class Movement : MonoBehaviour
     }
 
     // Update is called once per frame
-
     void Update()
     {
         checkGrounded();
@@ -52,52 +55,56 @@ public class Movement : MonoBehaviour
 
         getInput();
 
-        // Controlla se il giocatore si sta muovendo avanti
-        if (verticalInput > 0)
+        // Calcola l'ampiezza degli input per ciascun asse
+        float absVertical = Mathf.Abs(verticalInput);
+        float absHorizontal = Mathf.Abs(horizontalInput);
+
+        // Resetta tutti i booleani prima
+        animator.SetBool("isWalkingForward", false);
+        animator.SetBool("isWalkingBack", false);
+        animator.SetBool("isWalkingLeft", false);
+        animator.SetBool("isWalkingRight", false);
+
+        // Priorità alla camminata laterale:
+        if (absHorizontal > 0)
         {
-            animator.SetBool("isWalkingForward", true);
-            animator.SetBool("isWalkingLeft", false);
-            animator.SetBool("isWalkingBack", false);
-            animator.SetBool("isWalkingRight", false);
+            if (horizontalInput < 0)
+                animator.SetBool("isWalkingLeft", true);
+            else if (horizontalInput > 0)
+                animator.SetBool("isWalkingRight", true);
         }
-        else if(verticalInput < 0 )
+        // Se non c'è input orizzontale, gestisci l'input verticale.
+        else if (absVertical > 0)
         {
-            animator.SetBool("isWalkingBack", true);
-            animator.SetBool("isWalkingForward", false);
-            animator.SetBool("isWalkingLeft", false);
-            animator.SetBool("isWalkingRight", false);
-        }
-        else if(horizontalInput < 0)
-        {
-            animator.SetBool("isWalkingLeft", true);
-            animator.SetBool("isWalkingForward", false);
-            animator.SetBool("isWalkingBack", false);
-            animator.SetBool("isWalkingRight", false);
-        }
-        else if(horizontalInput > 0)
-        {
-            animator.SetBool("isWalkingRight", true);
-            animator.SetBool("isWalkingLeft", false);
-            animator.SetBool("isWalkingForward", false);
-            animator.SetBool("isWalkingBack", false);
-        }
-        else
-        {
-            animator.SetBool("isWalkingForward", false);
-            animator.SetBool("isWalkingBack", false);
-            animator.SetBool("isWalkingRight", false);
-            animator.SetBool("isWalkingLeft", false);
+            if (verticalInput > 0)
+                animator.SetBool("isWalkingForward", true);
+            else if (verticalInput < 0)
+                animator.SetBool("isWalkingBack", true);
         }
 
+        // Gestione della rotazione in base al movimento:
         if (move != Vector3.zero)
         {
-            // Se si sta muovendo, lerp della rotazione verso la direzione della telecamera
-            Vector3 eulerRotation = new Vector3(transform.eulerAngles.x, rotator.eulerAngles.y, transform.eulerAngles.z);
-            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(eulerRotation), rLerp);
+            // Se il movimento è diagonale, applica un offset ridotto
+            if (absHorizontal > 0 && absVertical > 0)
+            {
+                // Calcola l'angolo in base agli input (in gradi)
+                float angle = Mathf.Atan2(horizontalInput, verticalInput) * Mathf.Rad2Deg;
+                // Applica solo una frazione dell'angolo calcolato
+                float smallOffset = angle * diagonalRotationFactor;
+                Vector3 targetEuler = new Vector3(transform.eulerAngles.x, rotator.eulerAngles.y + smallOffset, transform.eulerAngles.z);
+                transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(targetEuler), rLerp);
+            }
+            else
+            {
+                // Movimento non diagonale: usa la rotazione verso la telecamera
+                Vector3 eulerRotation = new Vector3(transform.eulerAngles.x, rotator.eulerAngles.y, transform.eulerAngles.z);
+                transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(eulerRotation), rLerp);
+            }
         }
 
         if (transform.position.y < 0)
-            this.transform.position = new Vector3(0, 4, 0);
+            transform.position = new Vector3(0, 4, 0);
     }
 
     private void FixedUpdate() // aggiornamento fisica
@@ -109,7 +116,7 @@ public class Movement : MonoBehaviour
         rb.AddForce(move.normalized * Time.deltaTime * 10f * moveSpeed, ForceMode.Force);
     }
 
-    void getInput() 
+    void getInput()
     {
         // inputs
         horizontalInput = Input.GetAxisRaw("Horizontal");
@@ -125,9 +132,7 @@ public class Movement : MonoBehaviour
     void checkGrounded()
     {
         if (Physics.Raycast(transform.position, Vector3.down, GetComponent<CapsuleCollider>().bounds.size.y * 0.5f + 0.2f, ground))
-        {
             isGrounded = true;
-        }
         else
             isGrounded = false;
     }
