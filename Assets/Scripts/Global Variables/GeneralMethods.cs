@@ -20,6 +20,18 @@ public static class GeneralMethods
     {
         return GameObject.FindObjectsByType<GameObject>(findObjectsInactive: FindObjectsInactive.Include, sortMode: FindObjectsSortMode.None).Where((gameObject, b) => gameObject.name == "Rotator").ToArray()[0];
     }
+
+    public static bool TryGetRotator(out GameObject rotator)
+    {
+        GameObject[] arr = GameObject.FindObjectsByType<GameObject>(findObjectsInactive: FindObjectsInactive.Include, sortMode: FindObjectsSortMode.None).Where((gameObject, b) => gameObject.name == "Rotator").ToArray();
+        if (arr.Length != 0){
+            rotator = arr[0];
+            return true;
+        }
+        rotator = null;
+        return false;
+    }
+
     public static GameObject GetCamera()
     {
         return GameObject.FindObjectsByType<GameObject>(findObjectsInactive: FindObjectsInactive.Include, sortMode: FindObjectsSortMode.None).Where((gameObject, b) => gameObject.name == "Camera").ToArray()[0];
