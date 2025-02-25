@@ -21,7 +21,7 @@ public class MoveToNextLevel : MonoBehaviour
     {
         if (other.CompareTag("Player")) //Controlla se è il player a toccare il trigger
         {
-            if(SceneManager.GetActiveScene().buildIndex == 5)   //Se completo l'ultimo livello (5 è l'int del livello 3)
+            if(SceneManager.GetActiveScene().buildIndex == 7)   //Se completo l'ultimo livello (5 è l'int del livello 3)
                 Debug.Log("HAI VINTO!!");
             else    //Se ci sono ancora livelli da sbloccare
             {
