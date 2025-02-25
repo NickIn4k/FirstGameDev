@@ -1882,7 +1882,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c8e68f374e6dabb43a19834b5bbb701b, type: 2}
+  - {fileID: 2100000, guid: f4b63aad1e89a144ab321116d569d93c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -7527,6 +7527,7 @@ MonoBehaviour:
   ground:
     serializedVersion: 2
     m_Bits: 128
+  diagonalRotationFactor: 0.2
 --- !u!4 &334813976
 Transform:
   m_ObjectHideFlags: 0
@@ -8504,7 +8505,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 11
   m_Type: 0
-  m_Color: {r: 0.93962264, g: 0.88918334, b: 0.3740761, a: 1}
+  m_Color: {r: 0.47058824, g: 0, b: 0.43723455, a: 1}
   m_Intensity: 40
   m_Range: 15
   m_SpotAngle: 123.557526
@@ -11682,7 +11683,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 11
   m_Type: 0
-  m_Color: {r: 0.93962264, g: 0.88918334, b: 0.3740761, a: 1}
+  m_Color: {r: 0.47058824, g: 0, b: 0.43529412, a: 1}
   m_Intensity: 40
   m_Range: 15
   m_SpotAngle: 123.557526
@@ -12097,7 +12098,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c8e68f374e6dabb43a19834b5bbb701b, type: 2}
+  - {fileID: 2100000, guid: f4b63aad1e89a144ab321116d569d93c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -24669,7 +24670,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 11
   m_Type: 0
-  m_Color: {r: 0.93962264, g: 0.88918334, b: 0.3740761, a: 1}
+  m_Color: {r: 0.47058824, g: 0, b: 0.43529412, a: 1}
   m_Intensity: 40
   m_Range: 15
   m_SpotAngle: 123.557526
@@ -30630,7 +30631,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c8e68f374e6dabb43a19834b5bbb701b, type: 2}
+  - {fileID: 2100000, guid: f4b63aad1e89a144ab321116d569d93c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
