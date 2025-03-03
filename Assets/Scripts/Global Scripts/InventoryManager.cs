@@ -9,7 +9,7 @@ using UnityEngine.UI;
 public class InventoryManager : MonoBehaviour
 {
     public static InventoryManager Manager;     // Singleton (richiama sè stesso)
-    public List<Items> Inventory;               // Items: classe esterna creata su un altro foglio di lavoro 
+    static public List<Items> Inventory;               // Items: classe esterna creata su un altro foglio di lavoro 
 
     public Transform ItemContent;               // Contenitore UI per gli oggetti
     public GameObject InventoryItem;            // Prefab che rappresenta un elemento

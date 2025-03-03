@@ -30,7 +30,7 @@ public class TutorialQuestManager : MonoBehaviour
             questStep++;
             ShowQuestMessage();
         }
-        else if (questStep == 2 && InventoryManager.Manager.Inventory.Any(Items => Items.Id == 1))    //Prendere l'oggetto
+        else if (questStep == 2 && InventoryManager.Inventory.Any(Items => Items.Id == 1))    //Prendere l'oggetto
         {
             questStep++;
             ShowQuestMessage();

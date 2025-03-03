@@ -19,7 +19,7 @@ public class ActivateNewCamera : MonoBehaviour
         Rotator.SetActive(false);
         MainCamera.SetActive(false);
 
-        Maze.SetActive(false);
+        MazeUI.SetActive(false);
         Cursor.lockState = CursorLockMode.Locked;
         Maze.SetActive(true);
         MazePlayer.SetActive(true);
@@ -27,6 +27,10 @@ public class ActivateNewCamera : MonoBehaviour
 
     public void Close()
     {
-
+        Cursor.lockState = CursorLockMode.Locked;
+        MazeUI.SetActive(false);
+        Player.SetActive(true);
+        Rotator.SetActive(true);
+        MainCamera.SetActive(true);
     }
 }

@@ -302,7 +302,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   videoPlayer: {fileID: 1777552428}
   delay: 2
-  SceneIndex: 3
+  SceneIndex: 0
 --- !u!114 &687461167
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -318,7 +318,7 @@ MonoBehaviour:
   videoPlayer: {fileID: 1777552428}
   progressCircle: {fileID: 1661574644}
   holdTime: 1.5
-  SceneIndex: 3
+  SceneIndex: 0
 --- !u!4 &687461168
 Transform:
   m_ObjectHideFlags: 0
@@ -328,7 +328,7 @@ Transform:
   m_GameObject: {fileID: 687461165}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 673.1858, y: 300.53226, z: -15.652098}
+  m_LocalPosition: {x: 576, y: 300.53226, z: -15.652098}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
