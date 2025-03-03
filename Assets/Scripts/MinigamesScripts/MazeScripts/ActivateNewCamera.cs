@@ -9,25 +9,24 @@ public class ActivateNewCamera : MonoBehaviour
     public GameObject Rotator;
     public GameObject MazePlayer;
     public GameObject Player;
-    public InteractReceiver ir;
+    public GameObject MazeUI;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    private void Start()
+    public void StartGame()
     {
-        ir = GetComponent<InteractReceiver>();
-        ir.OnInteract += () =>
-        {
-            if (Item.Id == 0 && InventoryManager.Manager.Inventory.Count >= 0)
-            {
-                Cursor.lockState = CursorLockMode.Locked;
-                Player.SetActive(false);
-                Rotator.SetActive(false);
-                MainCamera.SetActive(false);
+        Cursor.lockState = CursorLockMode.Locked;
+        Player.SetActive(false);
+        Rotator.SetActive(false);
+        MainCamera.SetActive(false);
 
-                Cursor.lockState = CursorLockMode.Locked;
-                Maze.SetActive(true);
-                MazePlayer.SetActive(true);
-            }
-        };
+        Maze.SetActive(false);
+        Cursor.lockState = CursorLockMode.Locked;
+        Maze.SetActive(true);
+        MazePlayer.SetActive(true);
+    }
+
+    public void Close()
+    {
+
     }
 }
