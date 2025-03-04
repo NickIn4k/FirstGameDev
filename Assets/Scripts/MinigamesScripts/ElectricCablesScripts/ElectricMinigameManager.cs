@@ -23,6 +23,9 @@ public class ElectricMinigameManager : MonoBehaviour
     public GameObject Rotator;
     public GameObject Player;
 
+    public AudioSource Src;
+    public AudioClip Sfx;
+
     //In Awake memorizziamo le posizioni iniziali
     void Awake()
     {
@@ -73,5 +76,8 @@ public class ElectricMinigameManager : MonoBehaviour
         Player.SetActive(true);
         Rotator.SetActive(true);
         Time.timeScale = 1f;
+
+        Src.clip = Sfx;
+        Src.Play();
     }
 }

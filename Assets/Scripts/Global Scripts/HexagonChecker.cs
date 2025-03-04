@@ -8,6 +8,8 @@ public class HexagonChecker : MonoBehaviour
     public Rotator rotator;
     public Animator animator;
     public GameObject Door;
+    public AudioSource Src;
+    public AudioClip Sfx;
 
     public void CheckRotations()
     {
@@ -39,6 +41,8 @@ public class HexagonChecker : MonoBehaviour
         
         if (Door != null)
         {
+            Src.clip = Sfx;
+            Src.Play();
             Door.SetActive(false);
             animator.SetBool("isOpening", true);
         }

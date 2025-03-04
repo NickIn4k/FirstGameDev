@@ -15,6 +15,8 @@ public class MazePlayerController : MonoBehaviour
     public GameObject Player;
     public GameObject Door;
     public Animator animator;
+    public AudioSource Src;
+    public AudioClip Sfx;
 
     //Salva la rotazione iniziale (impostata nell'editor)
     private Vector3 initialEuler;
@@ -99,6 +101,8 @@ public class MazePlayerController : MonoBehaviour
     {
         if (Door != null)
         {
+            Src.clip = Sfx;
+            Src.Play();
             Door.SetActive(false);
             animator.SetBool("isOpening", true);
         }
