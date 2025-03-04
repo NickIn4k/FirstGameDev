@@ -82,7 +82,10 @@ public class Level2CanvasManager : MonoBehaviour
         }
         else if (index == 2 && !GamePaused)
         {
-            InventoryManager.Manager.ListItems(); // Aggiorna l'inventario 
+            if (InventoryManager.Manager != null)
+                InventoryManager.Manager.ListItems(); // Aggiorna l'inventario 
+            else if (LoadInventory.Manager != null) 
+                LoadInventory.Manager.ListItems();
             InventoryUI.SetActive(true);
             InventoryOn = true;
         }

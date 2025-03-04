@@ -14,6 +14,8 @@ public class CodeChecker : MonoBehaviour
     public static bool isOpen = false;
     public GameObject EndDoor;
     private Animator animator;
+    public AudioSource src;
+    public AudioClip Sfx;
 
     void Start()
     {
@@ -63,6 +65,8 @@ public class CodeChecker : MonoBehaviour
         Collider collider = Door.GetComponent<Collider>();
         if (collider != null)
         {
+            src.clip = Sfx;
+            src.Play();
             animator.SetBool("isOpening", true);
             collider.isTrigger = true; // Attiva la modalità trigger
         }
