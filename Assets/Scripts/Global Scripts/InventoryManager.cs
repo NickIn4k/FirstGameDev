@@ -8,7 +8,7 @@ using UnityEngine.UI;
 // Gestore dell'inventario, responsabile di aggiungere, rimuovere e visualizzare gli oggetti
 public class InventoryManager : MonoBehaviour
 {
-    public static InventoryManager Manager;     // Singleton (richiama sè stesso)
+    public static InventoryManager Manager;     // Singleton (richiama sï¿½ stesso)
     static public List<Items> Inventory;               // Items: classe esterna creata su un altro foglio di lavoro 
 
     public Transform ItemContent;               // Contenitore UI per gli oggetti
@@ -17,6 +17,8 @@ public class InventoryManager : MonoBehaviour
     public TextMeshProUGUI NameText;
     public TextMeshProUGUI DescriptionText;
     public Image Icon;
+    public GameObject ActiveBTN;
+    public GameObject UnActiveBTN;
 
     private void Awake()
     {
@@ -60,10 +62,18 @@ public class InventoryManager : MonoBehaviour
     // Mostra la descrizione dell'oggetto
     private void ShowDescription(Items item)
     {
+        ActiveBTN.SetActive(false);
+        UnActiveBTN.SetActive(false);
+
         DescriptionUI.SetActive(true);
         NameText.text = item.ItemName;
         Icon.sprite = item.Icon;
         DescriptionText.text = item.Description;
+
+        if(item.isUsable){
+            ActiveBTN.SetActive(true);
+            UnActiveBTN.SetActive(true);
+        }
     }
 
     // Nasconde la descrizione

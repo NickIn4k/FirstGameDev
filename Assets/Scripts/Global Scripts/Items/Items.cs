@@ -11,4 +11,5 @@ public class Items : ScriptableObject
     public string Description;
     public int Value;
     public Sprite Icon;
+    public bool isUsable;
 }

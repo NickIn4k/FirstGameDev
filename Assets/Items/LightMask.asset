@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a2c5c11e293dfb4fadcad656382e9b6, type: 3}
+  m_Name: LightMask
+  m_EditorClassIdentifier: 
+  Id: 2
+  ItemName: Light Mask
+  Description: This is an useful item when it's too dark to see anything. Try it
+    on!
+  Value: 20
+  Icon: {fileID: 21300000, guid: bc782d66322703a4a92a142c1f93e45f, type: 3}
+  isUsable: 1

@@ -14,6 +14,8 @@ public class LoadInventory : MonoBehaviour
     public TextMeshProUGUI NameText;
     public TextMeshProUGUI DescriptionText;
     public Image Icon;
+    public GameObject ActiveBTN;
+    public GameObject UnActiveBTN;
 
     public Items[] DefaultItems; // Array pubblico di elementi da caricare all'avvio della scena
 
@@ -64,10 +66,18 @@ public class LoadInventory : MonoBehaviour
 
     private void ShowDescription(Items item)
     {
+        ActiveBTN.SetActive(false);
+        UnActiveBTN.SetActive(false);
+
         DescriptionUI.SetActive(true);
         NameText.text = item.ItemName;
         Icon.sprite = item.Icon;
         DescriptionText.text = item.Description;
+
+        if(item.isUsable){
+            ActiveBTN.SetActive(true);
+            UnActiveBTN.SetActive(true);
+        }
     }
 
     public void HideDescription()
