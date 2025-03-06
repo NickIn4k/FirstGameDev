@@ -1583,7 +1583,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   volumeSlider: {fileID: 3915202360534534925}
-  audioSource: {fileID: 1740296210}
+  audioSources:
+  - {fileID: 1740296210}
 --- !u!114 &158364578
 MonoBehaviour:
   m_ObjectHideFlags: 0
