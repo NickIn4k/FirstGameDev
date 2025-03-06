@@ -37,6 +37,8 @@ public class ItemPickUp : MonoBehaviour
     {
         if (InventoryManager.Manager != null && item != null)
             InventoryManager.Manager.Add(item);
+        if (LoadInventory.Manager != null && item != null)
+            LoadInventory.Manager.Add(item);
 
         Destroy(gameObject);    //Per eliminare l'item aggiunto
     }
