@@ -29261,7 +29261,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &457276476
 RectTransform:
   m_ObjectHideFlags: 0
@@ -42915,10 +42915,10 @@ PrefabInstance:
       addedObject: {fileID: 1601936430}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d9a7e1f8a12270f41b687a8ea7df4ff8, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1601936433}
+      addedObject: {fileID: 1601936434}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d9a7e1f8a12270f41b687a8ea7df4ff8, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1601936434}
+      addedObject: {fileID: 1601936433}
   m_SourcePrefab: {fileID: 100100000, guid: d9a7e1f8a12270f41b687a8ea7df4ff8, type: 3}
 --- !u!4 &751670970 stripped
 Transform:
@@ -45669,7 +45669,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &818829066
 RectTransform:
   m_ObjectHideFlags: 0
