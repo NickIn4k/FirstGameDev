@@ -16,6 +16,9 @@ public class TPAnimation : MonoBehaviour
 
     public Collider Trigger;
 
+    public AudioSource src;
+    public AudioClip clip;
+
     void Update()
     {
         if (player == null || animator == null)
@@ -27,11 +30,14 @@ public class TPAnimation : MonoBehaviour
         // Calcola la distanza tra il player e questo oggetto
         float distance = Vector3.Distance(transform.position, player.position);
 
-        // Se il player è abbastanza vicino, setta il parametro a true, altrimenti a false
+        // Se il player ï¿½ abbastanza vicino, setta il parametro a true, altrimenti a false
         if (distance <= activationDistance)
         {
             animator.SetBool(boolParameterName, true);
             Trigger.isTrigger = true;
+
+            src.clip = clip;
+            src.Play();
 
             //CODICE DI PASSAGGIO LIVELLO 
 

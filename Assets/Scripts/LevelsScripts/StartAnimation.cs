@@ -6,6 +6,7 @@ public class StartAnimation : MonoBehaviour
     public Animator animator;
     InteractReceiver ir;
     public string animationName;
+    //sfx
     public AudioSource src;
     public AudioClip clip;
 
