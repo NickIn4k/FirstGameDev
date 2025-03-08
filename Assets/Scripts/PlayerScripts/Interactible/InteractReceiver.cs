@@ -1,6 +1,4 @@
-using GLTF.Schema;
 using System;
-using System.Linq;
 using UnityEngine;
 //using static UnityEditor.Progress;
 

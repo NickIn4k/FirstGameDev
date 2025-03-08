@@ -1,4 +1,3 @@
-using GLTF.Schema;
 using Settings;
 using System.Linq;
 using UnityEngine;
