@@ -1,3 +1,4 @@
+using Settings;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -9,6 +10,7 @@ public class SkipVideo : MonoBehaviour
     public Image progressCircle;   //Il cerchio di progresso UI
     public float holdTime = 3f;    //Tempo necessario per saltare
     public int SceneIndex;
+    public bool isLast = false;
 
     private float holdDuration; //Contatore per il tempo tenuto premuto
 
@@ -50,6 +52,10 @@ public class SkipVideo : MonoBehaviour
     private void SkipToNextScene()
     {
         videoPlayer.Stop(); //Ferma il video
+
+        if (isLast)
+            CursorSettings.Unlock();
+
         SceneManager.LoadScene(SceneIndex); //Carica la scena successiva
     }
 }

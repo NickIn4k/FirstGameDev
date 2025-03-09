@@ -303,6 +303,7 @@ MonoBehaviour:
   videoPlayer: {fileID: 1777552428}
   delay: 2
   SceneIndex: 0
+  isLast: 1
 --- !u!114 &687461167
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -319,6 +320,7 @@ MonoBehaviour:
   progressCircle: {fileID: 1661574644}
   holdTime: 1.5
   SceneIndex: 0
+  isLast: 1
 --- !u!4 &687461168
 Transform:
   m_ObjectHideFlags: 0
