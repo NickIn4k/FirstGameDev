@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -77,7 +78,13 @@ public class ElectricMinigameManager : MonoBehaviour
         Rotator.SetActive(true);
         Time.timeScale = 1f;
 
+        StartCoroutine(AttendiAnimazione());
+
         Src.clip = Sfx;
         Src.Play();
+    }
+    public IEnumerator AttendiAnimazione()
+    {
+        yield return new WaitForSeconds(0.5f);
     }
 }

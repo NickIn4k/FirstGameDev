@@ -1,5 +1,7 @@
+using System;
+using System.Collections;
 using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.Audio;
 
 public class MazePlayerController : MonoBehaviour
 {
@@ -13,10 +15,15 @@ public class MazePlayerController : MonoBehaviour
     public GameObject Rotator;
     public GameObject MazePlayer;
     public GameObject Player;
+
+    //animation
     public GameObject Door;
     public Animator animator;
+
+    //sfx
     public AudioSource Src;
-    public AudioClip Sfx;
+    public AudioClip Sfx_Door;
+    public AudioClip MoveSfx;
 
     //Salva la rotazione iniziale (impostata nell'editor)
     private Vector3 initialEuler;
@@ -57,6 +64,12 @@ public class MazePlayerController : MonoBehaviour
 
         if (movement != Vector3.zero)
         {
+            if (!Src.isPlaying)  // Controlla se il suono non è già in riproduzione
+            {
+                Src.clip = MoveSfx;
+                Src.Play();
+            }
+
             //Muove il giocatore nella direzione scelta
             transform.position += movement * moveSpeed * Time.deltaTime;
 
@@ -72,6 +85,8 @@ public class MazePlayerController : MonoBehaviour
             // Imposta la nuova rotazione mantenendo gli assi X e Z della rotazione iniziale
             transform.rotation = Quaternion.Euler(initialEuler.x, newY, initialEuler.z);
         }
+        else
+            Src.Stop();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -101,10 +116,18 @@ public class MazePlayerController : MonoBehaviour
     {
         if (Door != null)
         {
-            Src.clip = Sfx;
-            Src.Play();
             Door.SetActive(false);
             animator.SetBool("isOpening", true);
+
+            StartCoroutine(AttendiAnimazione());
+
+            Src.clip = Sfx_Door;
+            Src.Play();
         }
+    }
+
+    public IEnumerator AttendiAnimazione()
+    {
+        yield return new WaitForSeconds(0.5f);
     }
 }

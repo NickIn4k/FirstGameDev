@@ -11,6 +11,9 @@ public class CodeCheckerLvl2 : MonoBehaviour
     public static bool isOpen = false;
     public Animator animator;
 
+    public AudioSource src;
+    public AudioClip clip;
+
     void Start()
     {
         isOpen = false;
@@ -50,6 +53,7 @@ public class CodeCheckerLvl2 : MonoBehaviour
         {
             Door.SetActive(false);
             animator.SetBool("isOpening", true);
+            src.PlayOneShot(clip);
         }
     }
 }

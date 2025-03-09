@@ -18408,7 +18408,8 @@ MonoBehaviour:
   Door: {fileID: 877492027}
   animator: {fileID: 11712556}
   Src: {fileID: 1393078570}
-  Sfx: {fileID: 8300000, guid: a75eeaa0bbeecaa4cbec01e79e72b865, type: 3}
+  Sfx_Door: {fileID: 8300000, guid: a75eeaa0bbeecaa4cbec01e79e72b865, type: 3}
+  MoveSfx: {fileID: 8300000, guid: 9e1228b63bdcf2b48a52e0312575b2ad, type: 3}
   yRotationOffset: 180
 --- !u!54 &320016950
 Rigidbody:
@@ -47217,6 +47218,8 @@ MonoBehaviour:
   Door: {fileID: 941888539}
   code: 104926
   animator: {fileID: 1319343157}
+  src: {fileID: 1393078570}
+  clip: {fileID: 8300000, guid: a75eeaa0bbeecaa4cbec01e79e72b865, type: 3}
 --- !u!1 &912253918
 GameObject:
   m_ObjectHideFlags: 0
@@ -107625,8 +107628,8 @@ MonoBehaviour:
   boolParameterName: IsNear
   activationDistance: 9.5
   Trigger: {fileID: 288644750}
-  src: {fileID: 0}
-  clip: {fileID: 0}
+  src: {fileID: 1393078570}
+  clip: {fileID: 8300000, guid: 5931c89669fe92042955e0a5911d2aa0, type: 3}
 --- !u!137 &924910282965898379
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 0
