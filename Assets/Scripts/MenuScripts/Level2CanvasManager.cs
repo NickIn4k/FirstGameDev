@@ -7,6 +7,8 @@ public class Level2CanvasManager : MonoBehaviour
     public static bool InventoryOn;
     private bool OnScreen;
 
+    public AudioSource Src;
+
     // Pannelli della UI
     public GameObject PauseMenuUI;  // Pausa
     public GameObject InventoryUI;  // Inventario
@@ -45,6 +47,7 @@ public class Level2CanvasManager : MonoBehaviour
 
     void Resume(int index)
     {
+        Src.Play();
         if (!GeneralVariables.guiActive)
             CursorSettings.Lock();
 
@@ -73,6 +76,7 @@ public class Level2CanvasManager : MonoBehaviour
 
     void Pause(int index)
     {
+        Src.Stop();
         CursorSettings.Unlock();
         
         if (index == 1 && !InventoryOn)

@@ -25,7 +25,9 @@ public class ElectricMinigameManager : MonoBehaviour
     public GameObject Player;
 
     public AudioSource Src;
-    public AudioClip Sfx;
+    public AudioClip SfxWin;
+    public AudioClip SfxElectricity;
+
 
     //In Awake memorizziamo le posizioni iniziali
     void Awake()
@@ -44,7 +46,9 @@ public class ElectricMinigameManager : MonoBehaviour
         playerController.enabled = true;
         cameraScroller.enabled = true;
         Player.SetActive(false);
-        
+        Src.clip = SfxElectricity;
+        Src.loop = true;
+        Src.Play();
         secondaryCamera.transform.position = initialCameraPos;
         playerController.transform.position = initialPlayerPos;
         
@@ -63,6 +67,7 @@ public class ElectricMinigameManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         UI.SetActive(true);
         Player.SetActive(true);
+        Src.loop=false;
     }
 
     public void OnWin()
@@ -79,8 +84,8 @@ public class ElectricMinigameManager : MonoBehaviour
         Time.timeScale = 1f;
 
         StartCoroutine(AttendiAnimazione());
-
-        Src.clip = Sfx;
+        Src.loop=false;
+        Src.clip = SfxWin;
         Src.Play();
     }
     public IEnumerator AttendiAnimazione()

@@ -8813,7 +8813,8 @@ MonoBehaviour:
   Rotator: {fileID: 1480795454}
   Player: {fileID: 164221301}
   Src: {fileID: 1393078570}
-  Sfx: {fileID: 8300000, guid: a75eeaa0bbeecaa4cbec01e79e72b865, type: 3}
+  SfxWin: {fileID: 8300000, guid: a75eeaa0bbeecaa4cbec01e79e72b865, type: 3}
+  SfxElectricity: {fileID: 8300000, guid: 1cc73541d279d1543afed3192191d345, type: 3}
 --- !u!1 &145115232
 GameObject:
   m_ObjectHideFlags: 0
@@ -58047,6 +58048,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c527446821a6d224b9a902bd63d03fa9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Src: {fileID: 1393078570}
   PauseMenuUI: {fileID: 1962770105}
   InventoryUI: {fileID: 1162933630}
   ScreenUI: {fileID: 1639909927}
@@ -91208,7 +91210,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 164221307}
-  target: {fileID: 0}
+  target: {fileID: 725837192}
   DialogUI: {fileID: 106100548}
   detectionRadius: 3.5
   Player: {fileID: 164221301}
