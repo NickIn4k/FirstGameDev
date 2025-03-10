@@ -21,6 +21,7 @@ public class ElectricPlayerController : MonoBehaviour
     private float targetY;
 
     public ElectricMinigameManager minigameManager;
+    public ElectricManagerV2 minigameManagerV2;
 
     void Start()
     {
@@ -68,10 +69,15 @@ public class ElectricPlayerController : MonoBehaviour
         {
             if (minigameManager != null)
                 minigameManager.OnGameOver();
+            if (minigameManagerV2 != null)
+                minigameManagerV2.OnGameOver();
         }
         else if (other.CompareTag("ElectricMinigameEnd"))
         {
-            minigameManager.OnWin();
+            if (minigameManager != null)
+                minigameManager.OnWin();
+            if(minigameManagerV2 != null)
+                minigameManagerV2.OnWin();
             OpenTheDoor();
         }
     }
@@ -90,7 +96,7 @@ public class ElectricPlayerController : MonoBehaviour
     {
         //Rende il collider della porta un trigger
 
-        if (Door != null)
+        if (Door != null && Animator != null) 
         {
             Door.SetActive(false);
             Animator.SetBool("isOpening", true);
