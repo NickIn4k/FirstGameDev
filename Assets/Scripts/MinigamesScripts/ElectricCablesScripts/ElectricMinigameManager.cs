@@ -83,13 +83,8 @@ public class ElectricMinigameManager : MonoBehaviour
         Rotator.SetActive(true);
         Time.timeScale = 1f;
 
-        StartCoroutine(AttendiAnimazione());
         Src.loop=false;
         Src.clip = SfxWin;
         Src.Play();
-    }
-    public IEnumerator AttendiAnimazione()
-    {
-        yield return new WaitForSeconds(0.5f);
     }
 }

@@ -31,7 +31,7 @@ public class ElectricManagerV2 : MonoBehaviour
 
     // Altezza finale per ForceField
     public float forceFieldTargetY = 0f; // Imposta l'altezza desiderata
-    public float loweringSpeed = 2f; // Velocità di abbassamento
+    public float loweringSpeed = 2f; // Velocitï¿½ di abbassamento
 
     // In Awake memorizziamo le posizioni iniziali
     void Awake()
@@ -88,29 +88,15 @@ public class ElectricManagerV2 : MonoBehaviour
         Time.timeScale = 1f;
 
         // Avvia il movimento del ForceField prima di procedere
-        StartCoroutine(AbbassaForceField());
-    }
-
-    private IEnumerator AbbassaForceField()
-    {
         Vector3 startPos = ForceField.transform.position;
         Vector3 targetPos = new Vector3(startPos.x, forceFieldTargetY, startPos.z);
 
         while (ForceField.transform.position.y > forceFieldTargetY)
-        {
             ForceField.transform.position = Vector3.MoveTowards(ForceField.transform.position, targetPos, loweringSpeed * Time.deltaTime);
-            yield return null;
-        }
+        
 
-        // Una volta abbassato, avvia l'animazione finale
-        StartCoroutine(AttendiAnimazione());
         Src.loop = false;
         Src.clip = SfxWin;
         Src.Play();
-    }
-
-    private IEnumerator AttendiAnimazione()
-    {
-        yield return new WaitForSeconds(0.5f);
     }
 }

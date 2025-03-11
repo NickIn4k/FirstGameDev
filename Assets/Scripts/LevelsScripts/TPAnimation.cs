@@ -38,10 +38,6 @@ public class TPAnimation : MonoBehaviour
 
             src.clip = clip;
             src.Play();
-
-            //CODICE DI PASSAGGIO LIVELLO 
-
-
         }
         else
         {

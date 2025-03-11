@@ -47,9 +47,7 @@ public class StartAnimation : MonoBehaviour
 
         if (luce != null)
             luce.SetActive(false);
-
-        StartCoroutine(AttendiAnimazione());
-
+            
         src.PlayOneShot(clip_corrente);
 
         StartCoroutine(CambioLivello());
@@ -62,10 +60,5 @@ public class StartAnimation : MonoBehaviour
 
         // Cambia scena
         SceneManager.LoadScene(prossimaScena);
-    }
-
-    public IEnumerator AttendiAnimazione()
-    {
-        yield return new WaitForSeconds(0.5f);
     }
 }
