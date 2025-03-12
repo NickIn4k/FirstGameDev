@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Threading.Tasks;
 
 public class ElectricManagerV2 : MonoBehaviour
 {
@@ -8,7 +9,7 @@ public class ElectricManagerV2 : MonoBehaviour
     public GameObject Game;
     public GameObject secondaryCamera;
     public GameObject ForceField;
-
+    
     // UI Minigame
     public GameObject UI;
 
@@ -68,7 +69,7 @@ public class ElectricManagerV2 : MonoBehaviour
         Game.SetActive(false);
     }
 
-    public void OnWin()
+    public async Task OnWin()
     {
         playerController.enabled = false;
         cameraScroller.enabled = false;
@@ -80,7 +81,8 @@ public class ElectricManagerV2 : MonoBehaviour
         Rotator.SetActive(true);
         Time.timeScale = 1f;
 
-        StartCoroutine(ShrinkAndDisableForceField());
+        //StartCoroutine(ShrinkAndDisableForceField());
+        await StartProcess();
 
         Game.SetActive(false);
         Src.loop = false;
@@ -95,12 +97,12 @@ public class ElectricManagerV2 : MonoBehaviour
 
         // Salva la scala originale
         Vector3 originalScale = ForceField.transform.localScale;
-        float currentPercent = 0.5f;
+        float currentPercent = 1f;
 
         // Riduci la scala dell'1% della scala originale ogni shrinkDelay secondi
         while (currentPercent > 0f)
         {
-            currentPercent -= 0.01f;
+            currentPercent -= 0.003f;
             if (currentPercent < 0f)
                 currentPercent = 0f;
             
@@ -116,5 +118,23 @@ public class ElectricManagerV2 : MonoBehaviour
         }
         // Disattiva il GameObject una volta che la scala è zero
         ForceField.SetActive(false);
+    }
+
+    private async Task StartProcess()
+    {
+        await ShrinkAndDisableForceFieldAsync();
+    }
+
+    private async Task ShrinkAndDisableForceFieldAsync()
+    {
+        var tcs = new TaskCompletionSource<bool>();
+        StartCoroutine(ShrinkCoroutine(tcs));
+        await tcs.Task;
+    }
+
+    private IEnumerator ShrinkCoroutine(TaskCompletionSource<bool> tcs)
+    {
+        yield return StartCoroutine(ShrinkAndDisableForceField());
+        tcs.SetResult(true);
     }
 }
