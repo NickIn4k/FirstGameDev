@@ -87,16 +87,24 @@ public class ElectricManagerV2 : MonoBehaviour
         Rotator.SetActive(true);
         Time.timeScale = 1f;
 
-        // Avvia il movimento del ForceField prima di procedere
-        Vector3 startPos = ForceField.transform.position;
-        Vector3 targetPos = new Vector3(startPos.x, forceFieldTargetY, startPos.z);
-
-        while (ForceField.transform.position.y > forceFieldTargetY)
-            ForceField.transform.position = Vector3.MoveTowards(ForceField.transform.position, targetPos, loweringSpeed * Time.deltaTime);
-        
+        // Avvia la coroutine per abbassare il ForceField
+        StartCoroutine(LowerForceField());
 
         Src.loop = false;
         Src.clip = SfxWin;
         Src.Play();
+    }
+
+    // Coroutine per abbassare il ForceField
+    private IEnumerator LowerForceField()
+    {
+        Vector3 startPos = ForceField.transform.position;
+        Vector3 targetPos = new Vector3(startPos.x, forceFieldTargetY, startPos.z);
+
+        while (ForceField.transform.position.y > forceFieldTargetY)
+        {
+            ForceField.transform.position = Vector3.MoveTowards(ForceField.transform.position, targetPos, loweringSpeed * Time.deltaTime);
+            yield return null; // Aspetta il frame successivo prima di continuare
+        }
     }
 }
