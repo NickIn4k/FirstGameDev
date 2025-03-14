@@ -75,9 +75,9 @@ public class ElectricPlayerController : MonoBehaviour
         else if (other.CompareTag("ElectricMinigameEnd"))
         {
             if (minigameManager != null)
-                minigameManager.OnWin();
+                minigameManager?.OnWin();
             if(minigameManagerV2 != null)
-                minigameManagerV2.OnWin();
+                minigameManagerV2?.OnWin();
             OpenTheDoor();
         }
     }
