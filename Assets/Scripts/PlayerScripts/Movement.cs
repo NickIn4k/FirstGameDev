@@ -59,13 +59,14 @@ public class Movement : MonoBehaviour
         float absVertical = Mathf.Abs(verticalInput);
         float absHorizontal = Mathf.Abs(horizontalInput);
 
+        /*
         // Resetta tutti i booleani prima
         animator.SetBool("isWalkingForward", false);
         animator.SetBool("isWalkingBack", false);
         animator.SetBool("isWalkingLeft", false);
         animator.SetBool("isWalkingRight", false);
 
-        // Priorità alla camminata laterale:
+        // Prioritï¿½ alla camminata laterale:
         if (absHorizontal > 0)
         {
             if (horizontalInput < 0)
@@ -73,7 +74,7 @@ public class Movement : MonoBehaviour
             else if (horizontalInput > 0)
                 animator.SetBool("isWalkingRight", true);
         }
-        // Se non c'è input orizzontale, gestisci l'input verticale.
+        // Se non c'ï¿½ input orizzontale, gestisci l'input verticale.
         else if (absVertical > 0)
         {
             if (verticalInput > 0)
@@ -81,11 +82,18 @@ public class Movement : MonoBehaviour
             else if (verticalInput < 0)
                 animator.SetBool("isWalkingBack", true);
         }
+        
+        */
+        
+        animator.SetBool(GeneralVariables.ISWALKINGFORWARD, verticalInput > 0 && absVertical >= absHorizontal); // Prevale
+        animator.SetBool(GeneralVariables.ISWALKINGLEFT, horizontalInput < 0 && absHorizontal > absVertical);
+        animator.SetBool(GeneralVariables.ISWALKINGBACK, verticalInput < 0 && absVertical >= absHorizontal); // Prevale
+        animator.SetBool(GeneralVariables.ISWALKINGRIGHT,horizontalInput > 0 && absHorizontal > absVertical);
 
         // Gestione della rotazione in base al movimento:
         if (move != Vector3.zero)
         {
-            // Se il movimento è diagonale, applica un offset ridotto
+            // Se il movimento ï¿½ diagonale, applica un offset ridotto
             if (absHorizontal > 0 && absVertical > 0)
             {
                 // Calcola l'angolo in base agli input (in gradi)
