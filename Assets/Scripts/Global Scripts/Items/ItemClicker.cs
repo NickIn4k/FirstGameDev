@@ -26,7 +26,7 @@ public class ItemClicker : MonoBehaviour
         {
             if (Item.Id == 0 && (InventoryManager.Inventory?.Count > 0 || LoadInventory.Inventory?.Count > 0))
                 GeneralMethods.FreezeGame(UI, QuestUI, GetComponent<MeshCollider>());
-                 Src.clip = Sfx;
+            Src.clip = Sfx;
             Src.Play();
         };
         

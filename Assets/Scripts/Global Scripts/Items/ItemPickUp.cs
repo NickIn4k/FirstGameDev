@@ -7,6 +7,8 @@ public class ItemPickUp : MonoBehaviour
     Items item;
     InteractReceiver ir;
 
+    public AudioSource src;
+    public AudioClip sfx;
     private void Start()
     {
         try
@@ -39,7 +41,8 @@ public class ItemPickUp : MonoBehaviour
             InventoryManager.Manager.Add(item);
         if (LoadInventory.Manager != null && item != null)
             LoadInventory.Manager.Add(item);
-
+        src.clip = sfx;
+        src.Play();
         Destroy(gameObject);    //Per eliminare l'item aggiunto
     }
 }
