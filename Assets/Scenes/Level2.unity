@@ -10546,6 +10546,8 @@ MonoBehaviour:
   Item: {fileID: 11400000, guid: 513cc8e309f4307498633b4a2592a1cc, type: 2}
   UI: {fileID: 114211826}
   QuestUI: {fileID: 0}
+  Src: {fileID: 1393078570}
+  Sfx: {fileID: 8300000, guid: 9fe0061737a8f304195cb4516da621c5, type: 3}
 --- !u!114 &174693020
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13468,6 +13470,8 @@ MonoBehaviour:
   Item: {fileID: 11400000, guid: 513cc8e309f4307498633b4a2592a1cc, type: 2}
   UI: {fileID: 1639909927}
   QuestUI: {fileID: 0}
+  Src: {fileID: 1393078570}
+  Sfx: {fileID: 8300000, guid: 9fe0061737a8f304195cb4516da621c5, type: 3}
 --- !u!114 &224215279
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23839,6 +23843,8 @@ MonoBehaviour:
   Item: {fileID: 11400000, guid: 38ec180567370b5449ecc905c5582592, type: 2}
   UI: {fileID: 512755568}
   QuestUI: {fileID: 0}
+  Src: {fileID: 0}
+  Sfx: {fileID: 0}
 --- !u!114 &413007317
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -81956,6 +81962,8 @@ MonoBehaviour:
   Item: {fileID: 11400000, guid: 513cc8e309f4307498633b4a2592a1cc, type: 2}
   UI: {fileID: 1774610358}
   QuestUI: {fileID: 0}
+  Src: {fileID: 1393078570}
+  Sfx: {fileID: 8300000, guid: 9fe0061737a8f304195cb4516da621c5, type: 3}
 --- !u!114 &1500906616
 MonoBehaviour:
   m_ObjectHideFlags: 0

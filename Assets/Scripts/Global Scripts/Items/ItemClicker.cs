@@ -11,6 +11,8 @@ public class ItemClicker : MonoBehaviour
     public GameObject? UI = null;
     public GameObject? QuestUI = null;
 
+    public AudioSource Src;
+    public AudioClip Sfx;
 
     #nullable disable
 
@@ -18,16 +20,21 @@ public class ItemClicker : MonoBehaviour
 
     private void Start()
     {
+       
         ir = GetComponent<InteractReceiver>();
         ir.OnInteract += () =>
         {
             if (Item.Id == 0 && (InventoryManager.Inventory?.Count > 0 || LoadInventory.Inventory?.Count > 0))
                 GeneralMethods.FreezeGame(UI, QuestUI, GetComponent<MeshCollider>());
+                 Src.clip = Sfx;
+            Src.Play();
         };
+        
     }
 
     public void Resume()
     {   
         GeneralMethods.ResumeGame(UI, QuestUI, GetComponent<MeshCollider>());
+        
     }
 }
