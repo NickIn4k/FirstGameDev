@@ -81,13 +81,13 @@ public class ElectricManagerV2 : MonoBehaviour
         Rotator.SetActive(true);
         Time.timeScale = 1f;
 
-        //StartCoroutine(ShrinkAndDisableForceField());
-        await StartProcess();
-
-        Game.SetActive(false);
         Src.loop = false;
         Src.clip = SfxWin;
         Src.Play();
+        //StartCoroutine(ShrinkAndDisableForceField());
+        await StartProcess();
+        Game.SetActive(false);
+
     }
 
     private IEnumerator ShrinkAndDisableForceField()
