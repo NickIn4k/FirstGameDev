@@ -15,13 +15,13 @@ public class SensibilityManager : MonoBehaviour
         {
             //Aggiorna la sensibilità globale
             if (GeneralMethods.TryGetRotator(out var rotator))
-                rotator.GetComponent<Rotator>().Sensitivity = sensibility;
+                rotator.GetComponent<Rotator>().sensitivity = sensibility;
             sensibilityManager.SavePrefab(sensibility);
         });
         float value = sensibilityManager.GetPrefab();
         
         sensibilitySlider.value = value;
         if (GeneralMethods.TryGetRotator(out var rotator))
-            rotator.GetComponent<Rotator>().Sensitivity = value;
+            rotator.GetComponent<Rotator>().sensitivity = value;
     }
 }

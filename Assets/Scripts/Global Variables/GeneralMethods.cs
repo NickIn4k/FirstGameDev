@@ -1,4 +1,5 @@
 using Settings;
+using System.Collections;
 using System.Linq;
 using UnityEngine;
 
@@ -11,33 +12,48 @@ public static class GeneralMethods
         else
             CursorSettings.Unlock();
     }
+
+    public static GameObject GetCC()
+    {
+        return Object.FindObjectsByType<GameObject>(findObjectsInactive: FindObjectsInactive.Include, sortMode: FindObjectsSortMode.None).Where((gameObject, b) => gameObject.name == "CC").ToArray()[0];
+    }
+
+    public static GameObject GetComponentInCC(string name)
+    {
+        return GetCC().GetComponentsInChildren<Transform>(includeInactive: true).Where((gameObject, b) => gameObject.name == name).ToArray()[0].gameObject;
+    }
+
     public static GameObject GetPlayer()
     {
-        return GameObject.FindObjectsByType<GameObject>(findObjectsInactive: FindObjectsInactive.Include, sortMode: FindObjectsSortMode.None).Where((gameObject, b) => gameObject.name == "Player").ToArray()[0];
+        return GetComponentInCC("Player");
     }
+
     public static GameObject GetRotator()
     {
-        return GameObject.FindObjectsByType<GameObject>(findObjectsInactive: FindObjectsInactive.Include, sortMode: FindObjectsSortMode.None).Where((gameObject, b) => gameObject.name == "Rotator").ToArray()[0];
+        return GetComponentInCC("Rotator");
     }
 
     public static bool TryGetRotator(out GameObject rotator)
     {
-        GameObject[] arr = GameObject.FindObjectsByType<GameObject>(findObjectsInactive: FindObjectsInactive.Include, sortMode: FindObjectsSortMode.None).Where((gameObject, b) => gameObject.name == "Rotator").ToArray();
-        if (arr.Length != 0){
-            rotator = arr[0];
+        rotator = GetRotator();
+
+        if (rotator)
             return true;
-        }
-        rotator = null;
         return false;
     }
-
+    
     public static GameObject GetCamera()
     {
-        return GameObject.FindObjectsByType<GameObject>(findObjectsInactive: FindObjectsInactive.Include, sortMode: FindObjectsSortMode.None).Where((gameObject, b) => gameObject.name == "Camera").ToArray()[0];
+        return GetComponentInCC("Camera");
     }
     public static GameObject GetInteractCanvas()
     {
-        return GameObject.FindObjectsByType<GameObject>(findObjectsInactive: FindObjectsInactive.Include, sortMode: FindObjectsSortMode.None).Where((gameObject, b) => gameObject.name == "Interact").ToArray()[0];
+        return Object.FindObjectsByType<GameObject>(findObjectsInactive: FindObjectsInactive.Include, sortMode: FindObjectsSortMode.None).Where((gameObject, b) => gameObject.name == "Interact").ToArray()[0];
+    }
+
+    public static GameObject GetGameObjectByName(string name)
+    {
+        return Object.FindObjectsByType<GameObject>(findObjectsInactive: FindObjectsInactive.Include, sortMode: FindObjectsSortMode.None).Where((gameObject, b) => gameObject.name == name).ToArray()[0];
     }
 
     #nullable enable

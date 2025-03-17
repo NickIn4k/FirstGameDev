@@ -1,147 +1,117 @@
 using UnityEngine;
 using Settings;
+using UnityEngine.InputSystem;
+using UnityEngine.Windows;
+using UnityEditor.Rendering.LookDev;
 
 public class Movement : MonoBehaviour
 {
-    bool isGrounded;
-
     Rigidbody rb;
     Transform rotator;
 
     [Header("Movement Speed")]
-    public float moveSpeed = 10f;
+    public float moveSpeed = 7.5f;
     public float groundDrag;
 
     [Header("Rotation Speed")]
     public float rLerp = .075f; // Speed of easing
 
-    [Header("What is ground")]
-    public LayerMask ground;
-
-    // Fattore che controlla l'impatto dell'offset di rotazione in movimento diagonale (0 = nessun offset, 1 = offset completo)
     [Header("Diagonal Rotation Factor")]
     public float diagonalRotationFactor = 0.2f;
 
-    Vector3 move;
-
-    float horizontalInput;
-    float verticalInput;
+    Vector3 moveDirection;
+    Vector3 moveAnimation;
 
     Animator animator;
 
+    private int frames = 0;
+
+    //public InputActionReference move;
+    Inputs inputs;
+    InputAction move;
+
     void Awake()
     {
+        inputs = new Inputs();
         rotator = GeneralMethods.GetRotator().transform;
         CursorSettings.Lock();
+    }
+
+    private void OnEnable()
+    {
+        move = inputs.Gameplay.Move;
+        move.Enable();
+    }
+
+    private void OnDisable()
+    {
+        move.Disable();
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         animator = GetComponentInChildren<Animator>();
+        
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
     }
 
     // Update is called once per frame
+
     void Update()
     {
-        checkGrounded();
-
-        if (isGrounded)
-            rb.linearDamping = groundDrag;
-        else
-            rb.linearDamping = 0;
-
-        getInput();
-
-        // Calcola l'ampiezza degli input per ciascun asse
-        float absVertical = Mathf.Abs(verticalInput);
-        float absHorizontal = Mathf.Abs(horizontalInput);
-
-        /*
-        // Resetta tutti i booleani prima
-        animator.SetBool("isWalkingForward", false);
-        animator.SetBool("isWalkingBack", false);
-        animator.SetBool("isWalkingLeft", false);
-        animator.SetBool("isWalkingRight", false);
-
-        // Priorit� alla camminata laterale:
-        if (absHorizontal > 0)
-        {
-            if (horizontalInput < 0)
-                animator.SetBool("isWalkingLeft", true);
-            else if (horizontalInput > 0)
-                animator.SetBool("isWalkingRight", true);
-        }
-        // Se non c'� input orizzontale, gestisci l'input verticale.
-        else if (absVertical > 0)
-        {
-            if (verticalInput > 0)
-                animator.SetBool("isWalkingForward", true);
-            else if (verticalInput < 0)
-                animator.SetBool("isWalkingBack", true);
-        }
-        
-        */
-        
-        animator.SetBool(GeneralVariables.ISWALKINGFORWARD, verticalInput > 0 && absVertical >= absHorizontal); // Prevale
-        animator.SetBool(GeneralVariables.ISWALKINGLEFT, horizontalInput < 0 && absHorizontal > absVertical);
-        animator.SetBool(GeneralVariables.ISWALKINGBACK, verticalInput < 0 && absVertical >= absHorizontal); // Prevale
-        animator.SetBool(GeneralVariables.ISWALKINGRIGHT,horizontalInput > 0 && absHorizontal > absVertical);
-
-        // Gestione della rotazione in base al movimento:
-        if (move != Vector3.zero)
-        {
-            // Se il movimento � diagonale, applica un offset ridotto
-            if (absHorizontal > 0 && absVertical > 0)
-            {
-                // Calcola l'angolo in base agli input (in gradi)
-                float angle = Mathf.Atan2(horizontalInput, verticalInput) * Mathf.Rad2Deg;
-                // Applica solo una frazione dell'angolo calcolato
-                float smallOffset = angle * diagonalRotationFactor;
-                Vector3 targetEuler = new Vector3(transform.eulerAngles.x, rotator.eulerAngles.y + smallOffset, transform.eulerAngles.z);
-                transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(targetEuler), rLerp);
-            }
-            else
-            {
-                // Movimento non diagonale: usa la rotazione verso la telecamera
-                Vector3 eulerRotation = new Vector3(transform.eulerAngles.x, rotator.eulerAngles.y, transform.eulerAngles.z);
-                transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(eulerRotation), rLerp);
-            }
-        }
-
-        if (transform.position.y < 0)
-            transform.position = new Vector3(0, 4, 0);
+        rotate();
     }
 
     private void FixedUpdate() // aggiornamento fisica
     {
-        getMovement();
-
-        // movement
-        move = rb.rotation * move;
-        rb.AddForce(move.normalized * Time.deltaTime * 10f * moveSpeed, ForceMode.Force);
+        moveCC();
+        animate();
+        
+        if (frames++ % 10 == 0)
+            applyDrag();
     }
 
-    void getInput()
+    void moveCC()
     {
-        // inputs
-        horizontalInput = Input.GetAxisRaw("Horizontal");
-        verticalInput = Input.GetAxisRaw("Vertical");
+        moveDirection = move.ReadValue<Vector3>();
+        moveAnimation = moveDirection;
+        moveDirection = rb.rotation * moveDirection;
+        rb.AddForce(moveDirection.normalized * Time.deltaTime * 10f * moveSpeed, ForceMode.Force);
     }
 
-    void getMovement()
+    void animate()
     {
-        // movement direction
-        move = new Vector3(horizontalInput, 0f, verticalInput);
+        animator.SetBool(GeneralVariables.ISWALKINGFORWARD, moveAnimation.z > 0 && Mathf.Abs(moveAnimation.z) >= Mathf.Abs(moveAnimation.x)); // Prevale
+        animator.SetBool(GeneralVariables.ISWALKINGLEFT, moveAnimation.x < 0 && Mathf.Abs(moveAnimation.x) > Mathf.Abs(moveAnimation.z));
+        animator.SetBool(GeneralVariables.ISWALKINGBACK, moveAnimation.z < 0 && Mathf.Abs(moveAnimation.z) >= Mathf.Abs(moveAnimation.x)); // Prevale
+        animator.SetBool(GeneralVariables.ISWALKINGRIGHT, moveAnimation.x > 0 && Mathf.Abs(moveAnimation.x) > Mathf.Abs(moveAnimation.z));
     }
 
-    void checkGrounded()
+    void rotate()
     {
-        if (Physics.Raycast(transform.position, Vector3.down, GetComponent<CapsuleCollider>().bounds.size.y * 0.5f + 0.2f, ground))
-            isGrounded = true;
+        if (moveDirection != Vector3.zero)
+        {
+            // Calcola l'angolo in base agli input (in gradi)
+            float inputAngle = Mathf.Atan2(moveAnimation.x, moveAnimation.y) * Mathf.Rad2Deg;
+            // Applica solo una frazione dell'angolo calcolato
+            float offset = inputAngle * diagonalRotationFactor;
+            
+            // Se si sta muovendo, lerp della rotazione verso la direzione della telecamera
+            Vector3 eulerRotation = new Vector3(transform.eulerAngles.x, rotator.eulerAngles.y + offset, transform.eulerAngles.z);
+            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(eulerRotation), rLerp);
+        }
+    }
+
+    void applyDrag()
+    {
+        CapsuleCollider cc = gameObject.GetComponent<CapsuleCollider>();
+        if (Physics.Raycast(cc.bounds.center, Vector3.down, cc.bounds.size.y * 0.5f + 0.2f, GeneralVariables.GROUND))
+        {
+            rb.linearDamping = groundDrag;
+        }
         else
-            isGrounded = false;
+            rb.linearDamping = 0;     
     }
 }
