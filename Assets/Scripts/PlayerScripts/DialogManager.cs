@@ -20,6 +20,9 @@ public class DialogManager : MonoBehaviour
     public bool CanPlayAgain = false;
 
     private bool isDialogueActive = false;
+    private bool isTyping = false;
+    private Coroutine typingCoroutine;
+    private Coroutine forceIdleCoroutine;
 
     private void Start()
     {
@@ -47,14 +50,22 @@ public class DialogManager : MonoBehaviour
         if (distance <= detectionRadius && !isDialogueActive)
             StartCoroutine(StartDialogue());
 
-        if (isDialogueActive && Input.GetMouseButtonDown(0)) // Se clicca, avanza il dialogo
+        if (isDialogueActive && Input.GetMouseButtonDown(0))
         {
-            if (textComponent.text == lines[index])
-                NextLine();
+            // Se il testo è in fase di digitazione, ferma solo quella coroutine e completa il testo
+            if (isTyping)
+            {
+                if (typingCoroutine != null)
+                {
+                    StopCoroutine(typingCoroutine);
+                    typingCoroutine = null;
+                }
+                textComponent.text = lines[index];
+                isTyping = false;
+            }
             else
             {
-                StopAllCoroutines();
-                textComponent.text = lines[index]; // Mostra direttamente tutta la frase
+                NextLine();
             }
         }
     }
@@ -64,23 +75,46 @@ public class DialogManager : MonoBehaviour
         isDialogueActive = true;
         detectionRadius = -1; // Evita che il dialogo si riattivi
         Debug.Log("Il player è vicino all'oggetto!");
+
+        // Disabilita il movement script prima di forzare le animazioni
+        playerMovementScript.enabled = false;
+
+        // Avvia la coroutine per forzare l'animazione idle durante il dialogo
+        forceIdleCoroutine = StartCoroutine(ForceIdleAnimation());
+
+        // Imposta gli altri parametri per il dialogo
         animator.SetBool("isTalking", true);
         playerAnimator.SetBool("isInDialog", true);
         DialogUI.SetActive(true);
-        playerMovementScript.enabled = false;
 
         index = 0;
-        yield return StartCoroutine(TypeLine());
+        typingCoroutine = StartCoroutine(TypeLine());
+        yield return null;
+    }
+
+    IEnumerator ForceIdleAnimation()
+    {
+        while (isDialogueActive)
+        {
+            // Assicura che il player non mostri animazioni di camminata
+            playerAnimator.SetBool("isWalkingForward", false);
+            // Forza l'Idle: attenzione, se chiamato ogni frame riavvia l'animazione; tuttavia se l'Idle è looping non è un problema
+            playerAnimator.Play("Idle", 0, 0f);
+            yield return null;
+        }
     }
 
     IEnumerator TypeLine()
     {
-        textComponent.text = ""; // Pulisce il testo precedente
+        isTyping = true;
+        textComponent.text = "";
         foreach (char c in lines[index].ToCharArray())
         {
             textComponent.text += c;
             yield return new WaitForSeconds(TextSpeed);
         }
+        isTyping = false;
+        typingCoroutine = null;
     }
 
     void NextLine()
@@ -88,20 +122,32 @@ public class DialogManager : MonoBehaviour
         if (index < lines.Length - 1)
         {
             index++;
-            StartCoroutine(TypeLine());
+            typingCoroutine = StartCoroutine(TypeLine());
         }
         else
+        {
             EndDialogue();
+        }
     }
 
     void EndDialogue()
     {
         isDialogueActive = false;
+        // Fermiamo la coroutine che forzava l'Idle
+        if (forceIdleCoroutine != null)
+        {
+            StopCoroutine(forceIdleCoroutine);
+            forceIdleCoroutine = null;
+        }
+
         playerMovementScript.enabled = true;
         animator.SetBool("isTalking", false);
         animator.SetBool("isLyra", false);
         playerAnimator.SetBool("isInDialog", false);
         DialogUI.SetActive(false);
+
+        // Al termine, garantiamo una volta sola il passaggio all'Idle
+        playerAnimator.Play("Idle", 0, 0f);
 
         if (CanPlayAgain)
             StartCoroutine(ResetDetectionRadius());

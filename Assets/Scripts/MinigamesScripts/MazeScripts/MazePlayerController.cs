@@ -79,7 +79,7 @@ public class MazePlayerController : MonoBehaviour
         transform.position = initialPosition; //Riporta il giocatore alla posizione iniziale
         transform.rotation = Quaternion.Euler(initialEuler);
         Rigidbody rb = GetComponent<Rigidbody>();
-        rb.velocity = Vector3.zero; //Resetta la velocità per evitare movimenti indesiderati
+        rb.linearVelocity = Vector3.zero; //Resetta la velocità per evitare movimenti indesiderati
         rb.angularVelocity = Vector3.zero;
     }
 

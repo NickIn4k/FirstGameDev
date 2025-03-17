@@ -11,8 +11,8 @@ public class ItemClicker : MonoBehaviour
     public GameObject? UI = null;
     public GameObject? QuestUI = null;
 
-    public AudioSource Src;
-    public AudioClip Sfx;
+    public AudioSource? Src;
+    public AudioClip? Sfx;
 
     #nullable disable
 
