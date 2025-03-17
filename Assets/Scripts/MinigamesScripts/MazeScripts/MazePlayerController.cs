@@ -5,109 +5,92 @@ using UnityEngine.Audio;
 
 public class MazePlayerController : MonoBehaviour
 {
-    //Velocità di movimento e rotazione
     public float moveSpeed = 5f;
     public float rotationSpeed = 360f;
-
     public Items Item;
     public GameObject MainCamera;
     public GameObject Maze;
     public GameObject Rotator;
     public GameObject MazePlayer;
     public GameObject Player;
-
-    //animation
     public GameObject Door;
     public Animator animator;
-
-    //sfx
     public AudioSource Src;
     public AudioClip Sfx_Door;
     public AudioClip MoveSfx;
-
-    //Salva la rotazione iniziale (impostata nell'editor)
-    private Vector3 initialEuler;
-
-    //Offset per correggere l'orientamento del modello sull'asse Y (es. 180 se il modello è capovolto)
     public float yRotationOffset = 180f;
+    private Vector3 initialEuler;
+    private Vector3 initialPosition;
 
     void Awake()
     {
-        //Salva la rotazione iniziale (X, Y, Z) impostata nell'editor
         initialEuler = transform.rotation.eulerAngles;
-
-        //Impedisce al Rigidbody di ruotare sugli assi X e Z
+        initialPosition = transform.position; //Salva la posizione iniziale
         Rigidbody rb = GetComponent<Rigidbody>();
-        rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
+        rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ; //Impedisce la rotazione sugli assi X e Z
     }
 
     void Update()
     {
-        //Determina la direzione basata sui tasti WASD (movimento nelle 4 direzioni)
+        if (transform.position.y <= -1f)
+            Respawn(); //Se la posizione Y è sotto -1, il giocatore viene respawnato
+
         Vector3 movement = Vector3.zero;
         if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
-        {
-            movement = Vector3.forward; //Nord (asse Z positivo)
-        }
+            movement = Vector3.forward;
         else if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
-        {
-            movement = Vector3.back;    //Sud (asse Z negativo)
-        }
+            movement = Vector3.back;
         else if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
-        {
-            movement = Vector3.left;    //Ovest (asse X negativo)
-        }
+            movement = Vector3.left;
         else if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
-        {
-            movement = Vector3.right;   //Est (asse X positivo)
-        }
+            movement = Vector3.right;
 
         if (movement != Vector3.zero)
         {
-            if (!Src.isPlaying)  // Controlla se il suono non è già in riproduzione
+            if (!Src.isPlaying)
             {
                 Src.clip = MoveSfx;
-                Src.Play();
+                Src.Play(); //Riproduce il suono di movimento se non è già in esecuzione
             }
 
-            //Muove il giocatore nella direzione scelta
-            transform.position += movement * moveSpeed * Time.deltaTime;
+            transform.position += movement * moveSpeed * Time.deltaTime; //Muove il giocatore nella direzione scelta
 
-            //Calcola la rotazione target basata sul movimento
-            //Applichiamo un offset sull'asse Y per correggere la direzione del modello
             Quaternion fullTargetRotation = Quaternion.LookRotation(movement, Vector3.up) *
                                             Quaternion.Euler(0, yRotationOffset, 0);
             float targetY = fullTargetRotation.eulerAngles.y;
             float currentY = transform.rotation.eulerAngles.y;
-            // Ruota gradualmente l'asse Y verso il target
             float newY = Mathf.MoveTowardsAngle(currentY, targetY, rotationSpeed * Time.deltaTime);
-
-            // Imposta la nuova rotazione mantenendo gli assi X e Z della rotazione iniziale
             transform.rotation = Quaternion.Euler(initialEuler.x, newY, initialEuler.z);
         }
         else
+        {
             Src.Stop();
+        }
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Maze End"))
-        {
-            Resume();
-        }
+            Resume(); //Attiva la funzione di fine livello quando il giocatore raggiunge l'uscita del labirinto
+    }
+
+    private void Respawn()
+    {
+        transform.position = initialPosition; //Riporta il giocatore alla posizione iniziale
+        transform.rotation = Quaternion.Euler(initialEuler);
+        Rigidbody rb = GetComponent<Rigidbody>();
+        rb.velocity = Vector3.zero; //Resetta la velocità per evitare movimenti indesiderati
+        rb.angularVelocity = Vector3.zero;
     }
 
     private void Resume()
     {
-        //Riattiva la grafica di base e altre impostazioni di fine livello
         Cursor.lockState = CursorLockMode.Locked;
         Player.SetActive(true);
         Rotator.SetActive(true);
         MainCamera.SetActive(true);
-
         Maze.SetActive(false);
         MazePlayer.SetActive(false);
-
         Time.timeScale = 1f;
         OpenTheDoor();
     }
@@ -118,11 +101,9 @@ public class MazePlayerController : MonoBehaviour
         {
             Door.SetActive(false);
             animator.SetBool("isOpening", true);
-
             StartCoroutine(AttendiAnimazione());
-
             Src.clip = Sfx_Door;
-            Src.Play();
+            Src.Play(); //Riproduce il suono della porta che si apre
         }
     }
 

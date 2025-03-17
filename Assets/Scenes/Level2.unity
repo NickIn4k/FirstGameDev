@@ -18387,7 +18387,7 @@ MonoBehaviour:
   animator: {fileID: 11712556}
   Src: {fileID: 1393078570}
   Sfx_Door: {fileID: 8300000, guid: a75eeaa0bbeecaa4cbec01e79e72b865, type: 3}
-  MoveSfx: {fileID: 8300000, guid: 9e1228b63bdcf2b48a52e0312575b2ad, type: 3}
+  MoveSfx: {fileID: 8300000, guid: 6a4454e3f9afd124eb9afdc1b8d46e69, type: 3}
   yRotationOffset: 180
 --- !u!54 &320016950
 Rigidbody:
@@ -47167,7 +47167,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -119.6, y: -144.6}
+  m_AnchoredPosition: {x: 114, y: -144.6}
   m_SizeDelta: {x: 180.8698, y: 52.1741}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &911661195
@@ -79025,7 +79025,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 124.8, y: -144.6}
+  m_AnchoredPosition: {x: -121, y: -144.6}
   m_SizeDelta: {x: 180.8698, y: 52.1741}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1435175654

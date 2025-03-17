@@ -47,7 +47,9 @@ public class StartAnimation : MonoBehaviour
 
         if (luce != null)
             luce.SetActive(false);
-            
+
+        GetComponent<InteractReceiver>().enabled = false;
+
         src.PlayOneShot(clip_corrente);
 
         StartCoroutine(CambioLivello());
