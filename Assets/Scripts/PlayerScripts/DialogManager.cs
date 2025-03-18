@@ -26,6 +26,11 @@ public class DialogManager : MonoBehaviour
 
     private void Start()
     {
+        // CC
+        Player = GeneralMethods.GetPlayer();
+        player = Player.transform;
+        
+        
         animator = GetComponentInChildren<Animator>();
         playerMovementScript = player.GetComponent<Movement>();
         playerAnimator = player.GetComponentInChildren<Animator>();

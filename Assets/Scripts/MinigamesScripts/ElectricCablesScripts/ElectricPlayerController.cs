@@ -25,6 +25,9 @@ public class ElectricPlayerController : MonoBehaviour
 
     void Start()
     {
+        // CC
+        MainCamera = GeneralMethods.GetCamera();
+        
         //Imposta i valori Y delle corsie
         laneYPositions[0] = bottomLaneY;
         laneYPositions[1] = middleLaneY;

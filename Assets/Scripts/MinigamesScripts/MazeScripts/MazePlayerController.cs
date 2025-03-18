@@ -24,6 +24,11 @@ public class MazePlayerController : MonoBehaviour
 
     void Awake()
     {
+        // CC
+        MainCamera = GeneralMethods.GetCamera();
+        Rotator = GeneralMethods.GetRotator();
+        Player = GeneralMethods.GetPlayer();
+        
         initialEuler = transform.rotation.eulerAngles;
         initialPosition = transform.position; //Salva la posizione iniziale
         Rigidbody rb = GetComponent<Rigidbody>();
@@ -53,7 +58,7 @@ public class MazePlayerController : MonoBehaviour
                 Src.Play(); //Riproduce il suono di movimento se non è già in esecuzione
             }
 
-            transform.position += movement * moveSpeed * Time.deltaTime; //Muove il giocatore nella direzione scelta
+            transform.position += movement * (moveSpeed * Time.deltaTime); //Muove il giocatore nella direzione scelta
 
             Quaternion fullTargetRotation = Quaternion.LookRotation(movement, Vector3.up) *
                                             Quaternion.Euler(0, yRotationOffset, 0);
@@ -99,11 +104,13 @@ public class MazePlayerController : MonoBehaviour
     {
         if (Door != null)
         {
-            Door.SetActive(false);
+            
             animator.SetBool("isOpening", true);
             StartCoroutine(AttendiAnimazione());
             Src.clip = Sfx_Door;
             Src.Play(); //Riproduce il suono della porta che si apre
+            
+            Door.SetActive(false);
         }
     }
 

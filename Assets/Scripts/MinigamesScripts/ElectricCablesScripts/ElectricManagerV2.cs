@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Threading.Tasks;
+using Settings;
 
 public class ElectricManagerV2 : MonoBehaviour
 {
@@ -40,7 +41,13 @@ public class ElectricManagerV2 : MonoBehaviour
 
     public void StartMinigame()
     {
-        Cursor.lockState = CursorLockMode.Locked;
+        CursorSettings.Lock();
+        
+        // CC
+        mainCamera = GeneralMethods.GetCamera();
+        Rotator = GeneralMethods.GetRotator();
+        Player = GeneralMethods.GetPlayer();
+        
         secondaryCamera.SetActive(true);
         Game.SetActive(true);
         mainCamera.SetActive(false);

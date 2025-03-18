@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class TPAnimation : MonoBehaviour
@@ -12,13 +13,18 @@ public class TPAnimation : MonoBehaviour
 
     private bool previousState = false;
 
+    private void Start()
+    {
+        player = GeneralMethods.GetPlayer().transform;
+    }
+
     void Update()
     {
-        if (player == null || animator == null || src == null || clip == null)
-        {
-            Debug.LogWarning("Player, Animator o AudioSource non assegnati!");
-            return;
-        }
+        //if (player == null || animator == null || src == null || clip == null)
+        //{
+        //    Debug.LogWarning("Player, Animator o AudioSource non assegnati!");
+        //    return;
+        //}
 
         float distance = Vector3.Distance(transform.position, player.position); //Calcola la distanza tra il player e questo oggetto
         bool isNear = distance <= activationDistance; //Determina se il player è vicino
