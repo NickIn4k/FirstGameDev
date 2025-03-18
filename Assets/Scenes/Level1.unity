@@ -1407,7 +1407,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textQuest: {fileID: 616677731}
   ScreenGlowing: {fileID: 1808621647}
-  LockGlowing: {fileID: 0}
+  LockGlowing: {fileID: 414281443}
 --- !u!1 &140528449
 GameObject:
   m_ObjectHideFlags: 0
@@ -10266,9 +10266,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 472765650513850353, guid: 595b0e55f4193214399702ed770d2469, type: 3}
+      propertyPath: moveSpeed
+      value: 80
+      objectReference: {fileID: 0}
     - target: {fileID: 473905224974134624, guid: 595b0e55f4193214399702ed770d2469, type: 3}
       propertyPath: m_Name
       value: CC
+      objectReference: {fileID: 0}
+    - target: {fileID: 2646197210027877636, guid: 595b0e55f4193214399702ed770d2469, type: 3}
+      propertyPath: m_BackGroundColor.b
+      value: 0.46226418
+      objectReference: {fileID: 0}
+    - target: {fileID: 2646197210027877636, guid: 595b0e55f4193214399702ed770d2469, type: 3}
+      propertyPath: m_BackGroundColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2646197210027877636, guid: 595b0e55f4193214399702ed770d2469, type: 3}
+      propertyPath: m_BackGroundColor.r
+      value: 0.27224526
       objectReference: {fileID: 0}
     - target: {fileID: 8306403082191552116, guid: 595b0e55f4193214399702ed770d2469, type: 3}
       propertyPath: m_LocalPosition.x
