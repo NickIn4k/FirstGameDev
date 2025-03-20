@@ -29,6 +29,9 @@ public class Movement : MonoBehaviour
     //public InputActionReference move;
     Inputs inputs;
     InputAction move;
+    InputAction run;
+
+    private bool isRunning = false;
 
     void Awake()
     {
@@ -40,12 +43,31 @@ public class Movement : MonoBehaviour
     private void OnEnable()
     {
         move = inputs.Gameplay.Move;
+        run = inputs.Gameplay.Run;
         move.Enable();
+        run.Enable();
+        run.performed += StartedRunning;
+        run.canceled += StoppedRunning;
     }
 
     private void OnDisable()
     {
         move.Disable();
+        run.Disable();
+        run.performed -= StartedRunning;
+        run.canceled -= StoppedRunning;
+    }
+
+    private void StartedRunning(InputAction.CallbackContext obj)
+    {
+        isRunning = true;
+        moveSpeed = 120f;
+    }
+
+    private void StoppedRunning(InputAction.CallbackContext obj)
+    {
+        isRunning = false;  
+        moveSpeed = 60f;
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -75,18 +97,28 @@ public class Movement : MonoBehaviour
 
     void moveCC()
     {
-        moveDirection = move.ReadValue<Vector3>();
+        if (!isRunning)
+        {
+            moveDirection = move.ReadValue<Vector3>();
+        }
+        else
+        {
+            moveDirection = new Vector3(0, 0, move.ReadValue<Vector3>().z > 0 ? move.ReadValue<Vector3>().z : 0);
+        }
+        
         moveAnimation = moveDirection;
         moveDirection = rb.rotation * moveDirection;
+        
         rb.AddForce(moveDirection.normalized * Time.deltaTime * 10f * moveSpeed, ForceMode.Force);
     }
 
     void animate()
     {
-        animator.SetBool(GeneralVariables.ISWALKINGFORWARD, moveAnimation.z > 0 && Mathf.Abs(moveAnimation.z) >= Mathf.Abs(moveAnimation.x)); // Prevale
-        animator.SetBool(GeneralVariables.ISWALKINGLEFT, moveAnimation.x < 0 && Mathf.Abs(moveAnimation.x) > Mathf.Abs(moveAnimation.z));
-        animator.SetBool(GeneralVariables.ISWALKINGBACK, moveAnimation.z < 0 && Mathf.Abs(moveAnimation.z) >= Mathf.Abs(moveAnimation.x)); // Prevale
-        animator.SetBool(GeneralVariables.ISWALKINGRIGHT, moveAnimation.x > 0 && Mathf.Abs(moveAnimation.x) > Mathf.Abs(moveAnimation.z));
+        animator.SetBool(GeneralVariables.ISWALKINGFORWARD, moveAnimation.z > 0 && Mathf.Abs(moveAnimation.z) >= Mathf.Abs(moveAnimation.x) && !isRunning); // Prevale
+        animator.SetBool(GeneralVariables.ISWALKINGLEFT, moveAnimation.x < 0 && Mathf.Abs(moveAnimation.x) > Mathf.Abs(moveAnimation.z) && !isRunning);
+        animator.SetBool(GeneralVariables.ISWALKINGBACK, moveAnimation.z < 0 && Mathf.Abs(moveAnimation.z) >= Mathf.Abs(moveAnimation.x) && !isRunning); // Prevale
+        animator.SetBool(GeneralVariables.ISWALKINGRIGHT, moveAnimation.x > 0 && Mathf.Abs(moveAnimation.x) > Mathf.Abs(moveAnimation.z) && !isRunning);
+        animator.SetBool(GeneralVariables.ISRUNNING, moveAnimation.z > 0 && isRunning);
     }
 
     void rotate()

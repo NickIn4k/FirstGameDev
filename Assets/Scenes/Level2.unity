@@ -83361,7 +83361,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8306403082191552116, guid: 595b0e55f4193214399702ed770d2469, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.03
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 8306403082191552116, guid: 595b0e55f4193214399702ed770d2469, type: 3}
       propertyPath: m_LocalRotation.w
@@ -84444,7 +84444,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   progressCircle: {fileID: 972192966}
   holdTime: 0.5
-  lookAt: {fileID: 0}
 --- !u!223 &1555781275
 Canvas:
   m_ObjectHideFlags: 0

@@ -45,7 +45,7 @@ public class InteractReceiver : MonoBehaviour
             popUp.gameObject.SetActive(true);
         }
 
-        if (popUp != null) 
+        if (popUp) 
         {
             Vector3 targetPosition = 0.5f * (transform.position + lookAt.transform.position) + Vector3.up;
             targetPosition.y -= 0.4f; // offset � il valore per abbassare il popup
@@ -71,7 +71,7 @@ public class InteractReceiver : MonoBehaviour
 
     }
 
-    void ShouldPopupHandler (object sender, InteractArgs args)
+    void ShouldPopupHandler(object sender, InteractArgs args)
     {
         if (args.HitTransform == transform)
         {
@@ -80,7 +80,7 @@ public class InteractReceiver : MonoBehaviour
         }
     }
 
-    void ShouldNotPopupHandler ()
+    void ShouldNotPopupHandler()
     {
         if (popUp != null)
         {
