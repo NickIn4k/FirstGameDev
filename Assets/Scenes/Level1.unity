@@ -170,7 +170,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -519, y: -27}
+  m_AnchoredPosition: {x: -566, y: -26.99945}
   m_SizeDelta: {x: 159.6423, y: 95.5293}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &23793169
@@ -217,9 +217,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: ItemClicker, Assembly-CSharp
-        m_MethodName: Resume
+      - m_Target: {fileID: 1916457875}
+        m_TargetAssemblyTypeName: DiaryManager, Assembly-CSharp
+        m_MethodName: TestoPrecedente
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -10608,8 +10608,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -28, y: 13.2578}
-  m_SizeDelta: {x: 873.366, y: 557.9861}
+  m_AnchoredPosition: {x: -27.98993, y: 5.1926}
+  m_SizeDelta: {x: 873.366, y: 643.2532}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &651328194
 MonoBehaviour:
@@ -10633,8 +10633,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8bcd8a37d2a3dbb4495d2aca178b59c6, type: 2}
-  m_sharedMaterial: {fileID: 1174201412949912299, guid: 8bcd8a37d2a3dbb4495d2aca178b59c6, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: fd338c53e6530af488531897f3efb391, type: 2}
+  m_sharedMaterial: {fileID: -2794588832644250790, guid: fd338c53e6530af488531897f3efb391, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -10649,7 +10649,7 @@ MonoBehaviour:
     topRight: {r: 1, g: 1, b: 1, a: 1}
     bottomLeft: {r: 1, g: 1, b: 1, a: 1}
     bottomRight: {r: 1, g: 1, b: 1, a: 1}
-  m_fontColorGradientPreset: {fileID: 11400000, guid: 28025716c0df61446a8d92e59279129b, type: 2}
+  m_fontColorGradientPreset: {fileID: 11400000, guid: 9070c245339f1b44186c36acb08803c5, type: 2}
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
@@ -10665,12 +10665,12 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 2
+  m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
-  m_lineSpacing: 0
+  m_lineSpacing: 3
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
@@ -10696,7 +10696,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: -59.485596, z: 0, w: -15.944153}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -10740,19 +10740,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1131431369947686284, guid: 61fdd7056c85659478fe93fc4ab9e330, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0
+      value: -0.11429429
       objectReference: {fileID: 0}
     - target: {fileID: 1131431369947686284, guid: 61fdd7056c85659478fe93fc4ab9e330, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0.011996269
       objectReference: {fileID: 0}
     - target: {fileID: 1131431369947686284, guid: 61fdd7056c85659478fe93fc4ab9e330, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7071068
+      value: 0.7766796
       objectReference: {fileID: 0}
     - target: {fileID: 1131431369947686284, guid: 61fdd7056c85659478fe93fc4ab9e330, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.7071068
+      value: -0.629896
       objectReference: {fileID: 0}
     - target: {fileID: 1131431369947686284, guid: 61fdd7056c85659478fe93fc4ab9e330, type: 3}
       propertyPath: m_LocalRotation.y
@@ -10764,7 +10764,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1131431369947686284, guid: 61fdd7056c85659478fe93fc4ab9e330, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: -90
+      value: -78.085
       objectReference: {fileID: 0}
     - target: {fileID: 1131431369947686284, guid: 61fdd7056c85659478fe93fc4ab9e330, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -14009,7 +14009,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 346.99988, y: -373.99997}
+  m_AnchoredPosition: {x: 397, y: -403}
   m_SizeDelta: {x: 159.64233, y: 32.69165}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1013637422
@@ -14056,7 +14056,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1388347829}
         m_TargetAssemblyTypeName: ItemClicker, Assembly-CSharp
         m_MethodName: Resume
         m_Mode: 1
@@ -14280,8 +14280,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.010070801, y: 0.0005493164}
-  m_SizeDelta: {x: 1322, y: 1018.40894}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 1436.8745, y: 1080.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1026125261
 MonoBehaviour:
@@ -25437,7 +25437,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4fd45f319fc605d4da0da0a480bbc337, type: 3}
       propertyPath: m_LocalScale.y
-      value: 13.026007
+      value: 27.656271
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4fd45f319fc605d4da0da0a480bbc337, type: 3}
       propertyPath: m_LocalScale.z
@@ -25485,7 +25485,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 4fd45f319fc605d4da0da0a480bbc337, type: 3}
       propertyPath: m_Materials.Array.size
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 4fd45f319fc605d4da0da0a480bbc337, type: 3}
       propertyPath: 'm_Materials.Array.data[5]'
@@ -25494,6 +25494,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 4fd45f319fc605d4da0da0a480bbc337, type: 3}
       propertyPath: m_Name
       value: Tablet
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 4fd45f319fc605d4da0da0a480bbc337, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -25504,37 +25508,19 @@ PrefabInstance:
       addedObject: {fileID: 1388347828}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 4fd45f319fc605d4da0da0a480bbc337, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1388347827}
+      addedObject: {fileID: 1388347834}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 4fd45f319fc605d4da0da0a480bbc337, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1388347829}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 4fd45f319fc605d4da0da0a480bbc337, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1388347833}
   m_SourcePrefab: {fileID: 100100000, guid: 4fd45f319fc605d4da0da0a480bbc337, type: 3}
 --- !u!1 &1388347825 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 4fd45f319fc605d4da0da0a480bbc337, type: 3}
   m_PrefabInstance: {fileID: 1388347824}
   m_PrefabAsset: {fileID: 0}
---- !u!65 &1388347827
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1388347825}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 1
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.036005493, y: 0.001010581, z: 0.022005498}
-  m_Center: {x: 2.4980018e-16, y: -5.820768e-11, z: -9.313231e-10}
 --- !u!114 &1388347828
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25565,6 +25551,40 @@ MonoBehaviour:
   QuestUI: {fileID: 93310510}
   Src: {fileID: 408139398}
   Sfx: {fileID: 8300000, guid: a69aad7b5e4be564c89799a55028f076, type: 3}
+--- !u!135 &1388347833
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1388347825}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.02
+  m_Center: {x: 2.4980018e-16, y: -5.820768e-11, z: -9.313231e-10}
+--- !u!114 &1388347834
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1388347825}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 404f2a90d82e96446b9410e9d53d6dde, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Item: {fileID: 11400000, guid: 4b16f12b7185a784ba61ad76badb6ca3, type: 2}
 --- !u!1 &1396162906 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -6849530508941493640, guid: d050101fb08aae7429c58d6fd41f046f, type: 3}
@@ -29077,11 +29097,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   testi:
-  - "Diary Entry 1:The Start(March 21, 2025) It\u2019s finished. The first prototype
-    of Elysium is live. I can hardly believe it, but it\u2019s real. A world-changing
-    creation, designed to solve everything. W.R.A.T.H. (World Resource and Technological
-    Hub) is counting on me, and I\u2019m counting on this.  "
-  - "Elysium will optimize the world\u2014eliminate waste, balance resources, eradicate
+  - "Diary Entry 1: The Start (March 21, 2025) \\nIt\u2019s finished. \\nThe first
+    prototype of Elysium is alive. I can hardly believe it, but it\u2019s real. A
+    world - changing creation, designed to solve everything. W.R.A.T.H. is counting
+    on me, and I\u2019m counting on this. "
+  - "Elysium will optimize the world - eliminate waste, balance resources, eradicate
     poverty, disease, and inefficiency. We\u2019ll achieve a kind of utopia. At least,
     that's the plan. But I feel... strange. There's a weight pressing down on me. "
   - "It\u2019s not just the pressure from the organization, it\u2019s something deeper.
@@ -29091,7 +29111,6 @@ MonoBehaviour:
   - "I keep telling myself that it\u2019s fine. Elysium will fix everything. It\u2019s
     designed to do good, to be perfect. But there's this growing doubt creeping in.
     It's too soon to be thinking like this. I just need to focus on making it work."
-  - 'EXTRA: Barry+Martina = LOVE'
   panelText: {fileID: 651328194}
   bottonePrecedente: {fileID: 23793169}
   bottoneSuccessivo: {fileID: 2025402968}
@@ -29391,7 +29410,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 471, y: -27}
+  m_AnchoredPosition: {x: 533, y: -26.99945}
   m_SizeDelta: {x: 159.6423, y: 95.5293}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2025402968
@@ -29438,9 +29457,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: ItemClicker, Assembly-CSharp
-        m_MethodName: Resume
+      - m_Target: {fileID: 1916457875}
+        m_TargetAssemblyTypeName: DiaryManager, Assembly-CSharp
+        m_MethodName: TestoSuccessivo
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
