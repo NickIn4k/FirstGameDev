@@ -58,7 +58,8 @@ namespace Settings.CharacterSelection.Moves
             {
                 var ray = new Ray(cameraTransform.position, cameraTransform.forward);
                 Debug.DrawRay(ray.origin, ray.direction * 10, Color.red);
-                pointer.transform.position = Physics.Raycast(ray, out RaycastHit hit, 100f, GeneralVariables.GROUND) ? hit.point : pointer.transform.position;
+                pointer.transform.position = Physics.Raycast(ray, out RaycastHit hit, 100f, GeneralVariables.GROUND) ? hit.point + Vector3.up : pointer.transform.position;
+                pointer.transform.rotation = Quaternion.LookRotation(new Vector3(transform.rotation.x - 90, -ray.direction.y, transform.rotation.z));
             }
         }
     }

@@ -1,4 +1,5 @@
 ﻿using System;
+using AIScripts.Friendly.GOAP.Data;
 using CrashKonijn.Agent.Core;
 using CrashKonijn.Goap.Core;
 using CrashKonijn.Goap.Runtime;
@@ -8,7 +9,8 @@ namespace AIScripts.Friendly.GOAP.Behaviours
 {
     public class DependencyInjector : GoapConfigInitializerBase, IGoapInjector
     {
-        ScriptableObject MoveToSO;
+        //public ScriptableObject MoveToSO;
+        public CCData CCData;
         public Vector3 moveToPosition;
         
         public override void InitConfig(IGoapConfig config)

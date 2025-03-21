@@ -125,6 +125,8 @@ public class Movement : MonoBehaviour
     {
         if (moveDirection != Vector3.zero)
         {
+            GeneralVariables.isCCMoving = true;
+            
             // Calcola l'angolo in base agli input (in gradi)
             float inputAngle = Mathf.Atan2(moveAnimation.x, moveAnimation.y) * Mathf.Rad2Deg;
             // Applica solo una frazione dell'angolo calcolato
@@ -133,6 +135,10 @@ public class Movement : MonoBehaviour
             // Se si sta muovendo, lerp della rotazione verso la direzione della telecamera
             Vector3 eulerRotation = new Vector3(transform.eulerAngles.x, rotator.eulerAngles.y + offset, transform.eulerAngles.z);
             transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(eulerRotation), rLerp);
+        }
+        else if (GeneralVariables.isCCMoving)
+        {
+            GeneralVariables.isCCMoving = false;
         }
     }
 

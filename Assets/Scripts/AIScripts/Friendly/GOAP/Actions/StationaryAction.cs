@@ -13,13 +13,6 @@ namespace AIScripts.Friendly.GOAP.Actions
         
         public override IActionRunState Perform(IMonoAgent agent, CommonData data, IActionContext context)
         {
-            data.Timer -= context.DeltaTime;
-            
-            if (data.Timer > 0)
-            {
-                return ActionRunState.Continue;
-            }
-            
             return ActionRunState.Completed;
         }
 

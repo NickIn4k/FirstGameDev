@@ -14,7 +14,6 @@ namespace AIScripts.Friendly.GOAP.Actions
         
         public override IActionRunState Perform(IMonoAgent agent, MoveToData data, IActionContext context)
         {
-            Debug.Log("sada");
             if (Vector3.Distance(agent.transform.position, data.Target.Position) > data.Tolerance)
             {
                 return ActionRunState.Continue;

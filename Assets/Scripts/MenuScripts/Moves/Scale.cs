@@ -47,8 +47,8 @@ namespace CharacterSelector
                 rect2.DOSizeDelta(new Vector2(targetHeight, targetWidth), duration, false).SetEase(Ease.InOutQuad);
 
                 // Phase alpha
-                GetComponentsInChildren<Image>()[0].CrossFadeAlpha(1f, duration, false);
-                GetComponentsInChildren<Image>()[1].CrossFadeAlpha(0f, duration, false);
+                GetComponentsInChildren<Image>()[0].DOFade(1f, duration);
+                GetComponentsInChildren<Image>()[1].DOFade(0f, duration);
             }
             else if (id != this.id && active)
             {
@@ -57,8 +57,8 @@ namespace CharacterSelector
                 rect1.DOSizeDelta(new Vector2(initialHeight, initialWidth), duration, false).SetEase(Ease.InOutQuad);
                 rect2.DOSizeDelta(new Vector2(initialHeight, initialWidth), duration, false).SetEase(Ease.InOutQuad);
 
-                GetComponentsInChildren<Image>()[0].CrossFadeAlpha(0f, duration, false);
-                GetComponentsInChildren<Image>()[1].CrossFadeAlpha(1f, duration, false);
+                GetComponentsInChildren<Image>()[0].DOFade(0f, duration);
+                GetComponentsInChildren<Image>()[1].DOFade(1f, duration);
             }
         }
     }
