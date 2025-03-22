@@ -1,7 +1,9 @@
 using Settings;
 using System.Collections;
 using System.Linq;
+using Unity.AI.Navigation;
 using UnityEngine;
+using UnityEngine.AI;
 
 public static class GeneralMethods
 {
@@ -15,12 +17,12 @@ public static class GeneralMethods
 
     public static GameObject GetCC()
     {
-        return Object.FindObjectsByType<GameObject>(findObjectsInactive: FindObjectsInactive.Include, sortMode: FindObjectsSortMode.None).Where((gameObject, b) => gameObject.name == "CC").ToArray()[0];
+        return Object.FindObjectsByType<GameObject>(findObjectsInactive: FindObjectsInactive.Include, sortMode: FindObjectsSortMode.None).Where(gameObject => gameObject.name == "CC").ToArray()[0];
     }
 
     public static GameObject GetComponentInCC(string name)
     {
-        return GetCC().GetComponentsInChildren<Transform>(includeInactive: true).Where((gameObject, b) => gameObject.name == name).ToArray()[0].gameObject;
+        return GetCC().GetComponentsInChildren<Transform>(includeInactive: true).Where(gameObject => gameObject.name == name).ToArray()[0].gameObject;
     }
 
     public static GameObject GetPlayer()
@@ -31,6 +33,18 @@ public static class GeneralMethods
     public static GameObject GetRotator()
     {
         return GetComponentInCC("Rotator");
+    }
+
+    public static void BakeMap()
+    {
+        NavMeshSurface surface =
+            Object.FindObjectsByType<GameObject>(findObjectsInactive: FindObjectsInactive.Include,
+                    sortMode: FindObjectsSortMode.None).Where(gameObject => gameObject.name == "NavMesh Surface")
+                .ToArray()[0].GetComponent<NavMeshSurface>();
+        
+        NavMeshData navMeshData = surface.navMeshData;
+        
+        surface.UpdateNavMesh(navMeshData);
     }
 
     public static bool TryGetRotator(out GameObject rotator)

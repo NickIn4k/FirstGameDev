@@ -26,18 +26,11 @@ namespace AIScripts.Friendly.GOAP.Sensors
 
         public override ITarget Sense(IActionReceiver agent, IComponentReference references, ITarget existingTarget)
         {
-            if (existingTarget == null)
-            {
-                Debug.Log("Target is null");
-                return new PositionTarget(GetRandomPlayerPosition()); // Player moved out of range
-            }
-
-            if (Physics.OverlapSphereNonAlloc(existingTarget.Position, 4f, _collider, GeneralVariables.CHARACTER) < 1)
+            if (existingTarget == null || Physics.OverlapSphereNonAlloc(existingTarget.Position, 4f, _collider, GeneralVariables.PLAYER) < 1)
             {
                 return new PositionTarget(GetRandomPlayerPosition()); // Player moved out of range
             }
-                
-            Debug.Log("Target is in range");
+            
             return existingTarget;
         }   
 

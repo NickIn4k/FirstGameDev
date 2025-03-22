@@ -1,5 +1,6 @@
 ﻿using AIScripts.Friendly.GOAP.Actions;
 using AIScripts.Friendly.GOAP.Sensors;
+using CrashKonijn.Agent.Core;
 using CrashKonijn.Goap.Core;
 using CrashKonijn.Goap.Runtime;
 
@@ -19,7 +20,8 @@ namespace AIScripts.Friendly.GOAP.Capabilities
                 .SetBaseCost(1)
                 .AddEffect<StayNearCc>(EffectType.Increase)
                 .SetTarget<StayNearCcTarget>()
-                .SetStoppingDistance(1);
+                .SetStoppingDistance(1)
+                .SetMoveMode(ActionMoveMode.PerformWhileMoving);
 
             builder.AddTargetSensor<StayNearCcSensor>()
                 .SetTarget<StayNearCcTarget>();

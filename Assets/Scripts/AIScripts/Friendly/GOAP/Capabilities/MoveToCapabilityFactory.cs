@@ -1,5 +1,6 @@
 ﻿using AIScripts.Friendly.GOAP.Actions;
 using AIScripts.Friendly.GOAP.Sensors;
+using CrashKonijn.Agent.Core;
 using CrashKonijn.Goap.Core;
 using CrashKonijn.Goap.Runtime;
 using Unity.VisualScripting;

@@ -13,4 +13,5 @@ public static class GeneralVariables
     public static int DODITHER = Shader.PropertyToID("_doDither");
     public static int CHARACTER = LayerMask.GetMask("Characters");
     public static int GROUND = LayerMask.GetMask("Ground");
+    public static int PLAYER  = LayerMask.GetMask("Player");
 }

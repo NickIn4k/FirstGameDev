@@ -8,7 +8,6 @@ namespace AIScripts.Friendly.GOAP.Actions
     {
         public override void Start(IMonoAgent agent, CommonData data)
         {
-            data.Timer = UnityEngine.Random.Range(1, 2);
         }
         
         public override IActionRunState Perform(IMonoAgent agent, CommonData data, IActionContext context)

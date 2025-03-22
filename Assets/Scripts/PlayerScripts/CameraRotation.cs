@@ -30,7 +30,7 @@ public class CameraRotation : MonoBehaviour
         
         transform.position = Vector3.Lerp(
             transform.position, 
-            Physics.Raycast(ray, out var hit, maxDistance) ? hit.point : lookAtCamera.position, 
+            Physics.Raycast(ray, out var hit, maxDistance, ~GeneralVariables.CHARACTER) ? hit.point : lookAtCamera.position, 
             pLerp);
 
         // Rotate camera

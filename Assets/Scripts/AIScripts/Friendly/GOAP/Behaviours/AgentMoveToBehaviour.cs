@@ -27,13 +27,11 @@ namespace AIScripts.Friendly.GOAP
         private void OnEnable()
         {
             AgentBehaviour.Events.OnTargetChanged += EventsOnTargetChanged;
-            AgentBehaviour.Events.OnTargetOutOfRange += EventsOnTargetOutOfRange;
         }
         
         private void OnDisable()
         {
             AgentBehaviour.Events.OnTargetChanged -= EventsOnTargetChanged;
-            AgentBehaviour.Events.OnTargetOutOfRange -= EventsOnTargetOutOfRange;
         }
 
         private void EventsOnTargetOutOfRange(ITarget target)
@@ -45,8 +43,7 @@ namespace AIScripts.Friendly.GOAP
         {
             CurrentTarget = target;
             LastPosition = CurrentTarget.Position;
-            NavMeshAgent.SetDestination(CurrentTarget.Position);
-            Animator.SetBool(GeneralVariables.ISWALKINGFORWARD, true);
+            CheckPath();
         }
 
         private void Update()
@@ -56,10 +53,21 @@ namespace AIScripts.Friendly.GOAP
             if (MinMoveDistance > Vector3.Distance(CurrentTarget.Position, LastPosition))
             {
                 LastPosition = CurrentTarget.Position;
-                NavMeshAgent.SetDestination(CurrentTarget.Position);
+                CheckPath();
             }
             
             Animator.SetBool(GeneralVariables.ISWALKINGFORWARD, NavMeshAgent.velocity.magnitude > MinMoveDistance);
+        }
+
+        private void CheckPath()
+        {
+            NavMeshAgent.SetDestination(CurrentTarget.Position);
+            if (NavMeshAgent.pathStatus == NavMeshPathStatus.PathPartial)
+            {
+                Debug.Log("Invalid path!");
+                NavMeshAgent.ResetPath();
+                AgentBehaviour.CompleteAction();
+            }
         }
     }
 }
