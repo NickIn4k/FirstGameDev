@@ -4,4 +4,5 @@ using UnityEngine;
 public class GeneralData : ScriptableObject
 {
     public AudioClip doorAudioClip;
+    public Material highlightMaterial;
 }

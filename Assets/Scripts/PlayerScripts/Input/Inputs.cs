@@ -64,6 +64,15 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
+                    ""name"": ""ThirdMove"",
+                    ""type"": ""Button"",
+                    ""id"": ""668edd4f-8ee9-45d9-a3e1-213e0e4492cf"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
                     ""name"": ""Interact"",
                     ""type"": ""Button"",
                     ""id"": ""1b17a7d3-56c9-4de9-97d0-ec690fbe8df0"",
@@ -214,6 +223,17 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
                     ""action"": ""Run"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8c29ac79-5be4-4f0e-97ea-fd4f2a67dc73"",
+                    ""path"": ""<Keyboard>/t"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard"",
+                    ""action"": ""ThirdMove"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -238,6 +258,7 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
         m_Gameplay_ClickToMove = m_Gameplay.FindAction("ClickToMove", throwIfNotFound: true);
         m_Gameplay_FirstMove = m_Gameplay.FindAction("FirstMove", throwIfNotFound: true);
         m_Gameplay_SecondMove = m_Gameplay.FindAction("SecondMove", throwIfNotFound: true);
+        m_Gameplay_ThirdMove = m_Gameplay.FindAction("ThirdMove", throwIfNotFound: true);
         m_Gameplay_Interact = m_Gameplay.FindAction("Interact", throwIfNotFound: true);
         m_Gameplay_Run = m_Gameplay.FindAction("Run", throwIfNotFound: true);
     }
@@ -310,6 +331,7 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
     private readonly InputAction m_Gameplay_ClickToMove;
     private readonly InputAction m_Gameplay_FirstMove;
     private readonly InputAction m_Gameplay_SecondMove;
+    private readonly InputAction m_Gameplay_ThirdMove;
     private readonly InputAction m_Gameplay_Interact;
     private readonly InputAction m_Gameplay_Run;
     public struct GameplayActions
@@ -320,6 +342,7 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
         public InputAction @ClickToMove => m_Wrapper.m_Gameplay_ClickToMove;
         public InputAction @FirstMove => m_Wrapper.m_Gameplay_FirstMove;
         public InputAction @SecondMove => m_Wrapper.m_Gameplay_SecondMove;
+        public InputAction @ThirdMove => m_Wrapper.m_Gameplay_ThirdMove;
         public InputAction @Interact => m_Wrapper.m_Gameplay_Interact;
         public InputAction @Run => m_Wrapper.m_Gameplay_Run;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
@@ -343,6 +366,9 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
             @SecondMove.started += instance.OnSecondMove;
             @SecondMove.performed += instance.OnSecondMove;
             @SecondMove.canceled += instance.OnSecondMove;
+            @ThirdMove.started += instance.OnThirdMove;
+            @ThirdMove.performed += instance.OnThirdMove;
+            @ThirdMove.canceled += instance.OnThirdMove;
             @Interact.started += instance.OnInteract;
             @Interact.performed += instance.OnInteract;
             @Interact.canceled += instance.OnInteract;
@@ -365,6 +391,9 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
             @SecondMove.started -= instance.OnSecondMove;
             @SecondMove.performed -= instance.OnSecondMove;
             @SecondMove.canceled -= instance.OnSecondMove;
+            @ThirdMove.started -= instance.OnThirdMove;
+            @ThirdMove.performed -= instance.OnThirdMove;
+            @ThirdMove.canceled -= instance.OnThirdMove;
             @Interact.started -= instance.OnInteract;
             @Interact.performed -= instance.OnInteract;
             @Interact.canceled -= instance.OnInteract;
@@ -403,6 +432,7 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
         void OnClickToMove(InputAction.CallbackContext context);
         void OnFirstMove(InputAction.CallbackContext context);
         void OnSecondMove(InputAction.CallbackContext context);
+        void OnThirdMove(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
         void OnRun(InputAction.CallbackContext context);
     }

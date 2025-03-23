@@ -1,5 +1,6 @@
 using System.Collections;
 using DG.Tweening;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering;
@@ -10,6 +11,7 @@ public class AnimationTween : MonoBehaviour
     public float 
         appearX,
         appearY,
+        appearYFirst,
         hideY,
         animationTime;
     
@@ -21,9 +23,14 @@ public class AnimationTween : MonoBehaviour
     {
         GetComponent<RectTransform>().localPosition = new Vector3(appearX, hideY, 0);
         selector = GeneralMethods.GetCC().GetComponent<SelectCharacter>();
-        selector.OnSelect += Appear;
+        selector.OnSelect += ChangeState;
         
         foreach (var obj in GetComponentsInChildren<Image>())
+        {
+            obj.color = new Color(obj.color.r, obj.color.g, obj.color.b, 0f);
+        }
+
+        foreach (var obj in GetComponentsInChildren<TextMeshProUGUI>())
         {
             obj.color = new Color(obj.color.r, obj.color.g, obj.color.b, 0f);
         }
@@ -37,12 +44,29 @@ public class AnimationTween : MonoBehaviour
 
     void OnDestroy()
     {
-        selector.OnSelect -= Appear;
+        selector.OnSelect -= ChangeState;
     }
 
-    void Appear(int id)
+    void ChangeState(int id)
     {
-        transform.LeanMoveLocal(new Vector2(appearX, appearY), animationTime);
+        Debug.Log(id);
+        if (id == 1)
+        {
+            Appear(appearYFirst);
+        }
+        else if (id != 0)
+        {
+            Appear(appearY);
+        }
+        else
+        {
+            Disappear();
+        }
+    }
+
+    void Appear(float finalY)
+    {
+        transform.LeanMoveLocal(new Vector2(appearX, finalY), animationTime);
         foreach (var obj in GetComponentsInChildren<Image>())
         {
             animating++;
@@ -50,13 +74,20 @@ public class AnimationTween : MonoBehaviour
             {
                 animating--;
                 if (animating == 0)
-                    Debug.Log("No animations playing!");
+                    foreach (var txt in GetComponentsInChildren<TextMeshProUGUI>())
+                    {
+                        txt.DOFade(1f, animationTime);
+                    }
             });
         }
     }
     
-    void Disappear(int id)
+    void Disappear()
     {
         transform.LeanMoveLocal(new Vector2(appearX, hideY), animationTime);
+        foreach (var obj in GetComponentsInChildren<Image>())
+            obj.DOFade(0f, animationTime);
+        foreach (var txt in GetComponentsInChildren<TextMeshProUGUI>())
+            txt.DOFade(0f, animationTime);
     }
 }

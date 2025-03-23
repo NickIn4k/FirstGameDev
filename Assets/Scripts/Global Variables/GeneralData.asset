@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: GeneralData
   m_EditorClassIdentifier: 
   doorAudioClip: {fileID: 8300000, guid: a75eeaa0bbeecaa4cbec01e79e72b865, type: 3}
+  highlightMaterial: {fileID: 2100000, guid: 96eb249c886d77542a94957e87a0d8c4, type: 2}

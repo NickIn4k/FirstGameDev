@@ -10,6 +10,7 @@ public class SelectMove : MonoBehaviour
     private Inputs inputs;
     private InputAction move1;
     private InputAction move2;
+    private InputAction move3;
 
     private bool hasSelected = false;
 
@@ -34,6 +35,10 @@ public class SelectMove : MonoBehaviour
         move2 = inputs.Gameplay.SecondMove;
         move2.Enable();
         move2.performed += EnableMove2;
+        
+        move3 = inputs.Gameplay.ThirdMove;
+        move3.Enable();
+        move3.performed += EnableMove3;
     }
     
     void DisableAllMoves()
@@ -45,12 +50,16 @@ public class SelectMove : MonoBehaviour
         
         move2.performed -= EnableMove2;
         move2.Disable();
+        
+        move3.performed -= EnableMove3;
+        move3.Disable();
     }
 
     void OnDisable()
     {
         GetComponent<Move1>().OnUpdate -= Reset;
         GetComponent<Move2>().OnUpdate -= Reset;
+        GetComponent<Move3>().OnUpdate -= Reset;
     }
 
     private void Setup()
@@ -72,6 +81,14 @@ public class SelectMove : MonoBehaviour
         
         GetComponent<Move2>().OnUpdate += Reset;
         GetComponent<Move2>().enabled = true;
+    }
+    
+    private void EnableMove3(InputAction.CallbackContext obj)
+    {
+        Setup();
+        
+        GetComponent<Move3>().OnUpdate += Reset;
+        GetComponent<Move3>().enabled = true;
     }
 
     private void Reset()

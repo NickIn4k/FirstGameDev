@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;   //Per gestire i pulsanti
 
@@ -6,10 +7,12 @@ public class HexagonChecker : MonoBehaviour
     public GameObject[] hexagons;   //Array degli esagoni da controllare
     public int[] referenceAngles;   //Array degli angoli di riferimento (0-360°)
     public Rotator rotator;
-    public Animator animator;
-    public GameObject Door;
-    public AudioSource Src;
-    public AudioClip Sfx;
+    //public Animator animator;
+    //public GameObject Door;
+    //public AudioSource Src;
+    //public AudioClip Sfx;
+
+    public event Action OnCompletion;
 
     public void CheckRotations()
     {
@@ -32,10 +35,11 @@ public class HexagonChecker : MonoBehaviour
         }
 
         Debug.Log("Tutti gli esagoni sono nella posizione corretta!");
-        OpenTheDoor();
+        OnCompletion?.Invoke();
+        //OpenTheDoor();
     }
 
-    private void OpenTheDoor()
+    /*private void OpenTheDoor()
     {
         //Rende il collider della porta un trigger
         
@@ -46,5 +50,5 @@ public class HexagonChecker : MonoBehaviour
             Door.SetActive(false);
             animator.SetBool("isOpening", true);
         }
-    }
+    }*/
 }
