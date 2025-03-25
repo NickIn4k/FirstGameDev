@@ -28,8 +28,9 @@ public class Movement : MonoBehaviour
 
     // Audio
     [Header("Audio Settings")]
-    public AudioSource src;
-    public AudioClip clip;
+    public AudioSource mainSrc;           // AudioSource per altri suoni
+    public AudioSource footstepsSrc;      // AudioSource dedicato per i passi
+    public AudioClip clip;                // Clip per il suono dei passi
 
     // Inputs
     Inputs inputs;
@@ -81,10 +82,11 @@ public class Movement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
 
-        // Imposta la clip sull'audio source se non è già impostata
-        if (src != null && clip != null)
+        // Imposta la clip sull'AudioSource dei passi se non è già impostata
+        if (footstepsSrc != null && clip != null)
         {
-            src.clip = clip;
+            footstepsSrc.clip = clip;
+            footstepsSrc.loop = true; // assicura la ripetizione finché il giocatore si muove
         }
     }
 
@@ -98,20 +100,19 @@ public class Movement : MonoBehaviour
         moveCC();
         animate();
 
-        // Gestione audio: se il player si sta muovendo, parte la clip,
-        // altrimenti si ferma.
+        // Gestione audio per i passi usando footstepsSrc
         if (moveAnimation.magnitude > 0.1f)
         {
-            if (src != null && !src.isPlaying)
+            if (footstepsSrc != null && !footstepsSrc.isPlaying)
             {
-                src.Play();
+                footstepsSrc.Play();
             }
         }
         else
         {
-            if (src != null && src.isPlaying)
+            if (footstepsSrc != null && footstepsSrc.isPlaying)
             {
-                src.Stop();
+                footstepsSrc.Stop();
             }
         }
 
@@ -138,9 +139,9 @@ public class Movement : MonoBehaviour
 
     void animate()
     {
-        animator.SetBool(GeneralVariables.ISWALKINGFORWARD, moveAnimation.z > 0 && Mathf.Abs(moveAnimation.z) >= Mathf.Abs(moveAnimation.x) && !isRunning); // Prevale
+        animator.SetBool(GeneralVariables.ISWALKINGFORWARD, moveAnimation.z > 0 && Mathf.Abs(moveAnimation.z) >= Mathf.Abs(moveAnimation.x) && !isRunning);
         animator.SetBool(GeneralVariables.ISWALKINGLEFT, moveAnimation.x < 0 && Mathf.Abs(moveAnimation.x) > Mathf.Abs(moveAnimation.z) && !isRunning);
-        animator.SetBool(GeneralVariables.ISWALKINGBACK, moveAnimation.z < 0 && Mathf.Abs(moveAnimation.z) >= Mathf.Abs(moveAnimation.x) && !isRunning); // Prevale
+        animator.SetBool(GeneralVariables.ISWALKINGBACK, moveAnimation.z < 0 && Mathf.Abs(moveAnimation.z) >= Mathf.Abs(moveAnimation.x) && !isRunning);
         animator.SetBool(GeneralVariables.ISWALKINGRIGHT, moveAnimation.x > 0 && Mathf.Abs(moveAnimation.x) > Mathf.Abs(moveAnimation.z) && !isRunning);
         animator.SetBool(GeneralVariables.ISRUNNING, moveAnimation.z > 0 && isRunning);
     }
@@ -151,12 +152,9 @@ public class Movement : MonoBehaviour
         {
             GeneralVariables.isCCMoving = true;
 
-            // Calcola l'angolo in base agli input (in gradi)
             float inputAngle = Mathf.Atan2(moveAnimation.x, moveAnimation.y) * Mathf.Rad2Deg;
-            // Applica solo una frazione dell'angolo calcolato
             float offset = inputAngle * diagonalRotationFactor;
 
-            // Se si sta muovendo, lerp della rotazione verso la direzione della telecamera
             Vector3 eulerRotation = new Vector3(transform.eulerAngles.x, rotator.eulerAngles.y + offset, transform.eulerAngles.z);
             transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(eulerRotation), rLerp);
         }
@@ -174,6 +172,8 @@ public class Movement : MonoBehaviour
             rb.linearDamping = groundDrag;
         }
         else
+        {
             rb.linearDamping = 0;
+        }
     }
 }
