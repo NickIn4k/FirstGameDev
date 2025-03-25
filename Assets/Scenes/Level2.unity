@@ -14941,7 +14941,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5572636566945144001, guid: a3961d245d0637546b79c5fc9fd96580, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5992623149272915900, guid: a3961d245d0637546b79c5fc9fd96580, type: 3}
       propertyPath: m_AnchorMax.y
@@ -89754,10 +89754,6 @@ MonoBehaviour:
   - {fileID: 1603594567}
   referenceAngles: 3c0000002c0100000000000000000000
   rotator: {fileID: 0}
-  animator: {fileID: 565950280}
-  Door: {fileID: 72840273}
-  Src: {fileID: 1393078570}
-  Sfx: {fileID: 8300000, guid: a75eeaa0bbeecaa4cbec01e79e72b865, type: 3}
 --- !u!1 &1640471235
 GameObject:
   m_ObjectHideFlags: 0
@@ -92662,7 +92658,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: d9a7e1f8a12270f41b687a8ea7df4ff8, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
