@@ -26,7 +26,12 @@ public class Movement : MonoBehaviour
 
     private int frames = 0;
 
-    //public InputActionReference move;
+    // Audio
+    [Header("Audio Settings")]
+    public AudioSource src;
+    public AudioClip clip;
+
+    // Inputs
     Inputs inputs;
     InputAction move;
     InputAction run;
@@ -66,20 +71,22 @@ public class Movement : MonoBehaviour
 
     private void StoppedRunning(InputAction.CallbackContext obj)
     {
-        isRunning = false;  
+        isRunning = false;
         moveSpeed = 60f;
     }
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         animator = GetComponentInChildren<Animator>();
-        
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
-    }
 
-    // Update is called once per frame
+        // Imposta la clip sull'audio source se non è già impostata
+        if (src != null && clip != null)
+        {
+            src.clip = clip;
+        }
+    }
 
     void Update()
     {
@@ -90,7 +97,24 @@ public class Movement : MonoBehaviour
     {
         moveCC();
         animate();
-        
+
+        // Gestione audio: se il player si sta muovendo, parte la clip,
+        // altrimenti si ferma.
+        if (moveAnimation.magnitude > 0.1f)
+        {
+            if (src != null && !src.isPlaying)
+            {
+                src.Play();
+            }
+        }
+        else
+        {
+            if (src != null && src.isPlaying)
+            {
+                src.Stop();
+            }
+        }
+
         if (frames++ % 10 == 0)
             applyDrag();
     }
@@ -105,10 +129,10 @@ public class Movement : MonoBehaviour
         {
             moveDirection = new Vector3(0, 0, move.ReadValue<Vector3>().z > 0 ? move.ReadValue<Vector3>().z : 0);
         }
-        
+
         moveAnimation = moveDirection;
         moveDirection = rb.rotation * moveDirection;
-        
+
         rb.AddForce(moveDirection.normalized * Time.deltaTime * 10f * moveSpeed, ForceMode.Force);
     }
 
@@ -126,12 +150,12 @@ public class Movement : MonoBehaviour
         if (moveDirection != Vector3.zero)
         {
             GeneralVariables.isCCMoving = true;
-            
+
             // Calcola l'angolo in base agli input (in gradi)
             float inputAngle = Mathf.Atan2(moveAnimation.x, moveAnimation.y) * Mathf.Rad2Deg;
             // Applica solo una frazione dell'angolo calcolato
             float offset = inputAngle * diagonalRotationFactor;
-            
+
             // Se si sta muovendo, lerp della rotazione verso la direzione della telecamera
             Vector3 eulerRotation = new Vector3(transform.eulerAngles.x, rotator.eulerAngles.y + offset, transform.eulerAngles.z);
             transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(eulerRotation), rLerp);
@@ -150,6 +174,6 @@ public class Movement : MonoBehaviour
             rb.linearDamping = groundDrag;
         }
         else
-            rb.linearDamping = 0;     
+            rb.linearDamping = 0;
     }
 }
