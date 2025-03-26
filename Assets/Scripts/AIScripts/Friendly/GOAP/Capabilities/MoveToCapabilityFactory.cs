@@ -20,12 +20,12 @@ namespace AIScripts.Friendly.GOAP.Capabilities
 
             builder.AddAction<MoveToAction>()
                 .SetBaseCost(1)
-                .AddEffect<ShouldMove>(EffectType.Increase)
+                .SetMoveMode(ActionMoveMode.MoveBeforePerforming)
+                .AddEffect<ShouldMove>(EffectType.Increase) // Should not move after
                 .SetTarget<MoveToTarget>()
                 .SetStoppingDistance(1);
 
-            builder.AddTargetSensor<MoveToSensor>()
-                .SetTarget<MoveToTarget>();
+            builder.AddTargetSensor<MoveToSensor>().SetTarget<MoveToTarget>();
             
             return builder.Build();
         }

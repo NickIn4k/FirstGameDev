@@ -98,6 +98,14 @@ public class SelectMove : MonoBehaviour
         OnReset?.Invoke();
         this.enabled = false;
     }
+    
+    private void Reset(bool b)
+    {
+        // Return to pre choose state
+        hasSelected = false;
+        OnReset?.Invoke();
+        this.enabled = false;
+    }
 
     public bool CheckIfSelected()
     {

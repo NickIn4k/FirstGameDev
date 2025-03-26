@@ -1,8 +1,6 @@
 using UnityEngine;
 using Settings;
 using UnityEngine.InputSystem;
-using UnityEngine.Windows;
-using UnityEditor.Rendering.LookDev;
 
 public class Movement : MonoBehaviour
 {
@@ -82,11 +80,11 @@ public class Movement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
 
-        // Imposta la clip sull'AudioSource dei passi se non è già impostata
+        // Imposta la clip sull'AudioSource dei passi se non ï¿½ giï¿½ impostata
         if (footstepsSrc != null && clip != null)
         {
             footstepsSrc.clip = clip;
-            footstepsSrc.loop = true; // assicura la ripetizione finché il giocatore si muove
+            footstepsSrc.loop = true; // assicura la ripetizione finchï¿½ il giocatore si muove
         }
     }
 

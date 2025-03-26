@@ -1,5 +1,4 @@
 ﻿using CrashKonijn.Agent.Runtime;
-using CrashKonijn.Goap.Editor;
 using CrashKonijn.Goap.Runtime;
 using UnityEngine;
 

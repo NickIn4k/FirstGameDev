@@ -49,7 +49,7 @@ public class AnimationTween : MonoBehaviour
 
     void ChangeState(int id)
     {
-        Debug.Log(id);
+        //Debug.Log(id);
         if (id == 1)
         {
             Appear(appearYFirst);

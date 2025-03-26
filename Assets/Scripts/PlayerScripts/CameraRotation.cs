@@ -6,6 +6,8 @@ public class CameraRotation : MonoBehaviour
     Transform plr;
     Transform lookAtCamera;
     
+    public LayerMask mask;
+    
     public float pLerp = .1f; // Speed of easing
     public float rLerp = .5f; // Speed of easing
 
@@ -30,7 +32,7 @@ public class CameraRotation : MonoBehaviour
         
         transform.position = Vector3.Lerp(
             transform.position, 
-            Physics.Raycast(ray, out var hit, maxDistance, ~GeneralVariables.CHARACTER) ? hit.point : lookAtCamera.position, 
+            Physics.Raycast(ray, out var hit, maxDistance, ~mask) ? hit.point : lookAtCamera.position, 
             pLerp);
 
         // Rotate camera

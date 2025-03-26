@@ -16,6 +16,7 @@ namespace AIScripts.Friendly.GOAP.Behaviours
         
         private Move1 click;
         private Move2 backToCc;
+        private Move3 interact;
         
         public int id;
         private bool canPerform;
@@ -29,6 +30,7 @@ namespace AIScripts.Friendly.GOAP.Behaviours
             
             this.click = GeneralMethods.GetCC().GetComponent<Move1>();
             this.backToCc = GeneralMethods.GetCC().GetComponent<Move2>();
+            this.interact = GeneralMethods.GetCC().GetComponent<Move3>();
             
             // This only applies sto the code demo
             if (this.provider.AgentTypeBehaviour == null)
@@ -51,7 +53,14 @@ namespace AIScripts.Friendly.GOAP.Behaviours
             sc.OnSelect += UpdateCanPerform;
             click.OnUpdate += FollowTarget;
             backToCc.OnUpdate += GetBackToCc;
+            interact.OnUpdate += Interact;
             agent.Events.OnActionComplete += ActionCompleteHandler;
+        }
+
+        private void Interact(bool found)
+        {
+            if (canPerform && found)
+                provider.RequestGoal<InteractGoal>();
         }
 
         private void OnDisable()
@@ -59,6 +68,7 @@ namespace AIScripts.Friendly.GOAP.Behaviours
             sc.OnSelect -= UpdateCanPerform;
             click.OnUpdate -= FollowTarget;
             backToCc.OnUpdate -= GetBackToCc;
+            interact.OnUpdate -= Interact;
             agent.Events.OnActionComplete -= ActionCompleteHandler;
         }
         

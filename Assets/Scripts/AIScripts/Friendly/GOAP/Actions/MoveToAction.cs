@@ -1,24 +1,33 @@
 ﻿using CrashKonijn.Agent.Core;
+using CrashKonijn.Agent.Runtime;
 using CrashKonijn.Goap.Runtime;
 using Unity.Mathematics;
 using UnityEngine;
 
 namespace AIScripts.Friendly.GOAP.Actions
 {
-    public class MoveToAction : GoapActionBase<MoveToData>
+    public class MoveToAction : GoapActionBase<MoveToAction.Data>
     {
-        public override void Start(IMonoAgent agent, MoveToData data)
+        public override void Start(IMonoAgent agent, Data data)
         {
-            data.Tolerance = 0.4f;
         }
         
-        public override IActionRunState Perform(IMonoAgent agent, MoveToData data, IActionContext context)
+        public override IActionRunState Perform(IMonoAgent agent, Data data, IActionContext context)
         {
             return ActionRunState.Completed;
         }
 
-        public override void End(IMonoAgent agent, MoveToData data)
+        public override void End(IMonoAgent agent, Data data)
         {
+        }
+        
+        public class Data : IActionData
+        {
+            public ITarget Target { get; set; }
+            
+            // When using the GetComponent attribute, the system will automatically inject the reference
+            [GetComponent]
+            public MoveToData MoveToData { get; set; }
         }
     }
 }

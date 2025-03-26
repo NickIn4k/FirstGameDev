@@ -14,6 +14,7 @@ namespace AIScripts.Friendly.GOAP.AgentTypes
             factory.AddCapability<MoveToCapabilityFactory>();
             factory.AddCapability<StationaryCapability>();
             factory.AddCapability<StayNearCcCapabilityFactory>();
+            factory.AddCapability<InteractCapability>();
 
             return factory.Build();
         }

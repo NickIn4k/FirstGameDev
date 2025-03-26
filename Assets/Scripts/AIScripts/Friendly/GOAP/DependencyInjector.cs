@@ -3,6 +3,7 @@ using AIScripts.Friendly.GOAP.Data;
 using CrashKonijn.Agent.Core;
 using CrashKonijn.Goap.Core;
 using CrashKonijn.Goap.Runtime;
+using Global_Variables;
 using UnityEngine;
 
 namespace AIScripts.Friendly.GOAP.Behaviours
@@ -11,7 +12,9 @@ namespace AIScripts.Friendly.GOAP.Behaviours
     {
         //public ScriptableObject MoveToSO;
         public CCData CCData;
+        public MapData MapData;
         public Vector3 moveToPosition;
+        public Collider interactCollider;
         
         public override void InitConfig(IGoapConfig config)
         {

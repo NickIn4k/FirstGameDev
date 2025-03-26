@@ -18,7 +18,7 @@ namespace Settings.CharacterSelection.Moves
         InputAction confirmLocation;
 
         public DependencyInjector injector;
-        public event Action OnUpdate;
+        public event Action<bool> OnUpdate;
 
         private List<Material> originalMaterials;
         public GeneralData generalData;
@@ -45,11 +45,21 @@ namespace Settings.CharacterSelection.Moves
 
         private void NotifyMoveTo(InputAction.CallbackContext obj)
         {
-            OnUpdate?.Invoke(); // Invoke
-            UpdateInjector(injector);
-            
-            // Log the world position or do something with it
-            Debug.Log("Mouse World Position: " + point.transform.position);
+            OnUpdate?.Invoke(hitCollider); // Invoke and tells if a valid collider was selected
+
+            if (hitCollider)
+            {
+                UpdateInjector(injector);
+                
+                int i = 0;
+                foreach (var renderer in hitCollider.GetComponentsInChildren<MeshRenderer>())
+                {
+                    renderer.material = originalMaterials[i];
+                    i++;
+                }
+                            
+                hitCollider = null;
+            }
 
             Destroy(point);
             GeneralMethods.GetPlayer().GetComponent<PlayerDitherSettings>().SetDither(false);
@@ -61,19 +71,20 @@ namespace Settings.CharacterSelection.Moves
         
         void UpdateInjector(DependencyInjector injector)
         {
-            injector.moveToPosition = point.transform.position;
+            injector.interactCollider = hitCollider;
+            Debug.Log("Valid collider!");
         }
 
         private void Update()
         {
-            if (this.enabled && point)
+            if (enabled && point)
             {
                 var ray = new Ray(cameraTransform.position, cameraTransform.forward);
                 Debug.DrawRay(ray.origin, ray.direction * 10, Color.red);
 
                 if (Physics.Raycast(ray, out var hit, 100f, ~GeneralVariables.PLAYER))
                 {
-                    if (hit.collider.gameObject.layer == LayerMask.NameToLayer("NpcInteractible"))
+                    if (hit.collider.gameObject.layer == LayerMask.NameToLayer("interactible"))
                     {
                         hitCollider = hit.collider;
                         foreach (var renderer in hitCollider.GetComponentsInChildren<MeshRenderer>())
@@ -104,11 +115,6 @@ namespace Settings.CharacterSelection.Moves
                     
                     point.transform.position = hit.point + Vector3.up * 0.1f;
                     point.transform.rotation = Quaternion.LookRotation(hit.normal);
-                    //point.transform.rotation = Quaternion.Euler(point.transform.rotation.eulerAngles.x - 90, point.transform.rotation.eulerAngles.y, point.transform.rotation.eulerAngles.z);
-                }
-                else
-                {
-                    // Restore materials
                 }
             }
         }

@@ -25,6 +25,8 @@ namespace AIScripts.Friendly.GOAP.Capabilities
 
             builder.AddTargetSensor<StayNearCcSensor>()
                 .SetTarget<StayNearCcTarget>();
+
+            //builder.AddMultiSensor<ResetSensor>();
             
             return builder.Build();
         }

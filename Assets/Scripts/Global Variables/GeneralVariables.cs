@@ -14,4 +14,5 @@ public static class GeneralVariables
     public static int CHARACTER = LayerMask.GetMask("Characters");
     public static int GROUND = LayerMask.GetMask("Ground");
     public static int PLAYER  = LayerMask.GetMask("Player");
+    public static int INTERACTIBLE = LayerMask.GetMask("interactible");
 }
