@@ -58541,6 +58541,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Src: {fileID: 1393078570}
   sfx: {fileID: 8300000, guid: 19897a0d1ffa75e48a5b7493cc368d03, type: 3}
+  WalkSrc: {fileID: 1649115601}
   PauseMenuUI: {fileID: 1962770105}
   InventoryUI: {fileID: 1162933630}
   ScreenUI: {fileID: 1639909927}
@@ -111265,6 +111266,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7345289550271912468, guid: e09149daa55fb664fbdc824240dcfe04, type: 3}
+      propertyPath: src
+      value: 
+      objectReference: {fileID: 1649115601}
+    - target: {fileID: 7345289550271912468, guid: e09149daa55fb664fbdc824240dcfe04, type: 3}
       propertyPath: Player
       value: 
       objectReference: {fileID: 441367363}
@@ -111471,6 +111476,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3611b77402b77cc448f7e36617a785a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  src: {fileID: 1649115601}
   player: {fileID: 441367364}
   target: {fileID: 1447153668}
   DialogUI: {fileID: 106100548}
@@ -113004,6 +113010,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3166261844926677288, guid: a021cbc04cd8c4e42b7e8c17e13001f5, type: 3}
+      propertyPath: src
+      value: 
+      objectReference: {fileID: 1649115601}
     - target: {fileID: 3166261844926677288, guid: a021cbc04cd8c4e42b7e8c17e13001f5, type: 3}
       propertyPath: Player
       value: 

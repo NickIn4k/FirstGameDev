@@ -9,6 +9,7 @@ public class Level2CanvasManager : MonoBehaviour
 
     public AudioSource Src;
     public AudioClip sfx;
+    public AudioSource WalkSrc;
 
     // Pannelli della UI
     public GameObject PauseMenuUI;  // Pausa
@@ -78,6 +79,7 @@ public class Level2CanvasManager : MonoBehaviour
 
     void Pause(int index)
     {
+        WalkSrc.Stop();
         Src.clip=sfx;
         Src.Play();
         CursorSettings.Unlock();

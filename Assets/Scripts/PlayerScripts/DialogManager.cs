@@ -4,6 +4,7 @@ using TMPro;
 
 public class DialogManager : MonoBehaviour
 {
+    public AudioSource src;
     public Transform player;
     public Transform target;
     public GameObject DialogUI;
@@ -78,6 +79,7 @@ public class DialogManager : MonoBehaviour
 
     IEnumerator StartDialogue()
     {
+        src.Stop();
         isDialogueActive = true;
         detectionRadius = -1; // Evita che il dialogo si riattivi
         Debug.Log("Il player è vicino all'oggetto!");

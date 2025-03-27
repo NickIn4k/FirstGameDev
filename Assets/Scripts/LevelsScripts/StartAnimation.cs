@@ -19,10 +19,10 @@ public class StartAnimation : MonoBehaviour
     public AudioClip clip_corrente;
 
     //altro
-    public GameObject luce;  // La luce da disattivare
-    public int prossimaScena;  // L'indice della scena successiva
+    public GameObject? luce;  //La luce da disattivare
+    public int prossimaScena;  //L'indice della scena successiva
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    //Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         try
@@ -57,10 +57,11 @@ public class StartAnimation : MonoBehaviour
 
     public IEnumerator CambioLivello()
     {
-        // Aspetta 1 secondo prima di cambiare scena
+        //Aspetta 1 secondo prima di cambiare scena
         yield return new WaitForSeconds(3f);
 
-        // Cambia scena
-        SceneManager.LoadScene(prossimaScena);
+        //Cambia scena
+        if(prossimaScena != -1)
+            SceneManager.LoadScene(prossimaScena);
     }
 }
