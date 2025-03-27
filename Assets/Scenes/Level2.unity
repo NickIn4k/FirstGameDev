@@ -58540,6 +58540,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Src: {fileID: 1393078570}
+  sfx: {fileID: 8300000, guid: 19897a0d1ffa75e48a5b7493cc368d03, type: 3}
   PauseMenuUI: {fileID: 1962770105}
   InventoryUI: {fileID: 1162933630}
   ScreenUI: {fileID: 1639909927}

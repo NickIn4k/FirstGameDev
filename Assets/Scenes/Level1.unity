@@ -9455,16 +9455,17 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 539210181}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c527446821a6d224b9a902bd63d03fa9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Src: {fileID: 0}
+  Src: {fileID: 408139398}
+  sfx: {fileID: 8300000, guid: 19897a0d1ffa75e48a5b7493cc368d03, type: 3}
   PauseMenuUI: {fileID: 1374551587}
   InventoryUI: {fileID: 1350243775}
   ScreenUI: {fileID: 664318225}
-  DescriptionUI: {fileID: 0}
+  DescriptionUI: {fileID: 1254291990}
 --- !u!4 &539210183
 Transform:
   m_ObjectHideFlags: 0
