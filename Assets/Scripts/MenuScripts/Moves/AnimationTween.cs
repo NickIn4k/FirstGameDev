@@ -14,7 +14,8 @@ public class AnimationTween : MonoBehaviour
         appearYFirst,
         hideY,
         animationTime;
-    
+
+    private bool isOn = false;
     private SelectCharacter selector;
     private int animating = 0;
     
@@ -66,6 +67,7 @@ public class AnimationTween : MonoBehaviour
 
     void Appear(float finalY)
     {
+        isOn = true;
         transform.LeanMoveLocal(new Vector2(appearX, finalY), animationTime);
         foreach (var obj in GetComponentsInChildren<Image>())
         {
@@ -73,7 +75,7 @@ public class AnimationTween : MonoBehaviour
             obj.DOFade(1f, animationTime).OnComplete(() =>
             {
                 animating--;
-                if (animating == 0)
+                if (animating == 0 && isOn)
                     foreach (var txt in GetComponentsInChildren<TextMeshProUGUI>())
                     {
                         txt.DOFade(1f, animationTime);
@@ -84,6 +86,7 @@ public class AnimationTween : MonoBehaviour
     
     void Disappear()
     {
+        isOn = false;
         transform.LeanMoveLocal(new Vector2(appearX, hideY), animationTime);
         foreach (var obj in GetComponentsInChildren<Image>())
             obj.DOFade(0f, animationTime);
