@@ -89900,6 +89900,11 @@ MonoBehaviour:
   - {fileID: 1603594567}
   referenceAngles: 3c0000002c0100000000000000000000
   rotator: {fileID: 0}
+  interactibleScreen: {fileID: 224215267}
+  animator: {fileID: 565950280}
+  Door: {fileID: 72840273}
+  Src: {fileID: 1393078570}
+  Sfx: {fileID: 8300000, guid: a75eeaa0bbeecaa4cbec01e79e72b865, type: 3}
 --- !u!1 &1640471235
 GameObject:
   m_ObjectHideFlags: 0
