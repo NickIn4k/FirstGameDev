@@ -19,6 +19,9 @@ public class DialogManager : MonoBehaviour
     public string[] lines;
     public bool CanPlayAgain = false;
 
+    // Variabile per il nuovo controller da assegnare al termine del dialogo
+    public RuntimeAnimatorController newController;
+
     private bool isDialogueActive = false;
     private bool isTyping = false;
     private Coroutine typingCoroutine;
@@ -29,8 +32,7 @@ public class DialogManager : MonoBehaviour
         // CC
         Player = GeneralMethods.GetPlayer();
         player = Player.transform;
-        
-        
+
         animator = GetComponentInChildren<Animator>();
         playerMovementScript = player.GetComponent<Movement>();
         playerAnimator = player.GetComponentInChildren<Animator>();
@@ -57,7 +59,6 @@ public class DialogManager : MonoBehaviour
 
         if (isDialogueActive && Input.GetMouseButtonDown(0))
         {
-            // Se il testo è in fase di digitazione, ferma solo quella coroutine e completa il testo
             if (isTyping)
             {
                 if (typingCoroutine != null)
@@ -101,9 +102,7 @@ public class DialogManager : MonoBehaviour
     {
         while (isDialogueActive)
         {
-            // Assicura che il player non mostri animazioni di camminata
             playerAnimator.SetBool("isWalkingForward", false);
-            // Forza l'Idle: attenzione, se chiamato ogni frame riavvia l'animazione; tuttavia se l'Idle è looping non è un problema
             playerAnimator.Play("Idle", 0, 0f);
             yield return null;
         }
@@ -138,7 +137,7 @@ public class DialogManager : MonoBehaviour
     void EndDialogue()
     {
         isDialogueActive = false;
-        // Fermiamo la coroutine che forzava l'Idle
+
         if (forceIdleCoroutine != null)
         {
             StopCoroutine(forceIdleCoroutine);
@@ -153,6 +152,17 @@ public class DialogManager : MonoBehaviour
 
         // Al termine, garantiamo una volta sola il passaggio all'Idle
         playerAnimator.Play("Idle", 0, 0f);
+
+        // Cambia il controller dell'animator a quello nuovo se assegnato
+        if (newController != null)
+        {
+            animator.runtimeAnimatorController = newController;
+            Debug.Log("Controller dell'animator cambiato al nuovo controller.");
+        }
+        else
+        {
+            Debug.LogWarning("Nuovo controller non assegnato!");
+        }
 
         if (CanPlayAgain)
             StartCoroutine(ResetDetectionRadius());

@@ -106,16 +106,10 @@ public class MazePlayerController : MonoBehaviour
         {
             
             animator.SetBool("isOpening", true);
-            StartCoroutine(AttendiAnimazione());
             Src.clip = Sfx_Door;
             Src.Play(); //Riproduce il suono della porta che si apre
             
             Door.SetActive(false);
         }
-    }
-
-    public IEnumerator AttendiAnimazione()
-    {
-        yield return new WaitForSeconds(0.5f);
     }
 }
