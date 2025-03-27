@@ -9,7 +9,7 @@ public static class GeneralMethods
 {
     public static void CheckCursorLockMode()
     {
-        if (GeneralVariables.guiActive)
+        if (GeneralVariables.guiActive == 0)
             CursorSettings.Lock();
         else
             CursorSettings.Unlock();
@@ -74,7 +74,6 @@ public static class GeneralMethods
     public static void FreezeGame(GameObject? UI = null, GameObject? QuestUI = null, Collider? collider = null)
     {
         //Disattiva o attiva componenti UI
-        GeneralVariables.guiActive = true;
 
         if (UI != null)
             UI.SetActive(true);
@@ -93,7 +92,6 @@ public static class GeneralMethods
     public static void ResumeGame(GameObject? UI = null, GameObject? QuestUI = null, Collider? collider = null)
     {
         //Riattiva la grafica di base
-        GeneralVariables.guiActive = false;
         
         if (UI != null)
             UI.SetActive(false);

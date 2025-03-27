@@ -25,7 +25,6 @@ public class ActivateNewCamera : MonoBehaviour
         MainCamera.SetActive(false);
 
         MazeUI.SetActive(false);
-        CursorSettings.Lock();
         Maze.SetActive(true);
         MazePlayer.SetActive(true);
     }

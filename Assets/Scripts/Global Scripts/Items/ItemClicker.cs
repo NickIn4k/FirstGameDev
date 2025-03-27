@@ -35,6 +35,5 @@ public class ItemClicker : MonoBehaviour
     public void Resume()
     {   
         GeneralMethods.ResumeGame(UI, QuestUI, GetComponent<MeshCollider>());
-        
     }
 }

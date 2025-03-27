@@ -48,9 +48,9 @@ public class PauseMenu : MonoBehaviour
 
     void Resume(int index)
     {
-        if (!GeneralVariables.guiActive)
-            CursorSettings.Lock();
-
+        Debug.Log("Apsajkfhasr");
+        CursorSettings.Lock();
+        
         if (index == 1 && !InventoryOn) 
         {
             PauseMenuUI.SetActive(false); // Nascondi pannello
@@ -83,6 +83,7 @@ public class PauseMenu : MonoBehaviour
 
     void Pause(int index)
     {
+        Debug.Log("Pasudaslf");
         CursorSettings.Unlock();
         
         if (index == 1 && !InventoryOn) 
@@ -113,7 +114,5 @@ public class PauseMenu : MonoBehaviour
         }
             
         Time.timeScale = 0f;        // Ferma il tempo di gioco
-
-
     }
 }

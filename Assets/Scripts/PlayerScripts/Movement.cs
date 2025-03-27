@@ -46,6 +46,7 @@ public class Movement : MonoBehaviour
 
     private void OnEnable()
     {
+        inputs.Enable();
         move = inputs.Gameplay.Move;
         run = inputs.Gameplay.Run;
         move.Enable();

@@ -48,8 +48,8 @@ public class Level2CanvasManager : MonoBehaviour
     void Resume(int index)
     {
         Src.Play();
-        if (!GeneralVariables.guiActive)
-            CursorSettings.Lock();
+        
+        CursorSettings.Lock();
 
         if (index == 1 && !InventoryOn)
         {
