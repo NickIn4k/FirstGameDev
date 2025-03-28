@@ -28983,6 +28983,7 @@ MonoBehaviour:
   panelText: {fileID: 1466034571}
   bottonePrecedente: {fileID: 1646349050}
   bottoneSuccessivo: {fileID: 182568957}
+  interactibleScreen: {fileID: 1180894095}
 --- !u!1 &541743897
 GameObject:
   m_ObjectHideFlags: 0

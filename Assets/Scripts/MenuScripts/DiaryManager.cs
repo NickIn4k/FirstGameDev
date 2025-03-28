@@ -16,9 +16,14 @@ public class DiaryManager : MonoBehaviour
 
     //Indice corrente nel array
     private int indiceCorrente = 0;
+    public GameObject interactibleScreen;
 
     void Start()
     {
+        //Rende lo schermo non più interagibile
+        if (interactibleScreen != null)
+            interactibleScreen.GetComponent<InteractReceiver>().canPopAgain = false;
+
         //Verifica che l'array contenga almeno un testo
         if (testi == null || testi.Length == 0)
         {
