@@ -18711,6 +18711,7 @@ MonoBehaviour:
   MazePlayer: {fileID: 103575865}
   Player: {fileID: 441367363}
   Door: {fileID: 877492027}
+  cameraPanel: {fileID: 593702521}
   animator: {fileID: 11712556}
   Src: {fileID: 1393078570}
   Sfx_Door: {fileID: 8300000, guid: a75eeaa0bbeecaa4cbec01e79e72b865, type: 3}

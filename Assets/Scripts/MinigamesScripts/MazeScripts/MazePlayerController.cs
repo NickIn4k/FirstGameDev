@@ -14,6 +14,7 @@ public class MazePlayerController : MonoBehaviour
     public GameObject MazePlayer;
     public GameObject Player;
     public GameObject Door;
+    public GameObject cameraPanel; //Pannello per l'inquadratura a videocamera
     public Animator animator;
     public AudioSource Src;
     public AudioClip Sfx_Door;
@@ -28,7 +29,7 @@ public class MazePlayerController : MonoBehaviour
         MainCamera = GeneralMethods.GetCamera();
         Rotator = GeneralMethods.GetRotator();
         Player = GeneralMethods.GetPlayer();
-        
+
         initialEuler = transform.rotation.eulerAngles;
         initialPosition = transform.position; //Salva la posizione iniziale
         Rigidbody rb = GetComponent<Rigidbody>();
@@ -37,6 +38,11 @@ public class MazePlayerController : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            ToggleCameraPanel();
+        }
+
         if (transform.position.y <= -1f)
             Respawn(); //Se la posizione Y è sotto -1, il giocatore viene respawnato
 
@@ -73,6 +79,15 @@ public class MazePlayerController : MonoBehaviour
         }
     }
 
+    private void ToggleCameraPanel()
+    {
+        if (cameraPanel != null)
+        {
+            bool isActive = cameraPanel.activeSelf;
+            cameraPanel.SetActive(!isActive);
+        }
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Maze End"))
@@ -104,11 +119,10 @@ public class MazePlayerController : MonoBehaviour
     {
         if (Door != null)
         {
-            
             animator.SetBool("isOpening", true);
             Src.clip = Sfx_Door;
             Src.Play(); //Riproduce il suono della porta che si apre
-            
+
             Door.SetActive(false);
         }
     }
