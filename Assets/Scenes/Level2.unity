@@ -6681,7 +6681,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &103575866
 Transform:
   m_ObjectHideFlags: 0
@@ -28806,7 +28806,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &531921030
 Transform:
   m_ObjectHideFlags: 0
@@ -31457,10 +31457,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 277912061}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.3827, y: -1.9024}
-  m_SizeDelta: {x: 971.5765, y: 544.2803}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
+  m_AnchoredPosition: {x: 2.305481, y: 0}
+  m_SizeDelta: {x: 47.9818, y: 544.2803}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &593702523
 MonoBehaviour:
@@ -84585,7 +84585,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 473905224974134624, guid: 595b0e55f4193214399702ed770d2469, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 921306355242130473, guid: 595b0e55f4193214399702ed770d2469, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
