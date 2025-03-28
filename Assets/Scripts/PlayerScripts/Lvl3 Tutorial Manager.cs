@@ -72,17 +72,17 @@ public class Lvl3TutorialManager : MonoBehaviour
     {
         //Cambia il testo del tutorial
         if (questStep == 0)
-            textQuest.text = "Use the number keys shown in the bottom right image to select an NPC to command";
+            textQuest.text = "Use the associated numbered key shown in the bottom right image to select the NPC you want to command";
         else if (questStep == 1)
-            textQuest.text = "Press 'E' to confirm the choice of the NPC and tell him where to go";
+            textQuest.text = "Press 'E' to tell the NPC where to go";
         else if (questStep == 2)
-            textQuest.text = "Press left mouse button to confirm the spot where the NPC will move and make them help you complete the puzzle";
+            textQuest.text = "Press left mouse button to confirm where you want the NPC to go";
         else if (questStep == 3)
-            textQuest.text = "After selecting the NPCs, press 'R' to make them follow you";
+            textQuest.text = "Otherwise, if you need them to follow you, you can just press 'R'";
         else if (questStep == 4)
-            textQuest.text = "After selecting an NPC, press 'T' and then left mouse button to make him interact with objects like levers";
+            textQuest.text = "But if you need them to interact with something, like levers, you can press 'T'";
         else if (questStep == 5)
-            textQuest.text = "If an interactible object is pointed at after pressing 'T' it will become yellow, you can press left mouse button to confirm the interaction";
+            textQuest.text = "If you want to know whether an object is interactible or not you can hover the obect with the cursor after pressing 'T' with an NPC";
         else
             questCanva.SetActive(false);
     }
