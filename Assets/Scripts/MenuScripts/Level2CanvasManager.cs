@@ -121,4 +121,9 @@ public class Level2CanvasManager : MonoBehaviour
 
         Time.timeScale = 0f;        // Ferma il tempo di gioco
     }
+
+    public void RestartTheLevel(int scene)
+    {
+        active = 0;
+    }
 }

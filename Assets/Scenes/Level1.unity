@@ -26143,7 +26143,7 @@ MonoBehaviour:
   QuestUI: {fileID: 93310510}
   Src: {fileID: 408139398}
   Sfx: {fileID: 8300000, guid: a69aad7b5e4be564c89799a55028f076, type: 3}
-  sphere: {fileID: 0}
+  sphere: {fileID: 1388347833}
 --- !u!135 &1388347833
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -27736,7 +27736,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1612069014}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e9322c65aa8559241a907985d394eed2, type: 3}
   m_Name: 
@@ -31459,6 +31459,38 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -190.855
       objectReference: {fileID: 0}
+    - target: {fileID: 3092806283518887593, guid: a3961d245d0637546b79c5fc9fd96580, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3092806283518887593, guid: a3961d245d0637546b79c5fc9fd96580, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3092806283518887593, guid: a3961d245d0637546b79c5fc9fd96580, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 539210182}
+    - target: {fileID: 3092806283518887593, guid: a3961d245d0637546b79c5fc9fd96580, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3092806283518887593, guid: a3961d245d0637546b79c5fc9fd96580, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: RestartTheLevel
+      objectReference: {fileID: 0}
+    - target: {fileID: 3092806283518887593, guid: a3961d245d0637546b79c5fc9fd96580, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: Level2CanvasManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3092806283518887593, guid: a3961d245d0637546b79c5fc9fd96580, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_IntArgument
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3092806283518887593, guid: a3961d245d0637546b79c5fc9fd96580, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 3718007622179019702, guid: a3961d245d0637546b79c5fc9fd96580, type: 3}
       propertyPath: m_AnchorMax.x
       value: 1
@@ -31493,11 +31525,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4689673864788366482, guid: a3961d245d0637546b79c5fc9fd96580, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0.9999999
       objectReference: {fileID: 0}
     - target: {fileID: 4689673864788366482, guid: a3961d245d0637546b79c5fc9fd96580, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0.6652294
+      value: 0.6652293
       objectReference: {fileID: 0}
     - target: {fileID: 4700709022967854755, guid: a3961d245d0637546b79c5fc9fd96580, type: 3}
       propertyPath: m_AnchorMax.y
@@ -31586,6 +31618,34 @@ PrefabInstance:
     - target: {fileID: 5909394050807980210, guid: a3961d245d0637546b79c5fc9fd96580, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 87
+      objectReference: {fileID: 0}
+    - target: {fileID: 5950043054810067010, guid: a3961d245d0637546b79c5fc9fd96580, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5950043054810067010, guid: a3961d245d0637546b79c5fc9fd96580, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5950043054810067010, guid: a3961d245d0637546b79c5fc9fd96580, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 539210182}
+    - target: {fileID: 5950043054810067010, guid: a3961d245d0637546b79c5fc9fd96580, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5950043054810067010, guid: a3961d245d0637546b79c5fc9fd96580, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: RestartTheLevel
+      objectReference: {fileID: 0}
+    - target: {fileID: 5950043054810067010, guid: a3961d245d0637546b79c5fc9fd96580, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: Level2CanvasManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5950043054810067010, guid: a3961d245d0637546b79c5fc9fd96580, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 5992623149272915900, guid: a3961d245d0637546b79c5fc9fd96580, type: 3}
       propertyPath: m_AnchorMax.y

@@ -9,5 +9,6 @@ public class LoadScene : MonoBehaviour
     {
         Time.timeScale = 1f;        // Tempo di gioco a velocità normale
         SceneManager.LoadScene(index);
+
     }
 }
