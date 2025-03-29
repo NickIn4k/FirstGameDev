@@ -27,7 +27,7 @@ namespace AIScripts.Friendly.GOAP.Sensors
         private Vector3 GetInteractPosition()
         {
             // Get transform's front
-            Vector3 front = injector.interactCollider.transform.position - injector.interactCollider.transform.up * 2f;
+            Vector3 front = injector.interactCollider.transform.position + injector.interactCollider.transform.up * 2f;
             front.y = injector.MapData.ground.y;
             Debug.Log("Front " + front);
             return front;
