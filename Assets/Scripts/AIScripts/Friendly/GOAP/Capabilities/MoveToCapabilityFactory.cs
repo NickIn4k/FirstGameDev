@@ -20,8 +20,7 @@ namespace AIScripts.Friendly.GOAP.Capabilities
 
             builder.AddAction<MoveToAction>()
                 .SetBaseCost(1)
-                .SetMoveMode(ActionMoveMode.MoveBeforePerforming)
-                .AddEffect<ShouldMove>(EffectType.Increase) // Should not move after
+                .AddEffect<ShouldMove>(EffectType.Increase)
                 .SetTarget<MoveToTarget>()
                 .SetStoppingDistance(1);
 

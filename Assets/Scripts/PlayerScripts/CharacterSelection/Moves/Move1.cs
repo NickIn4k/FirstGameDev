@@ -37,7 +37,7 @@ namespace Settings.CharacterSelection.Moves
             UpdateInjector(injector);
             
             // Log the world position or do something with it
-            Debug.Log("Mouse World Position: " + pointer.transform.position);
+            Debug.Log("Mouse World Position: " + (pointer.transform.position + Vector3.down));
 
             Destroy(pointer);
             GeneralMethods.GetPlayer().GetComponent<PlayerDitherSettings>().SetDither(false);
@@ -49,7 +49,7 @@ namespace Settings.CharacterSelection.Moves
         
         void UpdateInjector(DependencyInjector injector)
         {
-            injector.moveToPosition = pointer.transform.position;
+            injector.moveToPosition = pointer.transform.position + Vector3.down;
         }
 
         private void Update()
