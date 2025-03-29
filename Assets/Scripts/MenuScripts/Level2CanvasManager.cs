@@ -7,6 +7,8 @@ public class Level2CanvasManager : MonoBehaviour
     public static bool InventoryOn;
     private bool OnScreen;
 
+    private int active = 0;
+
     public AudioSource Src;
     public AudioClip sfx;
     public AudioSource WalkSrc;
@@ -26,24 +28,33 @@ public class Level2CanvasManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))   // ESC 
+        if (Input.GetKeyDown(KeyCode.Escape) && active >= 0)   // ESC 
         {
             if (GamePaused)
             {
+                active--;
                 Resume(1); // (1 = menu di pausa)
             }   
             else
             {
+                active++;
                 Pause(1);
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.Tab)) //TAB
+        if (Input.GetKeyDown(KeyCode.Tab) && active <= 0) //TAB
         {
             if (InventoryOn)
+            {
+                active++;
                 Resume(2); // (2 = inventario)
+            }
             else
+            {
+                active--;
                 Pause(2);
+            }
+                
         }
     }
 
