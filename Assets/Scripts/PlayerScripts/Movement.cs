@@ -61,6 +61,7 @@ public class Movement : MonoBehaviour
         run.Disable();
         run.performed -= StartedRunning;
         run.canceled -= StoppedRunning;
+        inputs.Disable();
     }
 
     private void StartedRunning(InputAction.CallbackContext obj)

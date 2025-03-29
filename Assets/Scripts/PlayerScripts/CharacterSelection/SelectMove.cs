@@ -57,6 +57,8 @@ public class SelectMove : MonoBehaviour
 
     void OnDisable()
     {
+        inputs.Disable();
+        DisableAllMoves();
         GetComponent<Move1>().OnUpdate -= Reset;
         GetComponent<Move2>().OnUpdate -= Reset;
         GetComponent<Move3>().OnUpdate -= Reset;

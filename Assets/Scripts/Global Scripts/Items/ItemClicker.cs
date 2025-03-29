@@ -18,14 +18,17 @@ public class ItemClicker : MonoBehaviour
 
     InteractReceiver ir;
 
+    public SphereCollider sphere;
+
     private void Start()
     {
-       
+        sphere = GetComponent<SphereCollider>();
+
         ir = GetComponent<InteractReceiver>();
         ir.OnInteract += () =>
         {
             if (Item.Id == 0 && (InventoryManager.Inventory?.Count >= 0 || LoadInventory.Inventory?.Count > 0))
-                GeneralMethods.FreezeGame(UI, QuestUI, GetComponent<MeshCollider>());
+                GeneralMethods.FreezeGame(UI, QuestUI, sphere != null ? sphere : GetComponent<MeshCollider>());
             Src.clip = Sfx;
             Src.Play();
         };
@@ -34,6 +37,7 @@ public class ItemClicker : MonoBehaviour
 
     public void Resume()
     {   
-        GeneralMethods.ResumeGame(UI, QuestUI, GetComponent<MeshCollider>());
+        GeneralMethods.ResumeGame(UI, QuestUI, sphere != null ? sphere : GetComponent<MeshCollider>());
+        GetComponent<InteractReceiver>().canPopAgain = true;
     }
 }
