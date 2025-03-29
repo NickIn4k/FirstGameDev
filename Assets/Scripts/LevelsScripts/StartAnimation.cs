@@ -22,20 +22,25 @@ public class StartAnimation : MonoBehaviour
     public GameObject? luce;  //La luce da disattivare
     public int prossimaScena;  //L'indice della scena successiva
 
+    public bool shouldStart = true;
+
     //Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        try
+        if (shouldStart)
         {
-            ir = GetComponent<InteractReceiver>();
-        }
-        catch (NullReferenceException)
-        {
-            Debug.LogError($"GameObject: {gameObject.name} has no InteractReceiver. Consider adding one.");
-        }
+            try
+            {
+                ir = GetComponent<InteractReceiver>();
+            }
+            catch (NullReferenceException)
+            {
+                Debug.LogError($"GameObject: {gameObject.name} has no InteractReceiver. Consider adding one.");
+            }
 
-        if (ir != null)
-            ir.OnInteract += OnInteractHandler;
+            if (ir != null)
+                ir.OnInteract += OnInteractHandler;
+        }
     }
 
     public void OnInteractHandler()

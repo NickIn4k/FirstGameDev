@@ -14,6 +14,8 @@ public class ItemClicker : MonoBehaviour
     public AudioSource? Src;
     public AudioClip? Sfx;
 
+    public bool canInteractAgain = true;
+
     #nullable disable
 
     InteractReceiver ir;
@@ -37,7 +39,12 @@ public class ItemClicker : MonoBehaviour
 
     public void Resume()
     {   
-        GeneralMethods.ResumeGame(UI, QuestUI, sphere != null ? sphere : GetComponent<MeshCollider>());
-        GetComponent<InteractReceiver>().canPopAgain = true;
+        GeneralMethods.ResumeGame(UI, QuestUI, canInteractAgain ? sphere != null ? sphere : GetComponent<MeshCollider>() : null);
+
+        if (canInteractAgain)
+        {
+            GetComponent<InteractReceiver>().interactible = true;
+            GetComponent<InteractReceiver>().canPopAgain = true;
+        }
     }
 }

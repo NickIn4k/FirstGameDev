@@ -7,12 +7,14 @@ public class ItemClickerOld : MonoBehaviour
     public GameObject UI;
     public GameObject QuestUI;
 
+    public bool canInteractAgain = true;
+    
     [Header("Non toccare")]
     public Collider cld;
 
     public void Resume()
     {
-        GeneralMethods.ResumeGame(UI, QuestUI, cld);
+        GeneralMethods.ResumeGame(UI, QuestUI, canInteractAgain ? cld : null);
     }
 }
 

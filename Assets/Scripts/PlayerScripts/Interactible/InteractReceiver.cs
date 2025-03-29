@@ -6,6 +6,7 @@ public class InteractReceiver : MonoBehaviour
 {
     bool canPop = false;
     public bool canPopAgain = true;
+    public bool interactible = true;
     Transform lookAt;
     GameObject canvasGameObject;
     Canvas canvas;
@@ -32,24 +33,27 @@ public class InteractReceiver : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (canPop && canPopAgain) 
+        if (interactible)
         {
-            canPopAgain = false;
+            if (canPop && canPopAgain) 
+            {
+                canPopAgain = false;
 
-            popUp = Instantiate(canvas);
-            popUp.transform.position = 0.5f * (transform.position + lookAt.transform.position) + Vector3.up;
-            ShowPopup script = popUp.GetComponent<ShowPopup>();
-            //Debug.Log(script.lookAt.position.y);
-            //script.lookAt = lookAt;
-            script.OnCompletion += Interacted;
-            popUp.gameObject.SetActive(true);
-        }
+                popUp = Instantiate(canvas);
+                popUp.transform.position = 0.5f * (transform.position + lookAt.transform.position) + Vector3.up;
+                ShowPopup script = popUp.GetComponent<ShowPopup>();
+                //Debug.Log(script.lookAt.position.y);
+                //script.lookAt = lookAt;
+                script.OnCompletion += Interacted;
+                popUp.gameObject.SetActive(true);
+            }
 
-        if (popUp) 
-        {
-            Vector3 targetPosition = 0.5f * (transform.position + lookAt.transform.position) + Vector3.up;
-            targetPosition.y -= 0.4f; // offset � il valore per abbassare il popup
-            popUp.transform.position = targetPosition;
+            if (popUp) 
+            {
+                Vector3 targetPosition = 0.5f * (transform.position + lookAt.transform.position) + Vector3.up;
+                targetPosition.y -= 0.4f; // offset � il valore per abbassare il popup
+                popUp.transform.position = targetPosition;
+            }
         }
     }
 

@@ -10430,6 +10430,7 @@ MonoBehaviour:
   Item: {fileID: 11400000, guid: 513cc8e309f4307498633b4a2592a1cc, type: 2}
   UI: {fileID: 114211826}
   QuestUI: {fileID: 0}
+  canInteractAgain: 1
   cld: {fileID: 0}
 --- !u!114 &174693019
 MonoBehaviour:
@@ -10448,6 +10449,7 @@ MonoBehaviour:
   QuestUI: {fileID: 0}
   Src: {fileID: 1393078570}
   Sfx: {fileID: 8300000, guid: 9fe0061737a8f304195cb4516da621c5, type: 3}
+  canInteractAgain: 1
   sphere: {fileID: 0}
 --- !u!114 &174693020
 MonoBehaviour:
@@ -10462,6 +10464,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canPopAgain: 1
+  interactible: 1
 --- !u!114 &174693021
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13649,6 +13652,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canPopAgain: 1
+  interactible: 1
 --- !u!114 &224215271
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13706,6 +13710,7 @@ MonoBehaviour:
   QuestUI: {fileID: 0}
   Src: {fileID: 1393078570}
   Sfx: {fileID: 8300000, guid: 9fe0061737a8f304195cb4516da621c5, type: 3}
+  canInteractAgain: 1
   sphere: {fileID: 0}
 --- !u!114 &224215279
 MonoBehaviour:
@@ -13722,6 +13727,7 @@ MonoBehaviour:
   Item: {fileID: 11400000, guid: 513cc8e309f4307498633b4a2592a1cc, type: 2}
   UI: {fileID: 1639909927}
   QuestUI: {fileID: 0}
+  canInteractAgain: 1
   cld: {fileID: 0}
 --- !u!1 &224445548
 GameObject:
@@ -24200,6 +24206,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canPopAgain: 1
+  interactible: 1
 --- !u!114 &413007316
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24217,6 +24224,7 @@ MonoBehaviour:
   QuestUI: {fileID: 0}
   Src: {fileID: 1393078570}
   Sfx: {fileID: 8300000, guid: 9fe0061737a8f304195cb4516da621c5, type: 3}
+  canInteractAgain: 1
   sphere: {fileID: 0}
 --- !u!114 &413007317
 MonoBehaviour:
@@ -28058,6 +28066,7 @@ MonoBehaviour:
   Item: {fileID: 11400000, guid: 38ec180567370b5449ecc905c5582592, type: 2}
   UI: {fileID: 512755568}
   QuestUI: {fileID: 0}
+  canInteractAgain: 1
   cld: {fileID: 0}
 --- !u!1001 &513994022
 PrefabInstance:
@@ -60030,6 +60039,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canPopAgain: 1
+  interactible: 1
 --- !u!114 &1180894099
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -60047,6 +60057,7 @@ MonoBehaviour:
   QuestUI: {fileID: 0}
   Src: {fileID: 1393078570}
   Sfx: {fileID: 8300000, guid: a69aad7b5e4be564c89799a55028f076, type: 3}
+  canInteractAgain: 1
   sphere: {fileID: 1180894100}
 --- !u!135 &1180894100
 SphereCollider:
@@ -82514,6 +82525,7 @@ MonoBehaviour:
   Item: {fileID: 11400000, guid: 513cc8e309f4307498633b4a2592a1cc, type: 2}
   UI: {fileID: 1774610358}
   QuestUI: {fileID: 0}
+  canInteractAgain: 1
   cld: {fileID: 0}
 --- !u!114 &1500906615
 MonoBehaviour:
@@ -82532,6 +82544,7 @@ MonoBehaviour:
   QuestUI: {fileID: 0}
   Src: {fileID: 1393078570}
   Sfx: {fileID: 8300000, guid: 9fe0061737a8f304195cb4516da621c5, type: 3}
+  canInteractAgain: 1
   sphere: {fileID: 0}
 --- !u!114 &1500906616
 MonoBehaviour:
@@ -82546,6 +82559,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canPopAgain: 1
+  interactible: 1
 --- !u!114 &1500906617
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -88955,6 +88969,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canPopAgain: 1
+  interactible: 1
 --- !u!135 &1601936438
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -90243,7 +90258,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1639909928
 RectTransform:
   m_ObjectHideFlags: 0
@@ -93428,6 +93443,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canPopAgain: 1
+  interactible: 1
 --- !u!114 &1729355271
 MonoBehaviour:
   m_ObjectHideFlags: 0

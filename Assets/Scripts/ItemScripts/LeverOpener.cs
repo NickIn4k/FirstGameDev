@@ -25,22 +25,26 @@ public class LeverOpener : MonoBehaviour
         if (latch && inside > 0)
         {
             OnPressed?.Invoke();
+            Debug.Log("Pressed");
             latch = false;
         }
         else if (!latch && inside == 0)
         {
             OnReleased?.Invoke();
+            Debug.Log("Released");
             latch = true;
         }
     }
 
     void OnTriggerEnter(Collider other)
     {
-        inside++;
+        if (other.name.Contains("NPC"))
+            inside++;
     }
 
     void OnTriggerExit(Collider other)
     {
-        inside--;
+        if (other.name.Contains("NPC"))
+            inside--;
     }
 }

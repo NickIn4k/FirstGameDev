@@ -39,9 +39,9 @@ public class HexagonChecker : MonoBehaviour
         Debug.Log("Tutti gli esagoni sono nella posizione corretta!");
 
         //Rende lo schermo non più interagibile
-        if (interactibleScreen != null)
-            interactibleScreen.GetComponent<InteractReceiver>().canPopAgain = false;
-
+        interactibleScreen.GetComponent<ItemClicker>().canInteractAgain = false;
+        interactibleScreen.GetComponent<ItemClickerOld>().canInteractAgain = false;
+        
         OnCompletion?.Invoke();
 
         //CODICE PROVVISORIO PER DEBUG --> Se il livello è il livello 2 (scena 4) apre la porta

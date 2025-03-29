@@ -96,6 +96,7 @@ public class Level3Doors : MonoBehaviour
     
     private void PlateOnPressed()
     {
+        Debug.Log("Pressed");
         pressed++;
     }
     
@@ -124,15 +125,14 @@ public class Level3Doors : MonoBehaviour
         }
         else if (pressed >= required && required == leversFirst.Length)
         {
+            var animation = Animator.StringToHash("isOpening");
+            foreach (var leva in leversFirst)
+                leva.GetComponent<Animator>().SetBool(animation, true);
+            
             pressed = 0;
             doorThird.OpenDoor();
             DisableLevers(leversFirst);
             required = 999;
-
-            var animation = Animator.StringToHash("isOpening");
-            foreach (var leva in leversFirst)
-                GetComponent<Animator>().SetBool(animation, true);
-            
         }
     }
     
