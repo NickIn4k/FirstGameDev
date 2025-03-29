@@ -111160,6 +111160,24 @@ PrefabInstance:
       propertyPath: textComponent
       value: 
       objectReference: {fileID: 1799327604}
+    - target: {fileID: 7345289550271912468, guid: e09149daa55fb664fbdc824240dcfe04, type: 3}
+      propertyPath: lines.Array.size
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7345289550271912468, guid: e09149daa55fb664fbdc824240dcfe04, type: 3}
+      propertyPath: 'lines.Array.data[5]'
+      value: '"Lyra: ''We are tired of that, and we need every hand we can find,
+        so please help me find my friends.''"'
+      objectReference: {fileID: 0}
+    - target: {fileID: 7345289550271912468, guid: e09149daa55fb664fbdc824240dcfe04, type: 3}
+      propertyPath: 'lines.Array.data[6]'
+      value: '"Lyra: ''They must be behind those doors, like the one on the left!''"'
+      objectReference: {fileID: 0}
+    - target: {fileID: 7345289550271912468, guid: e09149daa55fb664fbdc824240dcfe04, type: 3}
+      propertyPath: 'lines.Array.data[7]'
+      value: '"Lyra: ''You don''t need me to show you again how to use the hacking
+        device, right?''"'
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
