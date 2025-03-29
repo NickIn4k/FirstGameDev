@@ -40,19 +40,21 @@ public class StartAnimation : MonoBehaviour
 
     public void OnInteractHandler()
     {
-        Debug.Log("Server 1 shutdown");
-        animator.SetBool(animationName, true);
-        src.clip = clip_leva;
-        src.Play();
-
-        if (luce != null)
-            luce.SetActive(false);
-
-        GetComponent<InteractReceiver>().enabled = false;
-
         src.PlayOneShot(clip_corrente);
+        if (animationName != null)
+        {
+            Debug.Log("Server 1 shutdown");
+            animator.SetBool(animationName, true);
+            src.clip = clip_leva;
+            src.Play();
 
-        StartCoroutine(CambioLivello());
+            if (luce != null)
+                luce.SetActive(false);
+
+            GetComponent<InteractReceiver>().enabled = false;
+
+            StartCoroutine(CambioLivello());
+        }
     }
 
     public IEnumerator CambioLivello()

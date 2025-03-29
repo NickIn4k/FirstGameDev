@@ -128,6 +128,11 @@ public class Level3Doors : MonoBehaviour
             doorThird.OpenDoor();
             DisableLevers(leversFirst);
             required = 999;
+
+            var animation = Animator.StringToHash("isOpening");
+            foreach (var leva in leversFirst)
+                GetComponent<Animator>().SetBool(animation, true);
+            
         }
     }
     

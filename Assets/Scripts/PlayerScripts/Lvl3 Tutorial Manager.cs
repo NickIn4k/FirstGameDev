@@ -82,7 +82,7 @@ public class Lvl3TutorialManager : MonoBehaviour
         else if (questStep == 4)
             textQuest.text = "But if you need them to interact with something, like levers, you can press 'T'";
         else if (questStep == 5)
-            textQuest.text = "If you want to know whether an object is interactible or not you can hover the obect with the cursor after pressing 'T' with an NPC";
+            textQuest.text = "Hover an obect with the cursor after pressing 'T' with an NPC to interact with it";
         else
             questCanva.SetActive(false);
     }
