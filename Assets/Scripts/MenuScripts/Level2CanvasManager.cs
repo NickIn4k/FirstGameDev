@@ -124,6 +124,7 @@ public class Level2CanvasManager : MonoBehaviour
 
     public void RestartTheLevel(int scene)
     {
+        GeneralVariables.guiActive = 0;
         active = 0;
     }
 }
